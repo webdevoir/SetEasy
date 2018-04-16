@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416022840) do
+ActiveRecord::Schema.define(version: 20180416060809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "inventories", force: :cascade do |t|
+    t.text "image"
+    t.string "desc"
+    t.boolean "rental"
+    t.string "source"
+    t.date "due_date"
+    t.bigint "location_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_inventories_on_location_id"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
@@ -25,4 +37,18 @@ ActiveRecord::Schema.define(version: 20180416022840) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rentals", force: :cascade do |t|
+    t.text "image"
+    t.string "desc"
+    t.boolean "rental"
+    t.string "source"
+    t.date "due_date"
+    t.bigint "location_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_rentals_on_location_id"
+  end
+
+  add_foreign_key "inventories", "locations"
+  add_foreign_key "rentals", "locations"
 end
