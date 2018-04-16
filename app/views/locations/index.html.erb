@@ -1,0 +1,8 @@
+    <h1>Locations</h1>
+    <%= link_to "Submit a location!", new_location_path %>
+    <hr>
+    <% @locations.each do |location| %>
+      <h2><%= link_to location.name, location_path(location) %></h2>
+      <h3><%= location.city %></h3>
+      <hr>
+    <% end %>
