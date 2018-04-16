@@ -1,0 +1,29 @@
+  <div class="container">
+      <h2>Submit a location!</h2>
+
+      <%= form_for @location  do |f| %>
+        <div>
+          <%= f.label :name, "Name" %><br>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+            <div>
+          <%= f.label :street %><br>
+          <%= f.text_field :street, placeholder: "Street", class: 'form-control exam_forms' %>
+         </div>
+          <div>
+          <%= f.label :city %><br>
+          <%= f.text_field :city, class: 'form-control', class: 'form-control exam_forms' %>
+        </div>
+        <div>
+          <%= f.label :postal %><br>
+          <%= f.text_field :postal, class: 'form-control exam_forms' %>
+        </div>
+        <div>
+          <%= f.label :province %><br>
+          <%= f.text_field :province, class: 'form-control exam_forms' %>
+        </div>
+        <div>
+          <%= f.submit "Submit", class: 'form-control exam_forms' %> 
+        </div>
+      <% end %>
+    </div>
