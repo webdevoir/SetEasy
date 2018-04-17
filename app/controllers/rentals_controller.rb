@@ -46,6 +46,6 @@ class RentalsController < ApplicationController
       protected
 
       def rental_params
-        params.require(:rental).permit(:id, :image, :desc, :rental, :source, :due_date)
+        params.require(:rental).permit(:id, :location_id, :image, :desc, :rental, :source, :due_date)
       end
 end

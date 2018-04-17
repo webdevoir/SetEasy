@@ -1,2 +1,8 @@
-<h1>Rentals#index</h1>
-<p>Find me in app/views/rentals/index.html.erb</p>
+    <h1>Rentals</h1>
+    <%= link_to "Submit a rental!", new_rental_path %>
+    <hr>
+    <% @rentals.each do |rental| %>
+      <h2><%= link_to rental.desc, rental_path(rental) %></h2>
+      <h3><%= rental.location.name %></h3>
+      <hr>
+    <% end %>

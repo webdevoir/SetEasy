@@ -1,0 +1,50 @@
+   <%= form_for @rental do |f| %>
+      <% if @rental.errors.any? %>
+        <div>
+          <%= pluralize(@rental.errors.count, "error") %> prevented this rental from being submitted:
+          <ul>
+            <% @rental.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  <div class="container">
+      <h2>Submit a rental!</h2>
+
+      <%= form_for @rental  do |f| %>
+        <div>
+          <%= f.label :desc, "Description" %><br>
+          <%= f.text_field :desc, class: 'form-control' %>
+        </div>
+        <div>
+        <%= f.label :location_id, "Select Set" %><br>
+        <%= f.collection_select :location_id, Location.all, :id, :name%>
+      </div>
+        <h3>Rental type</h3>
+         <div>
+          <%= f.radio_button :rental, false , :checked => true , :value => false %>
+          <%= label :rental, "Purchased" %>
+        </div>
+          <div>
+               <%= f.radio_button :rental, true, :value => true%> 
+               <%= label :rental, "Rental"%>      
+          </div>
+          <div>
+            <%= f.label :image, "Add an image" %><br>
+            <%= f.file_field :image , class: 'form-control' %>
+          </div>
+        <div>
+          <%= f.label :source, "Item source" %><br>
+          <%= f.text_field :source, class: 'form-control' %>
+        </div>
+        <div>
+          <%= f.label :due_date, "Return Date" %><br>
+          <%= f.date_field :due_date, class: 'form-control' %>
+        </div>
+        <div>
+          <%= f.submit "Submit", class: 'form-control exam_forms' %> 
+        </div>
+      <% end %>
+    </div>

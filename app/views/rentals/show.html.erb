@@ -1,2 +1,1 @@
-<h1>Rentals#show</h1>
-<p>Find me in app/views/rentals/show.html.erb</p>
+<h2><%= @rental.desc %> (<%= link_to "edit", edit_rental_path(@rental) %>, <%= link_to "delete", rental_path(@rental), method: :delete, data: {confirm: "You sure?"} %>)</h2>

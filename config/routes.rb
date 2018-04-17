@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'rentals/index'
-
-  get 'rentals/show'
-
-  get 'rentals/new'
-
-  get 'rentals/edit'
-
+resources :rentals, only: [:show, :new, :create, :edit, :update, :index, :destroy]
 resources :locations, only: [:show, :new, :create, :edit, :update, :index, :destroy]
 
 root to: 'locations#index'
