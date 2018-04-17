@@ -32,6 +32,16 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'awesome_print', require: 'ap'
+gem 'kaminari'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'dotenv-rails'
+gem 'faker'
+gem 'devise'
+gem 'bcrypt', '~> 3.1.7'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
