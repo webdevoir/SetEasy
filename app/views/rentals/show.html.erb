@@ -1,7 +1,7 @@
 <div class="container">
 	<h2><%= @rental.desc %> (<%= link_to "edit", edit_rental_path(@rental) %>, <%= link_to "delete", rental_path(@rental), method: :delete, data: {confirm: "You sure?"} %>)</h2>
 	<div class="rental_img">
-	    	<%= print_image rental.image_url.to_s %>
+	    	<%= print_image @rental.image_url.to_s %>
 		</div>
 	<div class="rental_text">
 		<h4>Description: <%= @rental.desc %></h4>
