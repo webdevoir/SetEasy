@@ -1,0 +1,33 @@
+  <div class="container">
+      <h2>Submit a Crew Member!</h2>
+
+      <%= form_for @crew  do |f| %>
+        <div>
+          <%= f.label :name, "Name" %><br>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+            <div>
+          <%= f.label :phone %><br>
+          <%= f.text_field :phone, placeholder: "Phone number", class: 'form-control exam_forms' %>
+         </div>
+          <div>
+          <%= f.label :email %><br>
+          <%= f.text_field :email, class: 'form-control', class: 'form-control exam_forms' %>
+        </div>
+        <div>
+          <%= f.label :availability %><br>
+          <%= f.text_field :availability, class: 'form-control exam_forms' %>
+        </div>
+        <div>
+          <%= f.label :skills %><br>
+          <%= f.text_field :skills, class: 'form-control exam_forms' %>
+        </div>
+        <div>
+          <%= f.label :notes %><br>
+          <%= f.text_field :notes, class: 'form-control exam_forms' %>
+        </div>
+        <div>
+          <%= f.submit "Submit", class: 'form-control exam_forms' %> 
+        </div>
+      <% end %>
+    </div>

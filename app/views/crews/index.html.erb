@@ -1,0 +1,38 @@
+<div class="container-fluid content_dashboard">
+<%= link_to "Add Crew Member", new_crew_path, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+  <br />
+  <br />
+    <table class="table">
+      <tr>
+
+        <th>Name</th>
+        <th>Manage</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Availability</th>
+   
+        <th>skills</th>
+        <th>notes</th>
+        <th>Updated</th>
+        <th>ID #</th>
+      </tr>
+
+       <% @crews.each do |crew|  %>
+      <tr>
+  
+        <td><%= link_to crew.name, crew_path(crew) %></td>
+        <td>(<%= link_to "edit", edit_crew_path(crew) %>, <%= link_to "delete", crew_path(crew), method: :delete, data: {confirm: "Are you sure you want to delete #{crew.id}?"} %>)</td>
+        <td><%= crew.phone %></td>
+        <td><%= crew.email %></td>
+        <td><%= crew.availability %>)</td>
+        <td><%= crew.skills %></td>
+        <td><%= crew.notes %></td>
+        <td><%= crew.updated_at.strftime("%b %d, %Y")  %></td>
+        <td><%= crew.id%></td>
+      </tr>
+      <% end %>
+
+    </table>
+  
+            <hr>
+</div>
