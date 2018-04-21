@@ -1,8 +1,34 @@
-    <h1>Locations</h1>
-    <%= link_to "Submit a location!", new_location_path %>
-    <hr>
-    <% @locations.each do |location| %>
-      <h2><%= link_to location.name, location_path(location) %></h2>
-      <h3><%= location.city %></h3>
-      <hr>
-    <% end %>
+<div class="container-fluid content_dashboard">
+<%= link_to "Add a Set", new_location_path, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+  <br />
+  <br />
+    <table class="table">
+      <tr>
+
+      	<th>ID #</th>
+        <th>Name</th>
+        <th>Manage</th>
+        <th>City</th>
+        <th>Street</th>
+
+        <th>Updated</th>
+        
+      </tr>
+
+       <% @locations.each do |location|  %>
+      <tr>
+
+  		<td><%= location.id%></td>
+        <td><%= link_to location.name, location_path(location) %></td>
+        <td>(<%= link_to "edit", edit_location_path(location) %>, <%= link_to "delete", location_path(location), method: :delete, data: {confirm: "Are you sure you want to delete #{location.id}?"} %>)</td>
+        <td><%= location.city %></td>
+        <td><%= location.street %></td>
+        <td><%= location.updated_at.strftime("%b %d, %Y")  %></td>
+   
+      </tr>
+      <% end %>
+
+    </table>
+  
+            <hr>
+</div>

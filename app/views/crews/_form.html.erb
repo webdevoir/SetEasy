@@ -6,6 +6,10 @@
           <%= f.label :name, "Name" %><br>
           <%= f.text_field :name, class: 'form-control' %>
         </div>
+        <div>
+          <%= f.label :role %><br />
+          <%= f.select :role, ["Dresser", "Driver", "Decorator", "Asst. Decorator", "Swamper", "Lead", "Coordinator"], {}%>
+        </div>
             <div>
           <%= f.label :phone %><br>
           <%= f.text_field :phone, placeholder: "Phone number", class: 'form-control exam_forms' %>

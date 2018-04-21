@@ -7,6 +7,7 @@
 
         <th>Name</th>
         <th>Manage</th>
+        <th>Role</th>
         <th>Phone</th>
         <th>Email</th>
         <th>Availability</th>
@@ -22,6 +23,7 @@
   
         <td><%= link_to crew.name, crew_path(crew) %></td>
         <td>(<%= link_to "edit", edit_crew_path(crew) %>, <%= link_to "delete", crew_path(crew), method: :delete, data: {confirm: "Are you sure you want to delete #{crew.id}?"} %>)</td>
+        <td><%= crew.role %></td>
         <td><%= crew.phone %></td>
         <td><%= crew.email %></td>
         <td><%= crew.availability %>)</td>
