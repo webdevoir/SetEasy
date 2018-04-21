@@ -1,0 +1,40 @@
+<h2>Submit a new budget!</h2>
+
+      <%= form_for @budget  do |f| %>
+        <% if @budget.errors.any? %>
+        <div>
+          <%= pluralize(@budget.errors.count, "error") %> prevented this budget from being submitted:
+          <ul>
+            <% @budget.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+        <div>
+		      <%= f.label :location_id, "Select a Set" %><br>
+		      <%= f.collection_select :location_id, Location.all, :id, :name%>
+		    </div>
+
+		    <h2>Items</h2>
+				<%= f.fields_for :budget_items do |ff| %>
+				  <div>
+				    <%= ff.label :item %>
+				    <%= ff.text_field :item %>
+				    <%= ff.label :price %>
+				    <%= ff.number_field :price %>
+				    <%= ff.label :rental %>
+				    <%= ff.radio_button :rental, "0" %>
+					<%= ff.radio_button :rental, "1" %>
+
+				    <% if ff.object.persisted? %>
+				      <%= ff.check_box :_destroy %>
+				      <%= ff.label :_destroy, "Destroy" %>
+				    <% end %>
+				  </div>
+				<% end %>
+
+        <div>
+          <%= f.submit "Submit", class: 'form-control exam_forms' %> 
+        </div>
+      <% end %>

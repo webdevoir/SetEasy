@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  budget: one
+  item: MyString
+  rental: false
+  price: MyString
+
+two:
+  budget: two
+  item: MyString
+  rental: false
+  price: MyString
