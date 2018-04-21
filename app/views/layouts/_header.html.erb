@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default">
+      <div class="container">
+          <% if current_user
+              logo_link = "/"
+            else  
+              logo_link = "/"
+             end %>
+
+             
+          <div class="navbar-header"><%= link_to (image_tag "https://mixtapecoverking.com/wp-content/uploads/photo-gallery/s-logo.png" , style: 'height:45px;width:auto;'), logo_link, class: "navbar-left" %>
+              <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          </div>
+          <div class="collapse navbar-collapse" id="navcol-1">
+              <ul class="nav navbar-nav navbar-right">
+
+                  
+
+                  <% if current_user %>    
+                      <li role="presentation" class="nav_links"><%= link_to "Rentals", rentals_path%></li>
+                       <li role="presentation" class="nav_links"><%= link_to "Locations", locations_path%></li>
+    
+                    
+
+                      
+                  <% else %>
+                    <li role="presentation" class="nav_links"><%= link_to "Log In", new_user_session_path %></li>
+                    <li role="presentation" class="nav_links"><%= link_to "Sign Up", new_user_registration_path %></li>
+                  <% end %>
+              
+                  <% if user_signed_in? %>
+                    
+                    <li role="presentation" class="nav_links"><a>Logged in as <strong><%= current_user.email %></strong></li></a>
+ 
+                    <li role="presentation" class="nav_links"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+
+                    <li role="presentation" class="nav_links"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                  <% else %>
+            <!--      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+                    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> -->
+                  
+                  <% end %>
+                  
+
+
+                  
+                  <% if current_user %>
+                    <li role="presentation"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                  <% end %>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+  <script>
+    $(document).ready(function() {
+      // $(".nav a").on("click", function(){
+      //    $(".nav").find(".active").removeClass("active");
+      //    $(this).parent().addClass("active");
+      // });
+      });
+  </script>
