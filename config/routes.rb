@@ -5,6 +5,8 @@ resources :rentals, only: [:show, :new, :create, :edit, :update, :index, :destro
 resources :locations, only: [:show, :new, :create, :edit, :update, :index, :destroy]
 resources :crews, only: [:show, :new, :create, :edit, :update, :index, :destroy]
 
-root to: 'locations#index'
+root to: 'pages#landing'
+
+get "/pages/:page" => "pages#show"
 
 end
