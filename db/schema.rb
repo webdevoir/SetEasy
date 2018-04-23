@@ -44,18 +44,6 @@ ActiveRecord::Schema.define(version: 20180421224205) do
     t.string "role"
   end
 
-  create_table "inventories", force: :cascade do |t|
-    t.text "image"
-    t.string "desc"
-    t.boolean "rental"
-    t.string "source"
-    t.date "due_date"
-    t.bigint "location_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["location_id"], name: "index_inventories_on_location_id"
-  end
-
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "street"
@@ -97,6 +85,5 @@ ActiveRecord::Schema.define(version: 20180421224205) do
 
   add_foreign_key "budget_items", "budgets"
   add_foreign_key "budgets", "locations"
-  add_foreign_key "inventories", "locations"
   add_foreign_key "rentals", "locations"
 end

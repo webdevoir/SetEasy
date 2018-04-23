@@ -3,8 +3,9 @@
 				    <%= f.text_field :item %>
 				    <%= f.label :price %>
 				    <%= f.number_field :price %>
-				    <%= f.label :rental %>
+				    <%= f.label :rental, "Purchase" %>
 				    <%= f.radio_button :rental, "0" %>
+				    <%= f.label :rental%>
 					<%= f.radio_button :rental, "1" %>
 
 				    <% if f.object.persisted? %>
