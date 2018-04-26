@@ -4,13 +4,11 @@
 				    <%= f.label :price %>
 				    <%= f.number_field :price %>
 				    <%= f.label :rental, "Purchase" %>
-				    <%= f.radio_button :rental, "0" %>
+					<% purchase = true if f.object.rental == false %>
+				    <%= f.radio_button :rental, "0", { checked: purchase } %>
 				    <%= f.label :rental%>
-					<%= f.radio_button :rental, "1" %>
+					<%= f.radio_button :rental, "1", { checked: f.object.rental } %>
 
-				    <% if f.object.persisted? %>
-				      <%= f.check_box :_destroy %>
-				      <%= f.label :_destroy, "Destroy" %>
-				    <% end %>
+				
 				    <%= link_to_remove_association "remove item", f %>
 				  </div>

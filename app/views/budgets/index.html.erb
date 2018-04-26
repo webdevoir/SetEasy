@@ -6,19 +6,21 @@
       <tr>
 
         <th>Set</th>
-        <th>Manage</th>
+        
         <th>No. Items</th>
         <th>Total Cost</th>
+        <th>Manage</th>
 
       </tr>
 
        <% @budgets.each do |budget|  %>
       <tr>
   
-        <td><%= link_to budget.location.name, budget_path(budget) %></td>
-        <td>(<%= link_to "edit", edit_budget_path(budget) %>, <%= link_to "delete", budget_path(budget), method: :delete, data: {confirm: "Are you sure you want to delete #{budget.id}?"} %>)</td>
+        <td><%= link_to budget.location.name, edit_budget_path(budget) %></td>
+        
         <td><%= budget.budget_items.count %></td>
         <td><%= number_to_currency(budget.budget_items.sum(:price)) %></td>
+        <td>(<%= link_to "edit", edit_budget_path(budget) %>, <%= link_to "delete", budget_path(budget), method: :delete, data: {confirm: "Are you sure you want to delete #{budget.id}?"} %>)</td>
        
       </tr>
       <% end %>
