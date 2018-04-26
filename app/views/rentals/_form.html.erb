@@ -1,4 +1,8 @@
-   <%= form_for @rental do |f| %>
+
+  <div class="container">
+      <h2>Submit a rental!</h2>
+
+         <%= form_for ([@set, @rental]) do |f| %>
       <% if @rental.errors.any? %>
         <div>
           <%= pluralize(@rental.errors.count, "error") %> prevented this rental from being submitted:
@@ -9,11 +13,7 @@
           </ul>
         </div>
       <% end %>
-    <% end %>
-  <div class="container">
-      <h2>Submit a rental!</h2>
-
-      <%= form_for @rental  do |f| %>
+ 
         <div>
           <%= f.label :desc, "Description" %><br>
           <%= f.text_field :desc, class: 'form-control' %>

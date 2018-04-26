@@ -1,0 +1,21 @@
+   <div class="container">
+    <h1>Rentals</h1>
+
+    <hr>
+    <h2>Choose a Set</h2>
+    
+    
+    <% @sets.each do |set| %>
+    <div >
+        <%= link_to location_rentals_path(set) do %>
+            <div class="set_img">
+            <%= print_image "set.jpg" %>
+            <h2 class="set-header"><%= set.name %></h2>
+            </div>
+      <% end %>
+    	
+
+    </div>
+     
+    <% end %>
+</div>

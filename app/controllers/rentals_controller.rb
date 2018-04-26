@@ -1,14 +1,26 @@
 class RentalsController < ApplicationController
-    def index
-  	@rentals = Rental.all
+
+  def index
+    if params[:location_id]
+      @rentals = Location.find(params[:location_id]).rentals
+      @set = Location.find(params[:location_id])
+    else
+      @rentals = Rental.all
+    end
   end
 
   def show
   	@rental = Rental.find(params[:id])
+    @set = Location.find(params[:location_id])
+  end
+
+  def sets
+    @sets = Location.all
   end
 
   def new
   	@rental = Rental.new
+    @set = Location.find(params[:location_id])
   end
 
   def create
@@ -24,6 +36,7 @@ class RentalsController < ApplicationController
 
   def edit
   	@rental = Rental.find(params[:id])
+    @set = Location.find(params[:location_id])
   end
 
    def update

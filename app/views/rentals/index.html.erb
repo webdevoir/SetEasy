@@ -1,13 +1,13 @@
    <div class="container">
     <h1>Rentals</h1>
-    <%= link_to "Submit a rental!", new_rental_path %>
+    <h2>for <%= @set.name if @set %></h2>
     <hr>
     <% @rentals.each do |rental| %>
     <div >
-        <%= link_to rental_path(rental) do %>
+        <%= link_to location_rental_path(@set, rental) do %>
             <div class="rental_img">
             <%= print_image rental.image_url.to_s %>
-            <h2 class="rental-header"><%= link_to rental.desc, rental_path(rental) %></h2>
+            <h2 class="rental-header"><%= link_to rental.desc, location_rental_path(@set, rental) %></h2>
             <h3 class="rental-header-small">Return by: <%= rental.due_date.strftime("%b %d, %Y")  %></h3>
             </div>
       <% end %>

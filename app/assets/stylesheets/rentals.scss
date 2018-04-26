@@ -51,6 +51,57 @@ text-decoration: none;
 
 }
 
+//////////////////  SETS /////////////////
+.container_sets {
+	padding-left:calc(50vw - 440px);
+	padding-right:calc(50vw - 440px);
+}
+.set_img {
+	position: relative;
+	// height: 300px;
+	width: 400px;
+	float: left;
+	margin: 20px;
+	font-family: 'raleway';
+	 text-shadow:  0px 0px 8px #001572;;
+}
+
+.set_img:hover {
+	opacity: 0.4;
+	background: rgba(112, 245, 132, 0.90);
+	transition: all ease 0.5s;
+	}
+.set_img img{
+	width: 100%;
+	border: 5px solid black;
+}
+
+.set-header {
+	width: 100%;
+  position: absolute;
+  top: 50px;
+  text-align: center;
+  font-size: 35px;
+  padding: 0 5px;
+  color: #fff;
+}
+.set-header a{
+	font-weight: 900;
+	text-decoration: none;
+	// color: #fff;
+}
+.set-header a:hover{
+text-decoration: none;
+	// color: #fff;
+}
+
+@media screen and (max-width: 900px) {
+	.container_sets {
+		padding-left:calc(50vw - 220px);
+		padding-right:calc(50vw - 220px);
+	}
+}
+
 @media screen and (max-width: 500px) {
 .rental_img {
 	position: relative;
