@@ -3,14 +3,65 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .rental_img {
-	height: 100px;
+	position: relative;
+	height: 200px;
+	width: 200px;
 	float: left;
+	margin: 20px;
+	 text-shadow:  0px 0px 5px #fff;
 }
+
+.rental_img:hover {
+	opacity: 0.4;
+	background: rgba(112, 245, 132, 0.90);
+	transition: all ease 0.5s;
+	}
 .rental_img img{
-	height: 95%;
+	width: 100%;
 	border: 5px solid black;
 }
 .rental_text {
 	float: left;
 	margin-left: 50px;
+}
+.rental-header {
+	width: 100%;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  font-size: 20px;
+  padding: 0 5px;
+}
+.rental-header a{
+	font-weight: 700;
+	text-decoration: none;
+	color: #001572;
+}
+.rental-header a:hover{
+text-decoration: none;
+	color: #001572;
+}
+
+.rental-header-small {
+  position: absolute;
+  bottom: 15px;
+  padding-left: 15px;
+  text-align: center;
+  font-size: 13px;
+
+}
+
+@media screen and (max-width: 500px) {
+.rental_img {
+	position: relative;
+	max-height: 200px;
+	height: 80vw;
+	max-width: 200px;
+	width: 80vw;
+
+	float: none;
+	margin: 15px auto;
+}
+
+
 }
