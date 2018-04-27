@@ -1,5 +1,23 @@
 <div class="container-fluid content_dashboard">
-<%= link_to "Add a Budget", new_budget_path, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+
+<div class="dropdown">
+  <%= link_to "Add a Budget", new_budget_path, class: "btn btn-primary exam_button" %>
+  <button class="btn btn-primary exam_button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Set Details
+  </button>
+    <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Sets</a></li>
+      <% @budgets.each do |budget|  %>
+      <li><%= link_to budget.location.name, budget_path(budget), class: "dropdown-item" %></li>
+      <% end %>
+    </ul>
+ 
+
+
+
+
+<h2 style="float:right">Total for project:  <%= number_to_currency(BudgetItem.all.sum(:price)) %></h2>
+ </div>
   <br />
   <br />
     <table class="table">
@@ -16,7 +34,7 @@
        <% @budgets.each do |budget|  %>
       <tr>
   
-        <td><%= link_to budget.location.name, edit_budget_path(budget) %></td>
+        <td><%= link_to budget.location.name, budget_path(budget) %></td>
         
         <td><%= budget.budget_items.count %></td>
         <td><%= number_to_currency(budget.budget_items.sum(:price)) %></td>

@@ -1,2 +1,37 @@
-<h1>Budgets#show</h1>
-<p>Find me in app/views/budgets/show.html.erb</p>
+ <div class="container">
+ 		<h2>Budget for <%= @budget.location.name %> (<%= link_to "edit", edit_budget_path(@budget) %>)</h2>
+	 <table class="table">
+	      <tr>
+
+	        <th>Item</th>
+	        
+	        <th>Price</th>
+	        <th>Rental/Purchase</th>
+	        <th>ID</th>
+
+	      </tr>
+
+	       <% @budget.budget_items.each do |budget|  %>
+	      <tr>
+	  
+	        <td><%= budget.item %></td>
+	        
+	        <td><%= number_to_currency(budget.price) %></td>
+
+	        <td><%= budget.rental ? "Rental" : "Purchase" %></td>
+
+	        <td><%= budget.id %></td>
+	       
+	      </tr>
+	      <% end %>
+	      <tr>
+	      	<td></td>
+	      	<td></td>
+	      	<td class="total">Total</td>
+	      	<td class="total"><%= number_to_currency(@budget.budget_items.sum(:price)) %></td>
+
+	      </tr>
+
+	    </table>
+</div>
+  
