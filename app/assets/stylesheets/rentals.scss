@@ -62,8 +62,7 @@ text-decoration: none;
 	width: 400px;
 	float: left;
 	margin: 20px;
-	font-family: 'raleway';
-	 text-shadow:  0px 0px 8px #001572;;
+	 // text-shadow:  0px 0px 8px #001572;
 }
 
 .set_img:hover {
@@ -81,9 +80,17 @@ text-decoration: none;
   position: absolute;
   top: 50px;
   text-align: center;
-  font-size: 35px;
+  font-family: 'raleway';
+	font-weight: 500;
+  font-size: 55px;
   padding: 0 5px;
   color: #fff;
+  text-shadow:  0px 0px 8px #001572;
+  text-shadow:
+    -1px -1px 0 #001572,
+    1px -1px 0 #001572,
+    -1px 1px 0 #001572,
+    1px 1px 0 #001572;  
 }
 .set-header a{
 	font-weight: 900;

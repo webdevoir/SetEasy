@@ -1,4 +1,4 @@
 class Location < ApplicationRecord
 	has_many :budgets, dependent: :destroy
-	has_many :rentals
+	has_many :rentals, dependent: :destroy
 end

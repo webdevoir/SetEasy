@@ -47,7 +47,7 @@ p "Created #{Location.count} sets"
 
 Rental.destroy_all
 
-20.times do
+150.times do
 	Rental.create! [
 		image: File.open(Dir['public/uploads/1.jpeg', 'public/uploads/2.jpeg', 'public/uploads/3.png', 'public/uploads/4.jpg', 'public/uploads/5.jpg'].sample),
 
@@ -61,6 +61,7 @@ Rental.destroy_all
 end
 p "Created #{Rental.count} rentals"
 
+Budget.destroy_all
 20.times do
 	Budget.create! [
 		location_id: Location.all.sample.id
@@ -82,3 +83,18 @@ budgets.each do |bud|
 
 end
 p "Created #{BudgetItem.count} budget items"
+
+Crew.destroy_all
+30.times do
+	Crew.create! [
+		name: Faker::Seinfeld.character,
+		phone: Faker::PhoneNumber.cell_phone,
+		email: Faker::Internet.email,
+		availability: Faker::Hacker.adjective,
+		skills: Faker::MostInterestingManInTheWorld.quote,
+		notes: Faker::RickAndMorty.quote,
+
+	]
+end
+
+p "Created #{Crew.count} crew members"
