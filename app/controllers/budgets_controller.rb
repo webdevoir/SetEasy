@@ -18,7 +18,7 @@ class BudgetsController < ApplicationController
     @budget = Budget.new(budget_params)
 
      if @budget.save
-        redirect_to budgets_path, notice: "Budgets Submitted successfully!"
+        redirect_to budget_path(@budget), notice: "Budgets Submitted successfully!"
       else
         flash[:error] = @budget.errors.full_messages.to_sentence
         render :new, notice: "Budget could not be created!"
@@ -32,7 +32,7 @@ class BudgetsController < ApplicationController
    def update
    	@budget = Budget.find(params[:id])
     if @budget.update_attributes(budget_params)
-      redirect_to budgets_path, notice: "Budget updated successfully"
+      redirect_to budget_path(@budget), notice: "Budget updated successfully"
     else
       flash[:error] = "#{@budget.errors.count} errors prevented certificate from being updated."
       render :edit
