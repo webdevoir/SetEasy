@@ -8,6 +8,7 @@ resources :locations, only: [:show, :new, :create, :edit, :update, :index, :dest
 end
 resources :crews, only: [:show, :new, :create, :edit, :update, :index, :destroy]
 resources :budgets, only: [:show, :new, :create, :edit, :update, :index, :destroy]
+resources :events
 
 root to: 'pages#landing'
 
