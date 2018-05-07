@@ -13,6 +13,8 @@ initialize_calendar = function() {
       selectHelper: true,
       editable: true,
       eventLimit: true,
+      displayEventTime: false,
+      events: '/events.json',
       select: function(start, end) {
         $.getScript('/events/new', function() {
           $('#event_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"))
