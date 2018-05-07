@@ -2,6 +2,7 @@ var initialize_calendar;
 initialize_calendar = function() {
   $('.calendar').each(function(){
     var calendar = $(this);
+    console.log(calendar);
     calendar.fullCalendar({
       header: {
         left: 'prev,next today',
@@ -14,6 +15,24 @@ initialize_calendar = function() {
       eventLimit: true,
       events: '/events.json',
       defaultView: 'agendaWeek',
+      eventTextColor: '#fff',
+
+      height: ()=>{
+          console.log(screen.width);
+          if(screen.width < 577) {
+                var win = $(window).height()*.9;
+                console.log(win);
+               return win
+            } else {
+                var win = $(window).height()*0.83;
+                console.log(win);
+               return win
+            }
+      },
+
+
+
+
 
       select: function(start, end) {
         $.getScript('/events/new', function() {
