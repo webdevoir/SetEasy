@@ -3,7 +3,7 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
     <p>Select Crew Members</p>
-        <div class="roles_select_paper">
+        <div class="select_crews">
           <%= f.collection_check_boxes(:crew_ids, Crew.order(:name), :id, :name)  do |b| %>
             <div><%= b.check_box %>&nbsp;&nbsp;<%= b.label %></div>
     
