@@ -37,7 +37,6 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'dotenv-rails'
-gem 'faker'
 gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
@@ -46,6 +45,7 @@ gem "cocoon"
 gem 'faker'
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
+gem 'bootstrap', '~> 4.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

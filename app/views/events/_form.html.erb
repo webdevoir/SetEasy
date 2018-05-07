@@ -1,0 +1,19 @@
+<%= form_for @event, remote: true do |f| %>
+  <div class="form-inputs">
+    <%= f.label :title %>
+
+    <%= f.date_field :start %>
+    <%= f.date_field :end %>
+    <%= f.select :color, as: :select, collection: [['Black','black'], ['Green','green'], ['Red','red']] %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to 'Delete', 
+                event, 
+                method: :delete, 
+                class: 'btn btn-danger', 
+                data: { confirm: 'Are you sure?' }, 
+                remote: true unless @event.new_record? %>
+  </div>
+<% end %>
