@@ -2,11 +2,10 @@
   <div class="form-inputs">
     <%= f.label :title %>
     <%= f.text_field :title %>
-     <%= f.text_field :date_range,  class: "form-control input-sm date-range-picker"  %>
-    <%= f.hidden_field :start, value: Date.today, class: 'form-control input-sm start_hidden' %>
-    <%= f.hidden_field :end, value: Date.today, class: 'form-control input-sm end_hidden' %>
 
-    <%= f.select :color, [['Black','black'], ['Green','green'], ['Red','red'], ['Blue','blue'], ['Pink','pink'], ['Orange','orange'], ['Purple','purple']] %>
+    <%= f.date_field :start %>
+    <%= f.date_field :end %>
+    <%= f.select :color, [['Black','black'], ['Green','green'], ['Red','red']] %>
   </div>
 
   <div class="form-actions">
