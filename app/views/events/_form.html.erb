@@ -9,10 +9,17 @@
     
           <% end %>
         </div>
+    <p>Select Set</p>
+        <div>
+        <%= f.label :location_id, "Select Set" %><br>
+        <%= f.collection_select :location_id, Location.all, :id, :name%>
+      </div>
+      <p>Select Dates/Times</p>
      <%= f.text_field :date_range,  class: "form-control input-sm date-range-picker"  %>
     <%= f.hidden_field :start, value: Date.today, class: 'form-control input-sm start_hidden' %>
     <%= f.hidden_field :end, value: Date.today, class: 'form-control input-sm end_hidden' %>
 
+    <p>Event color</p>
     <%= f.select :color, [['Black','black'], ['Green','green'], ['Red','red'], ['Blue','blue'], ['Pink','pink'], ['Orange','orange'], ['Purple','purple']] %>
   </div>
 

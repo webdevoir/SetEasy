@@ -6,7 +6,9 @@ devise_for :users
 resources :locations, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
 	resources :rentals, only: [ :new, :create, :edit, :update, :destroy, :show, :index]
 end
-resources :crews, only: [:show, :new, :create, :edit, :update, :index, :destroy]
+resources :crews, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
+	get :crew_events
+end
 resources :budgets, only: [:show, :new, :create, :edit, :update, :index, :destroy]
 resources :events
 

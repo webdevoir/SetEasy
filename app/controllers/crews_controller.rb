@@ -43,6 +43,14 @@ class CrewsController < ApplicationController
   	 redirect_to crews_path, notice: "#{@crew.id} was deleted successfully!"
   end
 
+  def crew_events
+    @crew = Crew.find(params[:crew_id])
+    @events = @crew.events
+    # if @events.length > 1
+      @events = @events.order(:start).page(params[:page]).per(10) 
+    # end
+  end
+
       protected
 
       def crew_params

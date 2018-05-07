@@ -1,0 +1,49 @@
+<div class="container-fluid content_dashboard">
+<h2>Scheduled Events for <%= @crew.name %></h2>
+<%= link_to "Add Event", new_event_path, remote: true, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+<div id='remote_container'></div>
+  <br />
+  <br />
+    <table class="table">
+      <tr>
+
+        <th>Title</th>
+        
+        <th>Set</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Edit</th>
+        
+      </tr>
+
+       <% @events.each do |event|  %>
+      <tr>
+        <% set = Location.find_by(id: event.location_id) %>
+        <td><%= event.title %></td>
+        <% if set %>
+          <td><%= set.name %></td>
+        <% else %>
+          <td>N/A</td>
+        <% end %>
+        <td><%= event.start.strftime("%b %d, %Y, %I:%M %P")  %></td>
+        <td><%= event.end.strftime("%b %d, %Y, %I:%M %P")  %></td>
+        <td><%= link_to "Edit", edit_event_path(event), remote: true, class: "btn btn-primary" %></td>
+     
+    
+      </tr>
+      <% end %>
+
+    </table>
+  
+            <hr>
+</div>
+
+<script>
+  $(function() {
+
+    date_range_picker();
+    console.log("date picker initialized from view");
+
+    
+  });
+</script>

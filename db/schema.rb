@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507185653) do
+ActiveRecord::Schema.define(version: 20180507194529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(version: 20180507185653) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_events_on_location_id"
+  end
+
+  create_table "events_locations", id: false, force: :cascade do |t|
+    t.bigint "location_id", null: false
+    t.bigint "event_id", null: false
+    t.index ["location_id", "event_id"], name: "index_events_locations_on_location_id_and_event_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -100,5 +108,6 @@ ActiveRecord::Schema.define(version: 20180507185653) do
 
   add_foreign_key "budget_items", "budgets"
   add_foreign_key "budgets", "locations"
+  add_foreign_key "events", "locations"
   add_foreign_key "rentals", "locations"
 end

@@ -11,9 +11,9 @@
         <th>Phone</th>
         <th>Email</th>
         <th>Availability</th>
-   
+        <th>Schedule</th>
         <th>skills</th>
-        <th>notes</th>
+        <th>Notes</th>
         <th>Updated</th>
         <th>ID #</th>
         <th>Manage</th>
@@ -28,6 +28,9 @@
         <td><%= crew.phone %></td>
         <td><%= crew.email %></td>
         <td><%= crew.availability %></td>
+        <% events_count = crew.events.count %>
+        <td><%= link_to "#{events_count} events", crew_crew_events_path(crew) %></td>
+        
         <td><%= crew.skills %></td>
         <td><%= crew.notes %></td>
         <td><%= crew.updated_at.strftime("%b %d, %Y")  %></td>
