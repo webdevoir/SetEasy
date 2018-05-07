@@ -15,6 +15,10 @@ date_range_picker = function() {
   })
 };
 
-// $('.date-range-picker').click(function(){
-//     console.log("daterangepicker clicked");
-// });
+// $(function() {
+
+//     date_range_picker();
+//     console.log("date picker initialized from js file");
+
+    
+//   });
