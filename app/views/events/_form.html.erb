@@ -2,6 +2,13 @@
   <div class="form-inputs">
     <%= f.label :title %>
     <%= f.text_field :title %>
+    <p>Select Crew Members</p>
+        <div class="roles_select_paper">
+          <%= f.collection_check_boxes(:crew_ids, Crew.order(:name), :id, :name)  do |b| %>
+            <div><%= b.check_box %>&nbsp;&nbsp;<%= b.label %></div>
+    
+          <% end %>
+        </div>
      <%= f.text_field :date_range,  class: "form-control input-sm date-range-picker"  %>
     <%= f.hidden_field :start, value: Date.today, class: 'form-control input-sm start_hidden' %>
     <%= f.hidden_field :end, value: Date.today, class: 'form-control input-sm end_hidden' %>
