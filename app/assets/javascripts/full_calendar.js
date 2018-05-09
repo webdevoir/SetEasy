@@ -49,41 +49,51 @@ initialize_calendar = function() {
                return win
             }
       },
-      eventRender: function(event, element) {
+      eventRender: function(event, element, view) {
             title = element.find('.fc-title')
-            if (event.crews && event.crews.length > 0){
-              title.html("");
-               $.each(event.crews, function(index, value) {
-                title.append('</br>' + value );
-              });
-             }
-             console.log("evert render triggered")
-            // title.html(event.crews);
-
-            // title.css('font-size', '20px')
+            if(view.name == "agendaWeek"){
+              if (event.crews && event.crews.length > 0){
+                title.html("");
+                 $.each(event.crews, function(index, value) {
+                  title.append('</br>' + value );
+                });
+               }
+               // title.css('font-size', '20px')
+    
+              } else if(view.name == "agendaDay"){
+                if (event.crews && event.crews.length > 0){
+                title.html("");
+                 $.each(event.crews, function(index, value) {
+                  title.append('</br>' + value );
+                });
+               }
+               // title.css('font-size', '40px')
+        
+              }
+     
              
            
           },
-      viewRender: function(view, element){
-              if(view.name == "agendaWeek"){
-                // title = $('.fc-title')
-                // title.css('font-size', '20px')    
-                // title.css('color', 'red')
-                // test = title.css()
-                console.log("agenda Week stuff triggered");  
-                // console.log(test); 
-                $("#customstyle").remove(); 
-                var style = $('<style id="customstyle">.fc-title { font-size:20px; }</style>');
-                $('html > head').append(style);   
+      // viewRender: function(view, element){
+      //         if(view.name == "agendaWeek"){
+      //           // title = $('.fc-title')
+      //           // title.css('font-size', '20px')    
+      //           // title.css('color', 'red')
+      //           // test = title.css()
+      //           console.log("agenda Week stuff triggered");  
+      //           // console.log(test); 
+      //           $("#customstyle").remove(); 
+      //           var style = $('<style id="customstyle">.fc-title { font-size:20px; }</style>');
+      //           $('html > head').append(style);   
                  
-              } else if(view.name == "agendaDay"){
-                $("#customstyle").remove(); 
-                var style = $('<style id="customstyle">.fc-title { font-size:40px; }</style>');
-                $('html > head').append(style);
-              } else {
-                $("#customstyle").remove();   
-              }
-            },
+      //         } else if(view.name == "agendaDay"){
+      //           $("#customstyle").remove(); 
+      //           var style = $('<style id="customstyle">.fc-title { font-size:40px; }</style>');
+      //           $('html > head').append(style);
+      //         } else {
+      //           $("#customstyle").remove();   
+      //         }
+      //       },
          
   
 
