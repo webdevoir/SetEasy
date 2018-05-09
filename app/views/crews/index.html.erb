@@ -11,7 +11,8 @@
         <th>Phone</th>
         <th>Email</th>
         <th>Availability</th>
-        <th>Schedule</th>
+        <th>Days Worked</th>
+        <th>Planned Work</th>
         <th>skills</th>
         <th>Notes</th>
         <th>Updated</th>
@@ -28,8 +29,16 @@
         <td><%= crew.phone %></td>
         <td><%= crew.email %></td>
         <td><%= crew.availability %></td>
-        <% events_count = crew.events.count %>
-        <td><%= link_to "#{events_count} events", crew_crew_events_path(crew) %></td>
+        <% events_count = crew.events %>
+        <% if events_count && events_count.length > 0
+          past_count = events_count.where("start <= ?",  Date.today).count
+          future_count = events_count.where("start > ?",  Date.today).count
+         else 
+          past_count = 0
+          future_count = 0
+         end %>
+        <td><%= past_count %> (<%= link_to "view", crew_crew_events_path(crew) %>)</td>
+        <td><%= future_count %> (<%= link_to "view", crew_crew_events_path(crew) %>)</td>
         
         <td><%= crew.skills %></td>
         <td><%= crew.notes %></td>
