@@ -16,6 +16,26 @@ initialize_calendar = function() {
       events: '/events.json',
       defaultView: 'agendaWeek',
       eventTextColor: '#fff',
+       views: {
+        basic: {
+          // options apply to basicWeek and basicDay views
+        },
+        agenda: {
+          // options apply to agendaWeek and agendaDay views
+          //  eventRender: function(event, element) {
+          //   title = element.find('.fc-title')
+          //   title.html(event.crews);
+          //   title.css('font-size', '50px')
+          // },
+        },
+        week: {
+          // options apply to basicWeek and agendaWeek views
+      
+        },
+        day: {
+          // options apply to basicDay and agendaDay views
+        }
+      },
 
       height: ()=>{
           console.log(screen.width);
@@ -29,7 +49,43 @@ initialize_calendar = function() {
                return win
             }
       },
+      eventRender: function(event, element) {
+            title = element.find('.fc-title')
+            if (event.crews && event.crews.length > 0){
+              title.html("");
+               $.each(event.crews, function(index, value) {
+                title.append('</br>' + value );
+              });
+             }
+             console.log("evert render triggered")
+            // title.html(event.crews);
 
+            // title.css('font-size', '20px')
+             
+           
+          },
+      viewRender: function(view, element){
+              if(view.name == "agendaWeek"){
+                // title = $('.fc-title')
+                // title.css('font-size', '20px')    
+                // title.css('color', 'red')
+                // test = title.css()
+                console.log("agenda Week stuff triggered");  
+                // console.log(test); 
+                $("#customstyle").remove(); 
+                var style = $('<style id="customstyle">.fc-title { font-size:20px; }</style>');
+                $('html > head').append(style);   
+                 
+              } else if(view.name == "agendaDay"){
+                $("#customstyle").remove(); 
+                var style = $('<style id="customstyle">.fc-title { font-size:40px; }</style>');
+                $('html > head').append(style);
+              } else {
+                $("#customstyle").remove();   
+              }
+            },
+         
+  
 
 
 
