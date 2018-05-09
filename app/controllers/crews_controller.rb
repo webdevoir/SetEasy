@@ -1,6 +1,7 @@
 class CrewsController < ApplicationController
   def index
   	@crews = Crew.all
+    @crews = @crews.order(:updated_at).reverse_order
   end
 
   def show
