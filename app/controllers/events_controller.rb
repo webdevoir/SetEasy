@@ -18,11 +18,32 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    case @event.title
+      when "Prep"
+        @event.color = 'blue'
+      when "Dress"
+        @event.color = '#cec400'
+      when "Wrap"
+        @event.color = 'orange'
+      else
+        @event.color = 'red'
+    end
+          
     @event.save
   end
 
   def update
     @event.update(event_params)
+    case @event.title
+      when "Prep"
+        @event.color = 'blue'
+      when "Dress"
+        @event.color = '#cec400'
+      when "Wrap"
+        @event.color = 'orange'
+      else
+        @event.color = 'red'
+    end
   end
 
   def destroy

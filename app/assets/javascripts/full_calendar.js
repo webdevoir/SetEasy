@@ -53,7 +53,7 @@ initialize_calendar = function() {
             title = element.find('.fc-title')
             if(view.name == "agendaWeek"){
               if (event.crews && event.crews.length > 0){
-                title.html("");
+                // title.html("");
                  $.each(event.crews, function(index, value) {
                   title.append('</br>' + value );
                 });
@@ -62,7 +62,7 @@ initialize_calendar = function() {
     
               } else if(view.name == "agendaDay"){
                 if (event.crews && event.crews.length > 0){
-                title.html("");
+                // title.html("");
                  $.each(event.crews, function(index, value) {
                   title.append('</br>' + value );
                 });

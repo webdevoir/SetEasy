@@ -16,7 +16,7 @@
         <th>skills</th>
         <th>Notes</th>
         <th>Updated</th>
-        <th>ID #</th>
+ 
         <th>Manage</th>
       </tr>
 
@@ -43,7 +43,7 @@
         <td><%= crew.skills %></td>
         <td><%= crew.notes %></td>
         <td><%= crew.updated_at.strftime("%b %d, %Y")  %></td>
-        <td><%= crew.id%></td>
+  
         <td>(<%= link_to "edit", edit_crew_path(crew) %>, <%= link_to "delete", crew_path(crew), method: :delete, data: {confirm: "Are you sure you want to delete #{crew.id}?"} %>)</td>
       </tr>
       <% end %>

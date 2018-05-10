@@ -1,7 +1,7 @@
 <%= form_for @event, remote: true do |f| %>
   <div class="form-inputs">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.label :title, "Shift type" %>
+    <%= f.select :title, ["Prep", "Dress", "Wrap"] %>
     <p>Select Crew Members</p>
         <div class="select_crews">
           <%= f.collection_check_boxes(:crew_ids, Crew.order(:name), :id, :name)  do |b| %>
@@ -19,8 +19,7 @@
     <%= f.hidden_field :start, value: Date.today, class: 'form-control input-sm start_hidden' %>
     <%= f.hidden_field :end, value: Date.today, class: 'form-control input-sm end_hidden' %>
 
-    <p>Event color</p>
-    <%= f.select :color, [['Black','black'], ['Green','green'], ['Red','red'], ['Blue','blue'], ['Pink','pink'], ['Orange','orange'], ['Purple','purple']] %>
+   
   </div>
 
   <div class="form-actions">
