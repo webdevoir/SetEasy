@@ -1,0 +1,19 @@
+  <div class="container">
+      <h2>Submit a Project Member!</h2>
+
+      <%= form_for @project  do |f| %>
+        <div>
+          <%= f.label :name, "Name" %><br>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+       
+        
+        <div>
+          <%= f.label :budget %>
+          <%= f.number_field :budget %>
+        </div>
+        <div>
+          <%= f.submit "Submit", class: 'form-control exam_forms' %> 
+        </div>
+      <% end %>
+    </div>

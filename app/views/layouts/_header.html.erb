@@ -19,7 +19,8 @@
 
                   
 
-                  <% if current_user %>    
+                  <% if current_user %> 
+                      <li role="presentation" class="nav_item"><%= link_to "Projects", projects_path, class: "nav-link" %></li>   
                       <li role="presentation" class="nav_item"><%= link_to "Rentals", sets_rentals_path, class: "nav-link" %></li>
                       <li role="presentation" class="nav_item"><%= link_to "Sets List", locations_path, class: "nav-link" %></li>
                       <li role="presentation" class="nav_item"><%= link_to "Budget", budgets_path, class: "nav-link" %></li>

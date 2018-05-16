@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+resources :projects
 devise_for :users
 
 resources :locations, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
