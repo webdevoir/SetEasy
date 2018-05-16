@@ -22,6 +22,14 @@
           <%= f.label :province %><br>
           <%= f.text_field :province, class: 'form-control exam_forms' %>
         </div>
+         <div>
+          <%= f.radio_button :interior, true, :checked => true , :value => true %>
+          <%= label :interior, "Interior" %>
+        </div>
+          <div>
+               <%= f.radio_button :interior, false, :value => false%> 
+               <%= label :interior, "Exterior"%>      
+          </div>
         <div>
           <%= f.submit "Submit", class: 'form-control exam_forms' %> 
         </div>
