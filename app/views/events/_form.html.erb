@@ -9,12 +9,13 @@
     
           <% end %>
         </div>
-    <p>Select Set</p>
+
         <div>
         <%= f.label :location_id, "Select Set" %><br>
         <%= f.collection_select :location_id, Location.all, :id, :name%>
       </div>
       <p>Select Dates/Times</p>
+      <div id="TimePlan" style="width: 100%;height: auto" ></div>
      <%= f.text_field :date_range,  class: "form-control input-sm date-range-picker"  %>
     <%= f.hidden_field :start, value: Date.today, class: 'form-control input-sm start_hidden' %>
     <%= f.hidden_field :end, value: Date.today, class: 'form-control input-sm end_hidden' %>

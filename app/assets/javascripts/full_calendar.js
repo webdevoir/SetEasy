@@ -1,4 +1,31 @@
 var initialize_calendar;
+function view_check(event, element, view) {
+            title = element.find('.fc-title')
+            // console.log(element);
+            if(view.name == "agendaWeek"){
+              if (event.crews && event.crews.length > 0){
+                // title.html("");
+                 $.each(event.crews, function(index, value) {
+                  title.append('</br>' + value );
+                });
+               }
+               // title.css('font-size', '20px')
+               console.log("week");
+    
+              } else if(view.name == "agendaDay"){
+                if (event.crews && event.crews.length > 0){
+                // title.html("");
+                 $.each(event.crews, function(index, value) {
+                  title.append('</br>' + value );
+                });
+               }
+               // title.css('font-size', '40px')
+               console.log("day");
+        
+              }
+     
+
+}
 initialize_calendar = function() {
   $('.calendar').each(function(){
     var calendar = $(this);
@@ -50,55 +77,10 @@ initialize_calendar = function() {
             }
       },
       eventRender: function(event, element, view) {
-            title = element.find('.fc-title')
-            if(view.name == "agendaWeek"){
-              if (event.crews && event.crews.length > 0){
-                // title.html("");
-                 $.each(event.crews, function(index, value) {
-                  title.append('</br>' + value );
-                });
-               }
-               // title.css('font-size', '20px')
-    
-              } else if(view.name == "agendaDay"){
-                if (event.crews && event.crews.length > 0){
-                // title.html("");
-                 $.each(event.crews, function(index, value) {
-                  title.append('</br>' + value );
-                });
-               }
-               // title.css('font-size', '40px')
-        
-              }
-     
-             
+            
+             view_check(event, element, view)
            
           },
-      // viewRender: function(view, element){
-      //         if(view.name == "agendaWeek"){
-      //           // title = $('.fc-title')
-      //           // title.css('font-size', '20px')    
-      //           // title.css('color', 'red')
-      //           // test = title.css()
-      //           console.log("agenda Week stuff triggered");  
-      //           // console.log(test); 
-      //           $("#customstyle").remove(); 
-      //           var style = $('<style id="customstyle">.fc-title { font-size:20px; }</style>');
-      //           $('html > head').append(style);   
-                 
-      //         } else if(view.name == "agendaDay"){
-      //           $("#customstyle").remove(); 
-      //           var style = $('<style id="customstyle">.fc-title { font-size:40px; }</style>');
-      //           $('html > head').append(style);
-      //         } else {
-      //           $("#customstyle").remove();   
-      //         }
-      //       },
-         
-  
-
-
-
 
       select: function(start, end) {
         $.getScript('/events/new', function() {
@@ -109,9 +91,10 @@ initialize_calendar = function() {
         });
 
         calendar.fullCalendar('unselect');
+        // calendar.fullCalendar('eventRender');
       },
 
-      eventDrop: function(event, delta, revertFunc) {
+      eventDrop: function(event, delta, revertFunc, view) {
         event_data = { 
           event: {
             id: event.id,
@@ -122,8 +105,12 @@ initialize_calendar = function() {
         $.ajax({
             url: event.update_url,
             data: event_data,
-            type: 'PATCH'
+            type: 'PATCH',
+            // success: function (data) {// success callback function
+            //      calendar.fullCalendar('eventRender');
+            // }
         });
+        
       },
       
       eventClick: function(event, jsEvent, view) {

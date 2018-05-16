@@ -6,6 +6,7 @@ date_range_picker = function() {
     });
     $(this).daterangepicker({
         timePicker: true,
+        parentEl: '#TimePlan',
         timePickerIncrement: 30,
         alwaysShowCalendars: true
     }, function(start, end, label) {
