@@ -1,5 +1,14 @@
 <div class="container-fluid content_dashboard">
 <%= link_to "Add Project ", new_project_path, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+ <button class="btn btn-primary exam_button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Current Project
+  </button>
+    <ul class="dropdown-menu">
+      <% @projects.each do |pro|  %>
+        <li><%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put %></li>
+      <% end %>
+    </ul>
+
   <br />
   <br />
     <table class="table">

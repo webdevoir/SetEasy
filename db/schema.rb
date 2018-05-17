@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516224934) do
+ActiveRecord::Schema.define(version: 20180517000020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 20180516224934) do
     t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "project_id"
     t.index ["location_id"], name: "index_budgets_on_location_id"
+    t.index ["project_id"], name: "index_budgets_on_project_id"
   end
 
   create_table "crews", force: :cascade do |t|
@@ -112,12 +114,14 @@ ActiveRecord::Schema.define(version: 20180516224934) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "current_project"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "budget_items", "budgets"
   add_foreign_key "budgets", "locations"
+  add_foreign_key "budgets", "projects"
   add_foreign_key "events", "locations"
   add_foreign_key "projects", "users"
   add_foreign_key "rentals", "locations"

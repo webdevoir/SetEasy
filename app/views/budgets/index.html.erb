@@ -16,7 +16,7 @@
 
 
 
-<h2 style="float:right">Total for project:  <%= number_to_currency(BudgetItem.all.sum(:price)) %></h2>
+<h2 style="float:right">Total for project:  <%= number_to_currency(@budgets.joins(:budget_items).sum(:price)) %></h2>
  </div>
   <br />
   <br />
