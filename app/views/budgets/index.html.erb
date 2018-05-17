@@ -13,13 +13,26 @@
     </ul>
  
 
+  <br />
+  
 
 
-
-<h2 style="float:right">Total for project:  <%= number_to_currency(@budgets.joins(:budget_items).sum(:price)) %></h2>
+<!-- Total spent:  <%= number_to_currency(@budgets.joins(:budget_items).sum(:price)) %> of <%= number_to_currency(@project.budget) %> -->
+<% @certs = @project.budget %>
+<% @count = @budgets.joins(:budget_items).sum(:price) %>
+<% if @certs > 0 %>
+  <% @progress = ((@count.to_f / @certs.to_f).round(2) * 100).round(0) %> <!--/-->
+<% else %>
+      <% @progress = 0 %>
+       <% end %>
+ <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success " role="progressbar" style="width: <%= @progress %>%" aria-valuenow="" aria-valuemin="0" aria-valuemax= <%= @certs %>>
+                   <% span_width = "no_data" if @count == 0 %>
+                  <span class="<%=span_width%>"><%= number_to_currency(@budgets.joins(:budget_items).sum(:price)) %></span>
+                </div>
  </div>
-  <br />
-  <br />
+ <br />
+
     <table class="table">
       <tr>
 

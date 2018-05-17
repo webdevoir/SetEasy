@@ -1,6 +1,13 @@
 class BudgetsController < ApplicationController
   def index
-  	@budgets = Budget.all
+    # @user = User.find_by(id: current_user.id)
+
+    @project = Project.find_by(id: current_user.current_project)
+    if @project
+      @budgets = @project.budgets
+    else
+  	 @budgets = Budget.all
+    end
   end
 
   def show
