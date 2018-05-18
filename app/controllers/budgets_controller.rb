@@ -15,7 +15,9 @@ class BudgetsController < ApplicationController
   end
 
   def new
+    @project = Project.find_by(id: current_user.current_project)
   	@budget = Budget.new
+    @budget.project_id = @project.id
     (1..4).each do |n|
       ans =  @budget.budget_items.build
     end
@@ -23,7 +25,9 @@ class BudgetsController < ApplicationController
 
   def create
     @budget = Budget.new(budget_params)
-    @budget.user_id = current_user.id
+     @project = Project.find_by(id: current_user.current_project)
+     @budget.project_id = @project.id
+    # @budget.user_id = current_user.id
 
      if @budget.save
         redirect_to budget_path(@budget), notice: "Budgets Submitted successfully!"

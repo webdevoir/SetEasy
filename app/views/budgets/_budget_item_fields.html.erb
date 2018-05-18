@@ -2,7 +2,7 @@
 				    <%= f.label :item %>
 				    <%= f.text_field :item %>
 				    <%= f.label :price %>
-				    <%= f.number_field :price %>
+				    <%= f.number_field :price, step: :any %>
 				    <%= f.label :rental, "Purchase" %>
 					<% purchase = true if f.object.rental == false %>
 				    <%= f.radio_button :rental, "0", { checked: purchase } %>
