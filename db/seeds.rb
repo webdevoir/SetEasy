@@ -134,7 +134,7 @@ Event.destroy_all
 	num.times do
 		crew_arr.push(Crew.all.sample.id)
 	end
-	start = Faker::Time.between(Date.today - 2.weeks.from_now, 3.weeks.from_now, :day)
+	start = Faker::Time.between(2.weeks.ago, 3.weeks.from_now, :day)
 	title = ["Prep", "Dress", "Wrap"].sample
 	  case title
 	      when "Prep"
