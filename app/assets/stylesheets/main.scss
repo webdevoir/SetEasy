@@ -44,3 +44,11 @@
 .wrapper {
     position: relative;
 }
+
+.progress {
+    margin-bottom:0;
+    height: 1.2rem !important;
+    font-size: 1rem !important;
+}
+.start {float:left;}
+.end {float:right; text-align:right;}

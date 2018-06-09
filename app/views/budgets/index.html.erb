@@ -25,12 +25,16 @@
 <% else %>
       <% @progress = 0 %>
        <% end %>
- <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-success " role="progressbar" style="width: <%= @progress %>%" aria-valuenow="" aria-valuemin="0" aria-valuemax= <%= @certs %>>
-                   <% span_width = "no_data" if @count == 0 %>
-                  <span class="<%=span_width%>"><%= number_to_currency(@budgets.joins(:budget_items).sum(:price)) %></span>
-                </div>
- </div>
+<div class="progress-wrapper">
+   <div class="progress">
+                  <div class="progress-bar progress-bar-striped bg-success " role="progressbar" style="width: <%= @progress %>%" aria-valuenow="" aria-valuemin="0" aria-valuemax= <%= @certs %>>
+                     <% span_width = "no_data" if @count == 0 %>
+                    <span class="<%=span_width%>"><%= number_to_currency(@budgets.joins(:budget_items).sum(:price)) %></span>
+                  </div>
+   </div>
+   <div class="start">$0</div>
+   <div class="end"><%= number_to_currency(@project.budget)%></div>
+</div>
  <br />
 
     <table class="table">

@@ -10,4 +10,12 @@ module ApplicationHelper
 		end
 	end
 
+	def current_project
+		if current_user.current_project
+			return Project.find_by(id: current_user.current_project)
+		else 
+			return Project.where(user_id: current_user.id).first
+		end
+	end
+
 end

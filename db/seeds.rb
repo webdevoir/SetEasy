@@ -32,6 +32,15 @@ User.create! [
 
 p "Created #{User.count} users"
 
+Project.destroy_all
+3.times do
+	Project.create! [
+		name: Faker::Company.name,
+		user_id: 2,
+		budget: Faker::Number.between(10000, 100000),
+	]
+end
+p "Created #{Location.count} sets"
 
 Location.destroy_all
 20.times do
@@ -40,7 +49,10 @@ Location.destroy_all
 		street: Faker::Address.street_address,
 		city: Faker::Address.city,
 		postal: "X1X 1X1",
-		province: "British Columbia"
+		province: "British Columbia",
+		project_id: Project.all.sample.id,
+		interior: Faker::Boolean.boolean,
+
 	]
 end
 p "Created #{Location.count} sets"
@@ -55,7 +67,8 @@ Rental.destroy_all
 		rental: Faker::Boolean.boolean,
 		source: Faker::Friends.location,
 		due_date: Faker::Date.between(50.days.ago, Date.today),
-		location_id: Location.all.sample.id
+		location_id: Location.all.sample.id,
+		project_id: Project.all.sample.id
 
 	]
 end
@@ -64,7 +77,8 @@ p "Created #{Rental.count} rentals"
 Budget.destroy_all
 20.times do
 	Budget.create! [
-		location_id: Location.all.sample.id
+		location_id: Location.all.sample.id,
+		project_id: Project.all.sample.id
 	]
 end
 p "Created #{Budget.count} budgets"

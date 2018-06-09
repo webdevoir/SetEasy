@@ -1,11 +1,14 @@
 class RentalsController < ApplicationController
+  include ApplicationHelper
 
   def index
+    @project = current_project
     if params[:location_id]
-      @rentals = Location.find(params[:location_id]).rentals
+      
       @set = Location.find(params[:location_id])
+      @rentals = @set.rentals
     else
-      @rentals = Rental.all
+      @rentals = @project.rentals
     end
   end
 
@@ -15,7 +18,8 @@ class RentalsController < ApplicationController
   end
 
   def sets
-    @sets = Location.all
+    @project = current_project
+    @sets = @project.locations
   end
 
   def new

@@ -1,6 +1,10 @@
 class LocationsController < ApplicationController
+  include ApplicationHelper
+
   def index
-  	@locations = Location.all
+  	# @locations = Location.all
+    @project = current_project
+    @locations = @project.locations
   end
 
   def show

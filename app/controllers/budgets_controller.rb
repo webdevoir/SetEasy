@@ -5,8 +5,8 @@ class BudgetsController < ApplicationController
     @project = Project.find_by(id: current_user.current_project)
     if @project
       @budgets = @project.budgets
-    else
-  	 @budgets = Budget.all
+    # else
+  	 # @budgets = Budget.all
     end
   end
 

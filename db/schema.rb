@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180517000020) do
+ActiveRecord::Schema.define(version: 20180609191100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,12 +63,6 @@ ActiveRecord::Schema.define(version: 20180517000020) do
     t.index ["location_id"], name: "index_events_on_location_id"
   end
 
-  create_table "events_locations", id: false, force: :cascade do |t|
-    t.bigint "location_id", null: false
-    t.bigint "event_id", null: false
-    t.index ["location_id", "event_id"], name: "index_events_locations_on_location_id_and_event_id"
-  end
-
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "street"
@@ -78,6 +72,8 @@ ActiveRecord::Schema.define(version: 20180517000020) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "interior"
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_locations_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -98,7 +94,9 @@ ActiveRecord::Schema.define(version: 20180517000020) do
     t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "project_id"
     t.index ["location_id"], name: "index_rentals_on_location_id"
+    t.index ["project_id"], name: "index_rentals_on_project_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -123,6 +121,8 @@ ActiveRecord::Schema.define(version: 20180517000020) do
   add_foreign_key "budgets", "locations"
   add_foreign_key "budgets", "projects"
   add_foreign_key "events", "locations"
+  add_foreign_key "locations", "projects"
   add_foreign_key "projects", "users"
   add_foreign_key "rentals", "locations"
+  add_foreign_key "rentals", "projects"
 end
