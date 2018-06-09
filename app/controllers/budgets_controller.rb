@@ -1,13 +1,9 @@
 class BudgetsController < ApplicationController
-  def index
-    # @user = User.find_by(id: current_user.id)
+  include ApplicationHelper
 
-    @project = Project.find_by(id: current_user.current_project)
-    if @project
-      @budgets = @project.budgets
-    # else
-  	 # @budgets = Budget.all
-    end
+  def index
+    @project = current_project
+    @budgets = @project.budgets
   end
 
   def show
@@ -15,9 +11,7 @@ class BudgetsController < ApplicationController
   end
 
   def new
-    @project = Project.find_by(id: current_user.current_project)
   	@budget = Budget.new
-    @budget.project_id = @project.id
     (1..4).each do |n|
       ans =  @budget.budget_items.build
     end

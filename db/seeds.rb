@@ -40,7 +40,7 @@ Project.destroy_all
 		budget: Faker::Number.between(10000, 100000),
 	]
 end
-p "Created #{Location.count} sets"
+p "Created #{Project.count} projects"
 
 Location.destroy_all
 20.times do
@@ -99,6 +99,17 @@ end
 p "Created #{BudgetItem.count} budget items"
 
 Crew.destroy_all
+roles = [
+              "Production Designer",
+              "Decorator",
+              "Asst. Decorator",
+              "Coordinator",
+              "Buyer",
+              "Lead Dresser",
+              "Driver",
+              "Swamper",
+              "Dresser"
+            ]
 30.times do
 	Crew.create! [
 		name: Faker::Seinfeld.character,
@@ -107,6 +118,8 @@ Crew.destroy_all
 		availability: Faker::Hacker.adjective,
 		skills: Faker::MostInterestingManInTheWorld.quote,
 		notes: Faker::RickAndMorty.quote,
+		project_id: Project.all.sample.id,
+		role: roles.sample
 
 	]
 end

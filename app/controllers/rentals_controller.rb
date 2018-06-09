@@ -25,10 +25,13 @@ class RentalsController < ApplicationController
   def new
   	@rental = Rental.new
     @set = Location.find(params[:location_id])
+    
   end
 
   def create
     @rental = Rental.new(rental_params)
+    @project = current_project
+    @rental.project_id = @project.id
 
      if @rental.save
         redirect_to rentals_path, notice: "rentals Submitted successfully!"

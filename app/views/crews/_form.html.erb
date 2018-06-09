@@ -1,4 +1,16 @@
   <div class="container">
+    <% if @crew.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@crew.errors.count, "error") %> prohibited this crew from being created:</h2>
+
+      <ul>
+      <% @crew.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
       <h2>Submit a Crew Member!</h2>
 
       <%= form_for @crew  do |f| %>

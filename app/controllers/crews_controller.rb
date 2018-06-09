@@ -1,6 +1,10 @@
 class CrewsController < ApplicationController
+  include ApplicationHelper
+
   def index
-  	@crews = Crew.all
+  	# @crews = Crew.all
+    @project = current_project
+    @crews = @project.crews
     @crews = @crews.order(:updated_at).reverse_order
   end
 
@@ -14,6 +18,8 @@ class CrewsController < ApplicationController
 
   def create
     @crew = Crew.new(crew_params)
+    @project = current_project
+    @crew.project_id = @project.id
 
      if @crew.save
         redirect_to crews_path, notice: "Crews Submitted successfully!"
