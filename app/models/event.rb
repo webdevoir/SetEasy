@@ -3,4 +3,5 @@ class Event < ApplicationRecord
 	belongs_to :location, optional: true
 	validates :title, presence: true
 	attr_accessor :date_range
+	belongs_to :project
 end

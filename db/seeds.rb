@@ -125,3 +125,39 @@ roles = [
 end
 
 p "Created #{Crew.count} crew members"
+
+Event.destroy_all
+100.times do
+	project = Project.all.sample
+	crew_arr = []
+	num = Faker::Number.between(1, 5)
+	num.times do
+		crew_arr.push(Crew.all.sample.id)
+	end
+	start = Faker::Time.between(Date.today - 2.weeks.from_now, 3.weeks.from_now, :day)
+	title = ["Prep", "Dress", "Wrap"].sample
+	  case title
+	      when "Prep"
+	        color = 'blue'
+	      when "Dress"
+	        color = '#cec400'
+	      when "Wrap"
+	        color = 'orange'
+	      else
+	        color = 'red'
+	    end
+	
+	Event.create! [
+		title: title,
+		project_id: project.id,
+		crew_ids: crew_arr,
+		location_id: project.locations.sample.id,
+		start: start,
+		end: start + 2.hours,
+		color: color
+		
+
+	]
+end
+
+p "Created #{Event.count} events"
