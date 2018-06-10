@@ -13,6 +13,10 @@ class LocationsController < ApplicationController
 
   def new
   	@location = Location.new
+     respond_to do |format|
+      format.html
+      format.js
+    end
 
   end
 
@@ -31,6 +35,10 @@ class LocationsController < ApplicationController
 
   def edit
   	@location = Location.find(params[:id])
+     respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
    def update
