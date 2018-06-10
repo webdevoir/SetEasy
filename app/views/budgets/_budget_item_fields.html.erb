@@ -1,8 +1,8 @@
 <div class="nested-fields">
-				    <%= f.label :item %>
-				    <%= f.text_field :item %>
-				    <%= f.label :price %>
-				    <%= f.number_field :price, step: :any %>
+				    <%= f.label :item %></br>
+				    <%= f.text_field :item, class: 'form-control exam_forms' %></br>
+				    <%= f.label :price %></br>
+				    <%= f.number_field :price, step: :any, class: 'form-control exam_forms' %></br>
 				    <%= f.label :rental, "Purchase" %>
 					<% purchase = true if f.object.rental == false %>
 				    <%= f.radio_button :rental, "0", { checked: purchase } %>
@@ -11,4 +11,5 @@
 
 				
 				    <%= link_to_remove_association "remove item", f %>
+				    <hr>
 				  </div>

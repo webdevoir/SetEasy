@@ -1,6 +1,7 @@
  <div class="container">
+ 	<div id='remote_container'></div>
  		<%= link_to "Return to Budget Page", budgets_path, class: "btn btn-primary exam_button" %><br /><br />
- 		<h2>Budget for <%= @budget.location.name %> (<%= link_to "edit", edit_budget_path(@budget) %>)</h2>
+ 		<h2>Budget for <%= @budget.location.name %> (<%= link_to "edit", edit_budget_path(@budget), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>)</h2>
 	 <table class="table">
 	      <tr>
 

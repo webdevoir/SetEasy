@@ -15,6 +15,10 @@ class BudgetsController < ApplicationController
     (1..4).each do |n|
       ans =  @budget.budget_items.build
     end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -33,6 +37,10 @@ class BudgetsController < ApplicationController
 
   def edit
   	@budget = Budget.find(params[:id])
+     respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
    def update

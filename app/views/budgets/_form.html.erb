@@ -1,4 +1,4 @@
-<h2>Submit a new budget!</h2>
+
 
       <%= form_for @budget  do |f| %>
         <% if @budget.errors.any? %>
@@ -13,7 +13,7 @@
       <% end %>
         <div>
 		      <%= f.label :location_id, "Select a Set" %><br>
-		      <%= f.collection_select :location_id, Location.all, :id, :name%>
+		      <%= f.collection_select :location_id, Location.all, :id, :name, {}, {:class=>'form-control'}%>
 		    </div>
 
 		    <h2>Items</h2>
