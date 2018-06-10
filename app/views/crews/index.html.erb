@@ -1,7 +1,10 @@
+<div id='remote_container'></div>
 <div class="container-fluid content_dashboard">
-<%= link_to "Add Crew Member", new_crew_path, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+  
+<%= link_to "Add Crew Member", new_crew_path, data: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
   <br />
   <br />
+  <div class="table-responsive">
     <table class="table">
       <tr>
 
@@ -44,11 +47,12 @@
         <td><%= crew.notes %></td>
         <td><%= crew.updated_at.strftime("%b %d, %Y")  %></td>
   
-        <td>(<%= link_to "edit", edit_crew_path(crew) %>, <%= link_to "delete", crew_path(crew), method: :delete, data: {confirm: "Are you sure you want to delete #{crew.id}?"} %>)</td>
+        <td>(<%= link_to "edit", edit_crew_path(crew), data: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, <%= link_to "delete", crew_path(crew), method: :delete, data: {confirm: "Are you sure you want to delete #{crew.id}?"} %>)</td>
       </tr>
       <% end %>
 
     </table>
+  </div>
   
             <hr>
 </div>

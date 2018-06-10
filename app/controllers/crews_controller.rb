@@ -14,6 +14,10 @@ class CrewsController < ApplicationController
 
   def new
   	@crew = Crew.new
+     respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -31,6 +35,10 @@ class CrewsController < ApplicationController
 
   def edit
   	@crew = Crew.find(params[:id])
+     respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
    def update
