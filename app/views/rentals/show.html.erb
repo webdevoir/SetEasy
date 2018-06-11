@@ -1,5 +1,7 @@
 <div class="container">
-	<h2><%= @rental.desc %> (<%= link_to "edit", edit_location_rental_path(@set, @rental) %>, <%= link_to "delete", location_rental_path(@set, @rental), method: :delete, data: {confirm: "You sure?"} %>)</h2>
+	<div id='remote_container'></div>
+	<h2><%= @rental.desc %> (<%= link_to "edit", edit_location_rental_path(@set, @rental), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, 
+		<%= link_to "delete", location_rental_path(@set, @rental), method: :delete, data: {confirm: "You sure?"} %>)</h2>
 	<div class="rental_img">
 	    	<%= print_image @rental.image_url.to_s %>
 		</div>
@@ -8,7 +10,7 @@
 		<h4>Set: <%= @rental.location.name %></h4>
 		<h4>Source: <%= @rental.source %></h4>
 		<h4>Return by: <%= @rental.due_date.strftime("%b %d, %Y")  %></h4>
-		<h4>Rental?: <%= @rental.rental  %></h4>
+		<h4>Rental status: <%= @rental.rental ? "Rented" : "Purchased"  %></h4>
 	</div>
 
 </div>

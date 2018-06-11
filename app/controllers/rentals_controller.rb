@@ -4,7 +4,6 @@ class RentalsController < ApplicationController
   def index
     @project = current_project
     if params[:location_id]
-      
       @set = Location.find(params[:location_id])
       @rentals = @set.rentals
     else
@@ -32,9 +31,10 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @project = current_project
     @rental.project_id = @project.id
+    set = @rental.location_id
 
      if @rental.save
-        redirect_to rentals_path, notice: "rentals Submitted successfully!"
+        redirect_to location_rentals_path(set), notice: "rentals Submitted successfully!"
       else
         flash[:error] = @rental.errors.full_messages.to_sentence
         render :new, notice: "rental could not be created!"
@@ -48,8 +48,9 @@ class RentalsController < ApplicationController
 
    def update
    	@rental = Rental.find(params[:id])
+    set = @rental.location_id
     if @rental.update_attributes(rental_params)
-      redirect_to rentals_path, notice: "rental updated successfully"
+      redirect_to location_rentals_path(set), notice: "rental updated successfully"
     else
       flash[:error] = "#{@rental.errors.count} errors prevented certificate from being updated."
       render :edit
