@@ -10,6 +10,11 @@ class ProjectsController < ApplicationController
 
   def new
   	@project = Project.new
+       respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def create
@@ -26,6 +31,11 @@ class ProjectsController < ApplicationController
 
   def edit
   	@project = Project.find(params[:id])
+       respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
    def update
