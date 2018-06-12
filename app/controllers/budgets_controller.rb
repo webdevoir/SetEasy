@@ -1,5 +1,6 @@
 class BudgetsController < ApplicationController
   include ApplicationHelper
+  before_action :redirect_cancel, only: [:create, :update]
 
   def index
     @project = current_project
@@ -62,6 +63,10 @@ class BudgetsController < ApplicationController
 
  protected
 
+  def redirect_cancel
+      @budget = Budget.find(params[:id])
+      redirect_to budget_path(@budget), notice: "Your changes were not saved." if params[:cancel]
+    end
 
   def budget_params
       params.require(:budget).permit(:location_id, budget_items_attributes: [:id, :_destroy, :item, :price, :rental])

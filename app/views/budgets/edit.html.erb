@@ -39,6 +39,7 @@
 				<tr>
 					<%= link_to_add_association 'add item', f, :budget_items , data: {"association-insertion-node" => "#edit_budgets", "association-insertion-method" => "append"}, class: "btn btn-primary exam_button" %>
 					<%= f.submit "Save Changes", class: "btn btn-primary exam_button" %> 
+					<%= button_tag t('buttons.cancel'), type: "submit", name: "cancel", value: true, class: 'btn btn-primary exam_button' %>
 			
 				</tr>
 	    
