@@ -1,6 +1,6 @@
  <div class="container">
  	<div id='remote_container'></div>
- 		<%= link_to "Return to Budget Page", budgets_path, class: "btn btn-primary exam_button" %><br /><br />
+
  		<h2>Budget for <%= @budget.location.name %></h2>
 
 
@@ -38,6 +38,7 @@
 			</tbody>
 				<tr>
 					<%= link_to_add_association 'add item', f, :budget_items , data: {"association-insertion-node" => "#edit_budgets", "association-insertion-method" => "append"}, class: "btn btn-primary exam_button" %>
+					<%= f.submit "Save Changes", class: "btn btn-primary exam_button" %> 
 			
 				</tr>
 	    
@@ -51,7 +52,7 @@
 	  		
 	    </table>
 	     <div>
-          <%= f.submit "Submit", class: 'form-control', id: "submit" %> 
+          <%= f.submit "Save Changes", class: 'form-control', id: "submit" %> 
         </div>
       <% end %>
 
