@@ -42,9 +42,24 @@
          end %>
         <td><%= past_count %> (<%= link_to "view", crew_crew_events_path(crew) %>)</td>
         <td><%= future_count %> (<%= link_to "view", crew_crew_events_path(crew) %>)</td>
+  
+           <td>
+              <% if crew.skills && crew.skills.length > 0 && crew.skills.kind_of?(Array) %>
+                <% new_crew = [] %>
+                <%  crew.skills.each do |crew| %>
+                  <% if crew.length > 0 %>
+                    <% new_crew.push(crew) %>
+                  <% end %>
+                <% end %>
+                <%= new_crew.to_sentence %>
+              <% elsif crew.skills %>
+                <%= truncate(crew.skills, length: 15) %>
+              <% else %>
+                None
+              <% end %>
+            </td>
         
-        <td><%= crew.skills %></td>
-        <td><%= crew.notes %></td>
+        <td><%= truncate(crew.notes, length: 10) %></td>
         <td><%= crew.updated_at.strftime("%b %d, %Y")  %></td>
   
         <td>(<%= link_to "edit", edit_crew_path(crew), data: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, <%= link_to "delete", crew_path(crew), method: :delete, data: {confirm: "Are you sure you want to delete #{crew.id}?"} %>)</td>

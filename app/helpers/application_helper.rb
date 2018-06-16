@@ -1,4 +1,4 @@
-module ApplicationHelper
+	module ApplicationHelper
 	def print_image(url)
 		# url = Rails.application.assets.find_asset(url).nil? ? nil : url
 		if url && url.length > 1
