@@ -46,6 +46,7 @@ gem 'faker'
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
 gem 'bootstrap', '~> 4.1.1'
+gem 'pdfkit'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
