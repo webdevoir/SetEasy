@@ -1,11 +1,13 @@
 <div class="container-fluid content_dashboard">
   <div id='remote_container'></div>
 
-<div class="dropdown">
+<div class="no_pdf">
   <%= link_to "Add a Budget", new_budget_path, data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button" %>
   <button class="btn btn-primary exam_button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Set Details
   </button>
+  <%= link_to "Download PDF", budgets_path(format: "pdf"), target: :_blank, class: "btn btn-primary exam_button"  %>
+</div>
     <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Sets</a></li>
       <% @budgets.each do |budget|  %>

@@ -1,6 +1,10 @@
 <div class="container-fluid content_dashboard">
   <div id='remote_container'></div>
-<%= link_to "Add a Set", new_location_path, data: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+
+<div class="no_pdf">
+    <%= link_to "Add a Set", new_location_path, data: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+    <%= link_to "Download PDF", crews_path(format: "pdf"), target: :_blank, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+    </div>
   <br />
   <br />
    <div class="table-responsive">
