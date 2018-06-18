@@ -14,7 +14,7 @@
         <th>Name</th>
         
         <th>Role</th>
-        <th>Phone</th>
+        <th class="phone-col">Phone</th>
         <th>Email</th>
         <th>Availability</th>
         <th>Days Worked</th>
@@ -23,7 +23,7 @@
         <th>Notes</th>
         <th>Updated</th>
  
-        <th>Manage</th>
+        <th class="no_pdf">Manage</th>
       </tr>
 
        <% @crews.each do |crew|  %>
@@ -65,7 +65,7 @@
         <td><%= truncate(crew.notes, length: 10) %></td>
         <td><%= crew.updated_at.strftime("%b %d, %Y")  %></td>
   
-        <td>(<%= link_to "edit", edit_crew_path(crew), data: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, <%= link_to "delete", crew_path(crew), method: :delete, data: {confirm: "Are you sure you want to delete #{crew.id}?"} %>)</td>
+        <td class="no_pdf">(<%= link_to "edit", edit_crew_path(crew), data: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, <%= link_to "delete", crew_path(crew), method: :delete, data: {confirm: "Are you sure you want to delete #{crew.id}?"} %>)</td>
       </tr>
       <% end %>
 

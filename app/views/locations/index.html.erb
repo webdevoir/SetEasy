@@ -18,7 +18,7 @@
         <th>Location</th>
 
         <th>INT/EXT</th>
-        <th>Manage</th>
+        <th class="no_pdf">Manage</th>
         
       </tr>
 
@@ -39,7 +39,7 @@
           <td>N/A</td>
         <% end %>
 
-        <td>(<%= link_to "edit", edit_location_path(location), data: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, <%= link_to "delete", location_path(location), method: :delete, data: {confirm: "Are you sure you want to delete #{location.id}?"} %>)</td>
+        <td class="no_pdf">(<%= link_to "edit", edit_location_path(location), data: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, <%= link_to "delete", location_path(location), method: :delete, data: {confirm: "Are you sure you want to delete #{location.id}?"} %>)</td>
    
       </tr>
       <% end %>
