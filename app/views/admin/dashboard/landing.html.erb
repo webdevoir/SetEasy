@@ -1,0 +1,42 @@
+<%= render 'admin/header' %>
+<div class="container-fluid content_dashboard">
+  <h2>User List</h2>
+  <small>More user stuff to come (June 21st)</small>
+  <br />
+  <br />
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <tr>
+      
+        <th>Email</th>
+
+    
+        <th>Last Seen</th>
+        <th>Logged In</th>
+        <th>Sign Up</th>
+        <th>Updated</th>
+        <th>ID #</th>
+      </tr>
+
+       <% @users.each do |user|  %>
+      <tr>
+
+        <td><%= user.email %></td>
+
+
+        <td><%= user.last_sign_in_at ? user.last_sign_in_at.strftime("%b %d, %Y") : "not logged"  %></td>
+        <td><%= user.current_sign_in_at ? "true" : "false" %></td>
+        <td><%= user.created_at.strftime("%b %d, %Y")  %></td>
+        <td><%= user.updated_at.strftime("%b %d, %Y")  %></td>
+        <td><%= user.id%></td>
+      </tr>
+      <% end %>
+
+    </table>
+  </div>
+  <div style="clear: both">
+                <%= paginate @users if @users %>
+                <%= page_entries_info @users if @users %>
+            </div>
+            <hr>
+</div>

@@ -1,0 +1,62 @@
+.dash_breadcrumb {
+  border-radius: 15px  !important;
+  // margin-left: 100px;
+  // max-width: 250px;
+  // height: 80vh;
+  background-color: black !important;
+  color: white;
+  overflow: hidden;
+  padding-left: 50px;
+  li {
+      font-size: 20px;
+    font-weight: bold;
+  }
+
+}
+
+.dash_breadcrumb a:link, .dash_breadcrumb a:visited, .dash_breadcrumb  a:hover {
+  text-decoration: none; color: white;
+}
+
+.dash_breadcrumb  a:active, .dash_breadcrumb  a:hover {
+  color: #565656;
+}
+
+.dash_breadcrumb_active {
+  color: #9b9999;
+}
+
+.dash_header img {
+  height:45px;
+  width:auto;
+  float:left;
+  margin-right: 30px;
+}
+
+.dash_header {
+  margin-left: 100px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+
+}
+
+.breadcrumb > li + li::before {
+    content: "| ";
+}
+
+.breadcrumb > li + li::before {
+    content: "| ";
+}
+
+.breadcrumb > li + li::before {
+    content: "|";
+    color: rgb(204, 204, 204);
+    padding: 0px 15px;
+}
+
+::before, ::after {
+    box-sizing: border-box;
+}
+.breadcrumb > li {
+    display: inline-block;
+}

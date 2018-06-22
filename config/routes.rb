@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-
+		namespace :admin do
+			resources :dashboard, only: [:landing]
+	
+			  root to: "/admin/dashboard#landing"
+		end
 
 		resources :projects
 

@@ -1,0 +1,44 @@
+<% @user = current_user.id %>
+<div class="dash_header">
+	<%= image_tag "up_logotrans.png", class: "dash_header_logo" %>
+	<ol class="breadcrumb dash_breadcrumb" id="dash_breadcrumb">
+		<li><%= link_to "Dashboard", admin_root_path %></li>
+    <li><%= link_to "Root", root_path %></li>
+
+	</ol>
+</div>
+
+<script>
+  // $( function() {
+   
+  //   var url = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+
+  //   switch (url) {
+  //     case 'applied':
+  //       activate("Applied Jobs");
+  //     break;
+  //     case 'resumes':
+  //       activate("My Resumes");
+  //     break;
+  //     case 'edit':
+  //       activate("Edit Profile");
+  //     break;
+  //     case 'saved_jobs':
+  //       activate("Saved Jobs");
+  //     break;
+  //     case seekerID:
+  //       activate("Prequalified Jobs");
+  //     break;
+  //     default:
+  //   		var link = ""
+  //       console.log("breadcrumb deactivated");
+  //   }
+
+  //   	function activate(link) {
+  //   	$('#dash_breadcrumb li:contains('+link+')').addClass("dash_breadcrumb_active");
+  //       $('#dash_breadcrumb a:contains('+link+')').contents().unwrap();
+  //       console.log(link);
+  //   	}
+
+  // });
+</script>
