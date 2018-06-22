@@ -1,9 +1,10 @@
 <% @user = current_user.id %>
 <div class="dash_header">
-	<%= image_tag "up_logotrans.png", class: "dash_header_logo" %>
+	<%= image_tag "administrator.png", class: "dash_header_logo" %>
 	<ol class="breadcrumb dash_breadcrumb" id="dash_breadcrumb">
 		<li><%= link_to "Dashboard", admin_root_path %></li>
-    <li><%= link_to "Root", root_path %></li>
+    <li><%= link_to "Plans", manage_plans_path %></li>
+    <li><%= link_to "Subscriptions", subscriptions_path %></li>
 
 	</ol>
 </div>

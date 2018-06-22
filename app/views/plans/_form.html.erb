@@ -1,0 +1,18 @@
+  <div class="container">
+
+      <%= form_for @plan  do |f| %>
+        <div>
+          <%= f.label :name, "Name" %><br>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+       
+        
+        <div>
+          <%= f.label :price %>
+          <%= f.number_field :price %>
+        </div>
+        <div>
+          <%= f.submit "Submit", class: 'form-control exam_forms' %> 
+        </div>
+      <% end %>
+    </div>

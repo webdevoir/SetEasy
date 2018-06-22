@@ -1,0 +1,30 @@
+<%= render 'admin/header' %>
+<div class="container-fluid content_dashboard">
+
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <tr>
+
+         <th>User</th>
+         <th>Plan</th>
+         <th>Payment</th>
+         <th>Date Paid</th>
+   
+      </tr>
+
+       <% @subscriptions.each do |subscription|  %>
+      <tr>
+
+        <td><%= subscription.user.email %></td>
+        <td><%= subscription.plan.name %></td>
+        <td><%= number_to_currency(subscription.plan.price) %></td>
+        <td><%= subscription.created_at.strftime("%b %d, %Y")  %></td>
+
+      </tr>
+      <% end %>
+
+    </table>
+  </div>
+
+            <hr>
+</div>

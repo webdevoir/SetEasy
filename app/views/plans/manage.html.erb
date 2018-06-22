@@ -1,0 +1,29 @@
+<%= render 'admin/header' %>
+<div class="container-fluid content_dashboard">
+<%= link_to "Add Plan", new_plan_path, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+  <br />
+  <br />
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <tr>
+
+         <th>Name</th>
+         <th>Price</th>
+        <th>Manage</th>
+      </tr>
+
+       <% @plans.each do |plan|  %>
+      <tr>
+
+        <td><%= plan.name %></td>
+        <td><%= number_to_currency(plan.price) %></td>
+        <td>(<%= link_to "edit", edit_plan_path(plan) %>, <%= link_to "delete", plan_path(plan), method: :delete, data: {confirm: "Are you sure you want to delete #{plan.id}?"} %>)</td>
+
+      </tr>
+      <% end %>
+
+    </table>
+  </div>
+
+            <hr>
+</div>

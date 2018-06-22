@@ -5,6 +5,10 @@ class PlansController < ApplicationController
     @plans = Plan.order("price")
   end
 
+  def manage
+    @plans = Plan.order("price")
+  end
+
   def new
   	@plan = Plan.new
   end

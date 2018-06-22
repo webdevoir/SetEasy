@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
 		resources :projects
 
-		resources :plans
+		resources :plans do
+			get :manage, :on => :collection
+		end
 		resources :subscriptions
 		# devise_for :users
 
