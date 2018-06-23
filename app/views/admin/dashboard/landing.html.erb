@@ -1,8 +1,16 @@
 <%= render 'admin/header' %>
+<div class="container">
 <h2>Dashboard</h2>
-<ul class="dropdown-menu">
-      <% Project.all.each do |pro|  %>
-        <li><%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put %></li>
+<div class="dropdown">
+  <button class="btn btn-primary exam_button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Current Project
+  </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <% Project.all.each do |pro|  %>
+        <%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put, class: "dropdown-item"  %>
       <% end %>
-    </ul>
-Work in progress...
+  </div>
+
+<p>Work in progress...</p>
+
+</div>

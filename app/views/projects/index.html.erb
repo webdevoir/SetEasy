@@ -3,18 +3,23 @@
 
 <div class="no_pdf">
   <%= link_to "Add Project ", new_project_path, data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
-     <button class="btn btn-primary exam_button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= link_to "Download PDF", projects_path(format: "pdf"), target: :_blank, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+
+<div class="dropdown">
+  <button class="btn btn-primary exam_button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Current Project
   </button>
-   <%= link_to "Download PDF", projects_path(format: "pdf"), target: :_blank, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
-   
- </div>
-
-    <ul class="dropdown-menu">
-      <% @projects.each do |pro|  %>
-        <li><%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put %></li>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <% @projects.each do |pro|  %>
+        <%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put, class: "dropdown-item"  %>
       <% end %>
-    </ul>
+  </div>
+
+
+
+
+  </div>
+
 
   <br />
   <br />
