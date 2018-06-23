@@ -12,9 +12,10 @@
 //
 
 //= require jquery
+//= require rails-ujs
 //= require popper
 //= require bootstrap
-//= require rails-ujs
+
 //= require cocoon
 //= require moment
 //= require fullcalendar

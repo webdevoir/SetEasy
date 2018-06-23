@@ -1,3 +1,8 @@
 <%= render 'admin/header' %>
 <h2>Dashboard</h2>
+<ul class="dropdown-menu">
+      <% Project.all.each do |pro|  %>
+        <li><%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put %></li>
+      <% end %>
+    </ul>
 Work in progress...
