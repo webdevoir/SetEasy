@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//////////////////////  Rental Screen Old ////////////////////
 .rental_img {
 	position: relative;
 	height: 200px;
@@ -51,6 +52,55 @@ text-decoration: none;
 
 }
 
+//////////////////////  Rental Screen Old ////////////////
+//////////////////////  Rental Screen New ////////////////
+
+.rental_item {
+	height: 350px;
+	width: 350px;
+	float: left;
+	margin: 15px;
+	padding: 10px;
+	border-radius: 15px
+}
+.rental_item:hover {
+	opacity: 0.4;
+  text-shadow: 0 0 15px #0e83cd;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 20px  #0e83cd;
+    // border: 2px solid  #0e83cd;
+  }
+.rental_item_header a:link, .rental_item_header a:visited, .rental_item_header  a:hover {
+  text-decoration: none; color: white;
+}
+
+.rental_item_header  a:active, .rental_item_header  a:hover {
+  color: #565656;
+}
+.rental_item_header {
+ padding-left: 15px;
+ padding-left: 15px;
+ padding-top: 4px;
+ padding-bottom: 4px;
+ border-radius: 15px;
+ background: #000;
+ color: #fff;
+ font-family: 'raleway';
+	font-weight: 600;
+  font-size: 25px;
+  text-align: center;
+}
+.rental_item_pic {
+	margin-top: 15px;
+	height: 300px;
+	// padding-left: 65px;
+	// padding-right: 65px;
+	vertical-align:middle; text-align:center;
+}
+.rental_item_pic img{
+	height: 90%;
+}
+//////////////////////  Rental Screen New ////////////////
 //////////////////  SETS OLD /////////////////
 .container_sets {
 	padding-left:calc(50vw - 440px);
