@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+		################  Admin Start#############################
 		namespace :admin do
 			resources :dashboard, only: [:landing]
 	
 			  root to: "/admin/dashboard#landing"
-		end
+			devise_scope :user do
+		      resources :users
+		    end
+
+		end 
+		################  Admin End #############################
 
 		resources :projects
 
