@@ -5,4 +5,6 @@ class Project < ApplicationRecord
   has_many :locations
   has_many :crews
   has_many :events
+  has_many :project_users
+  has_many :users, through: :project_users
 end

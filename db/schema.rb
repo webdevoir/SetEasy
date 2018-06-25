@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180623003428) do
+ActiveRecord::Schema.define(version: 20180625204429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,16 @@ ActiveRecord::Schema.define(version: 20180623003428) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_users", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "user_id"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_users_on_project_id"
+    t.index ["user_id"], name: "index_project_users_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
@@ -146,6 +156,8 @@ ActiveRecord::Schema.define(version: 20180623003428) do
   add_foreign_key "events", "locations"
   add_foreign_key "events", "projects"
   add_foreign_key "locations", "projects"
+  add_foreign_key "project_users", "projects"
+  add_foreign_key "project_users", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "rentals", "locations"
   add_foreign_key "rentals", "projects"
