@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'project_users/new'
+
 		################  Admin Start#############################
 		namespace :admin do
 			resources :dashboard, only: [:landing]

@@ -1,7 +1,11 @@
 class ProjectsController < ApplicationController
   def index
-  	@projects = Project.all
-    @projects = @projects.order(:updated_at).reverse_order
+    if current_user.role == "Admin"
+  	 @projects = Project.all
+    else
+      @projects = current_user.projects
+      @projects = @projects.order(:updated_at).reverse_order
+    end
   end
 
   def show
@@ -20,6 +24,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
+    @project.project_users.new(user: current_user, role: "owner")
 
      if @project.save
         redirect_to projects_path, notice: "Projects Submitted successfully!"
