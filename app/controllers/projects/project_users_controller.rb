@@ -5,6 +5,7 @@ class Projects::ProjectUsersController < ApplicationController
   	def create
 	  project_user = @project.project_users.new(project_user_params)
 	  project_user.project = @project
+    project_user.current_project = @project
 
 	  if project_user.save
 	    redirect_to @project, notice: 'Saved!'
