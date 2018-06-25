@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/scambra/devise_invitable.git
+  revision: e17c37a411df20bade6c657d26ffe856bcb6abc6
+  specs:
+    devise_invitable (1.7.4)
+      actionmailer (>= 4.1.0)
+      devise (>= 4.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -268,6 +276,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   devise
+  devise_invitable!
   dotenv-rails
   faker
   fog-aws

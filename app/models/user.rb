@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :projects, through: :project_users
 
 
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

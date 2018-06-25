@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 		end 
 		################  Admin End #############################
 
-		resources :projects
+		resources :projects do
+		  resources :project_users, path: :users, module: :projects
+		end
 
 		resources :plans do
 			get :manage, :on => :collection

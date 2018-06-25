@@ -12,6 +12,7 @@ class Permission < Struct.new(:user)
     return true if controller == "user/registrations"
     return true if controller == "devise/sessions"
     return true if controller == "pages"
+    return true if controller == "projects/project_users"
     
 
     
