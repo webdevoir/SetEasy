@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-    @project.project_users.new(user: current_user, role: "owner")
+    @project.project_users.new(user: current_user, role: "Owner")
 
      if @project.save
         redirect_to projects_path, notice: "Projects Submitted successfully!"
