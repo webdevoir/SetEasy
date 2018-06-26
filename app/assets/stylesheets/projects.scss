@@ -1,3 +1,33 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#invite_button {
+    padding: 8px 40px;
+}
+
+
+.invite_form_wrapper {
+	.invite_form {
+		height: 40px;
+		width: 30%;
+		float: left;
+		margin: 15px;
+	}
+}
+
+.projects_users_table {
+	margin-top: 50px;
+}
+@media screen and (max-width: 700px) {
+
+	.invite_form_wrapper {
+		.invite_form {		
+			width: 50%;
+		}
+	}
+	#invite_button {
+	    margin-left: 0px;
+	}
+
+}
