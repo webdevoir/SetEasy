@@ -56,4 +56,8 @@ class Projects::ProjectUsersController < ApplicationController
     def project_user_params
       params.require(:project_user).permit(:email, :role)
     end
+
+     def current_resource
+      @current_resource ||= Project.find(params[:project_id]) if params[:project_id]
+    end
 end

@@ -74,4 +74,8 @@ class ProjectsController < ApplicationController
         params.require(:project).permit(:id, :name, :budget, :user_id
 )
       end
+
+      def current_resource
+      @current_resource ||= Project.find(params[:id]) if params[:id]
+    end
 end

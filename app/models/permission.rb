@@ -12,6 +12,10 @@ class Permission < Struct.new(:user)
     return true if controller == "pages"
     # return true if controller == "projects/project_users"
     return true if controller == "devise/invitations"
+    return true if controller == "projects" && action.in?(%w[new create show index])
+    return true if controller == "projects" && resource && resource.user_id == user.id
+    # return true if controller == "projects/project_users" && action.in?(%w[new create show])
+    return true if controller == "projects/project_users" && resource && resource.user_id == user.id
     # return true if controller == "projects" && action.in?(%w[index show new])
     
     if user && user.current_project
@@ -32,7 +36,7 @@ class Permission < Struct.new(:user)
     elsif role.in?(["Production Designer", "Decorator", "Assistant Decorator"])
       return true if controller.in?(main_ctrls)
       return true if controller.in?(restricted)
-      return true if controller == "projects" 
+      # return true if controller == "projects" 
       # return true if controller == "projects/project_users"
     # elsif role == "Decorator"
     #   return true if controller.in?(main_ctrls)
@@ -58,7 +62,7 @@ class Permission < Struct.new(:user)
 end
 
 
- # return true if controller == "sites"  && resource && resource.employer_id == employer.id
-      # return true if controller == "employers" && resource && resource.id == employer.id
-      # return true if controller == "workers"   && resource && resource.employer_id == employer.id
+ # return true if controller == "sites"  && resource && resource.user_id == user.id
+      # return true if controller == "users" && resource && resource.id == user.id
+      # return true if controller == "workers"   && resource && resource.user_id == user.id
       # return true if controller.in?(%w[emergencies certificates orientations sjps swps violations wcbs])
