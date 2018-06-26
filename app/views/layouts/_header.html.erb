@@ -42,7 +42,7 @@
                     
                     <li role="presentation"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
 
-                    <li  style="margin-left: 15px" class="nav_item"><%= link_to raw("Logged in as <strong>#{current_user.email}</strong>"), edit_user_registration_path, class: "nav-link" %></li>
+                    <li  style="margin-left: 15px" class="nav_item"><%= link_to raw("<strong>#{current_user.email}</strong>"), edit_user_registration_path, class: "nav-link" %></li>
                      
                       <% if current_project %>
                         <li><%= link_to "Project: #{truncate(current_project.name, length: 20)}", root_path, class: "nav-link" %></li>
