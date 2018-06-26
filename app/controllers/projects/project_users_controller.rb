@@ -16,7 +16,11 @@ class Projects::ProjectUsersController < ApplicationController
 
   private
     def set_project
-      @project = current_user.projects.find(params[:project_id])
+      if current_user.role == "Admin"
+        @project = Project.find(params[:project_id])
+      else
+        @project = current_user.projects.find(params[:project_id])
+      end
     end
 
     def project_user_params
