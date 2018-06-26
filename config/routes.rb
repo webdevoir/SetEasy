@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'project_users/new'
 
 		################  Admin Start#############################
 		namespace :admin do
@@ -45,7 +44,8 @@ Rails.application.routes.draw do
 		# devise_scope :user do
 	 #      root to: "devise/sessions#new"
 	 #    end
-
+	 	resources :messages, only: [:new, :create]
+	 	
 		devise_for :users, controllers: {
 		        sessions: 'user/sessions',
 		        registrations: 'user/registrations',

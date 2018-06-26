@@ -10,6 +10,7 @@ class Permission < Struct.new(:user)
     return true if controller == "user/registrations"
     return true if controller == "devise/sessions"
     return true if controller == "pages"
+    return true if controller == "messages"
     # return true if controller == "projects/project_users"
     return true if controller == "devise/invitations"
     return true if controller == "projects" && action.in?(%w[new create show index])
@@ -36,23 +37,10 @@ class Permission < Struct.new(:user)
     elsif role.in?(["Production Designer", "Decorator", "Assistant Decorator"])
       return true if controller.in?(main_ctrls)
       return true if controller.in?(restricted)
-      # return true if controller == "projects" 
-      # return true if controller == "projects/project_users"
-    # elsif role == "Decorator"
-    #   return true if controller.in?(main_ctrls)
-    #   return true if controller.in?(restricted)
-    # elsif role == "Assistant Decorator"
-    #   return true if controller.in?(main_ctrls)
-    #   return true if controller.in?(restricted)
 
     elsif role.in?([ "Buyer", "Lead Dresser", "Dresser Worker"])
       return true if controller.in?(main_ctrls)  && action.in?(%w[show index sets])
-    # elsif user && user.role == "Lead Dresser"
-    #   return true if controller.in?(main_ctrls)  && action.in?(%w[show index sets])
-    # elsif user && user.role == "Dresser"
-    #   return true if controller.in?(main_ctrls)  && action.in?(%w[show index sets])
-    # elsif user && user.role == "Worker"
-    #   return true if controller.in?(main_ctrls)  && action.in?(%w[show index sets])
+
     elsif user
       return true if controller.in?(main_ctrls)  && action.in?(%w[show index sets])
     end
@@ -61,8 +49,3 @@ class Permission < Struct.new(:user)
   end
 end
 
-
- # return true if controller == "sites"  && resource && resource.user_id == user.id
-      # return true if controller == "users" && resource && resource.id == user.id
-      # return true if controller == "workers"   && resource && resource.user_id == user.id
-      # return true if controller.in?(%w[emergencies certificates orientations sjps swps violations wcbs])
