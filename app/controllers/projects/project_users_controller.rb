@@ -15,6 +15,28 @@ class Projects::ProjectUsersController < ApplicationController
 	end
 
 
+  def edit
+    @project_user = ProjectUser.find(params[:id])
+       respond_to do |format|
+      format.html
+      format.js
+    end
+
+  end
+
+   def update
+    @project_user = ProjectUser.find(params[:id])
+    project = @project_user.project
+    if @project_user.update_attributes(project_user_params)
+      redirect_to project_path(project), notice: "Project updated successfully"
+    else
+      flash[:error] = "#{@project.errors.count} errors prevented certificate from being updated."
+      render :edit
+    end
+
+  end
+
+
   def destroy
     @project_user = ProjectUser.find(params[:id])
     @project_user.destroy

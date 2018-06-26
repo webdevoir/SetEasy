@@ -33,6 +33,7 @@ class Permission < Struct.new(:user)
       return true if controller.in?(main_ctrls)
       return true if controller.in?(restricted)
       return true if controller == "projects" 
+      # return true if controller == "projects/project_users"
     # elsif role == "Decorator"
     #   return true if controller.in?(main_ctrls)
     #   return true if controller.in?(restricted)

@@ -1,0 +1,13 @@
+  <div class="container">
+
+      <%= form_for [@project, @project_user] do |f| %>
+
+          <h4>Change role for: <%= @project_user.user.email %><h4></be>
+          <%= f.select :role, ["Production Designer" , "Decorator", "Assistant Decorator", "Buyer", "Lead Dresser", "Dresser", "Worker", "Owner"], {}, class: "form-control invite_form" %>
+       
+    
+        <div style="margin-top: 25px">
+          <%= f.submit "Submit", class: 'form-control exam_forms' %>
+        </div>
+      <% end %>
+    </div>

@@ -1,10 +1,11 @@
 <div class="container">
+	  <div id='remote_container'></div>
 		<div class="row invite_form_wrapper">
 		<h4>Invite User</h4>
 		<%= form_for [@project, ProjectUser.new] do |f| %>
 		  <div>
 		    <%= f.text_field :email, required: true, placeholder: "Email address", class: "invite_form form-control" %>
-		    <%= f.select :role, ["Production Designer" , "Decorator", "Assistant Decorator", "Buyer", "Lead Dresser", "Dresser", "Worker", "Admin"], {}, class: "form-control invite_form" %>
+		    <%= f.select :role, ["Production Designer" , "Decorator", "Assistant Decorator", "Buyer", "Lead Dresser", "Dresser", "Worker"], {}, class: "form-control invite_form" %>
 		    <%= f.submit "Invite", class: "exam_button", id: "invite_button" %>
 		  </div>
 		  
@@ -31,7 +32,7 @@
 	  
 	        <td><%= user.email %></td>
 	        <td><%= pu.role%></td>
-	       <td class="no_pdf">(<%= link_to "delete", project_project_user_path(@project, pu.id), method: :delete, data: {confirm: "Are you sure you want to delete #{pu.id}?"} %>)</td>
+	        <td class="no_pdf">(<%= link_to "edit", edit_project_project_user_path(@project, pu.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, <%= link_to "delete", project_project_user_path(@project, pu.id), method: :delete, data: {confirm: "Are you sure you want to delete #{pu.id}?"} %>)</td>
 	      <% end %>
 
 	    </table>
