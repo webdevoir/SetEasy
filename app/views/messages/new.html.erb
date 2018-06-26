@@ -1,9 +1,9 @@
-<div class="container">
-    <div class="intro"></div>
-</div>
-      <div class="register-photo" id="register-photo-white">
-        <div class="form-container">
-            <div class="image-holder"></div>
+<div class="landing-image-message">
+
+
+
+<div class="login_container">
+  
             <%= form_for @message ,   :html => { :class => "article-form" } do |f| %>
                 <h2 class="text-center"><strong>Questions? Comments?</strong></h2>
                 <h3 class="text-center">Send us a message, and we'll get back to you!</h3>
@@ -14,21 +14,12 @@
                   <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
                 </div>
                 <div class="form-group">
-                <%= f.text_area :body,  placeholder: "Message", style: "height:300px; resize: none;", class: 'form-control' %>
+                <%= f.text_area :body,  placeholder: "Message", style: "height:200px; resize: none;", class: 'form-control' %>
                 </div>
                 <div >
-                <%= f.submit 'Send', class: 'btn btn-primary btn-block', style: "font-size: 30px; font-weight: bolder;" %>
+                <%= f.submit 'Send', class: 'btn btn-primary btn-block', style: "font-size: 20px; font-weight: bolder;", id: "message_button" %>
                 </div>  
             <% end %>       
-        </div>
+
     </div>
-    <div class="features-clean"></div>
-    <div></div>
-    <div class="simple-slider">
-        <div class="swiper-container">
-            <div class="swiper-wrapper"></div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-    </div>
+     </div>
