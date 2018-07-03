@@ -27,6 +27,8 @@ class ProjectsController < ApplicationController
     @project.project_users.new(user: current_user, role: "Owner")
 
      if @project.save
+        # current_user.current_project = @project.id
+        User.find(current_user.id).update(current_project: @project.id)
         redirect_to projects_path, notice: "Projects Submitted successfully!"
       else
         flash[:error] = @project.errors.full_messages.to_sentence
