@@ -13,6 +13,7 @@ class Permission < Struct.new(:user)
     return true if controller == "messages"
     # return true if controller == "projects/project_users"
     return true if controller == "devise/invitations"
+    return true if controller == "user/invitations"
     return true if controller == "projects" && action.in?(%w[new create show index])
     return true if controller == "projects" && resource && resource.user_id == user.id
     # return true if controller == "projects/project_users" && action.in?(%w[new create show])
