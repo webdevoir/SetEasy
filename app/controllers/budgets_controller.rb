@@ -1,6 +1,6 @@
 class BudgetsController < ApplicationController
   include ApplicationHelper
-  before_action :redirect_cancel, only: [:create, :update]
+  before_action :redirect_cancel, only: [:update]
 
   def index
     @project = current_project
@@ -29,7 +29,7 @@ class BudgetsController < ApplicationController
     # @budget.user_id = current_user.id
 
      if @budget.save
-        redirect_to budget_path(@budget), notice: "Budgets Submitted successfully!"
+        redirect_to edit_budget_path(@budget), notice: "Budgets Submitted successfully!"
       else
         flash[:error] = @budget.errors.full_messages.to_sentence
         render :new, notice: "Budget could not be created!"

@@ -1,1 +1,93 @@
-<%= render 'form' %>
+ <div class="container">
+ 	<div id='remote_container'></div>
+
+ 		<h2>Budget for <%= @budget.location.name %></h2>
+
+
+      <%= form_for @budget  do |f| %>
+        <% if @budget.errors.any? %>
+        <div>
+          <%= pluralize(@budget.errors.count, "error") %> prevented this budget from being submitted:
+          <ul>
+            <% @budget.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+	 <table class="table">
+	      <tr>
+
+	        <th>Item</th>
+	        
+	        <th>Price</th>
+	        <th>Rental/Purchase</th>
+	        <th>Remove</th>
+
+	      </tr>
+	      <tbody id="edit_budgets">
+	    
+	     
+	      		<%= f.fields_for :budget_items do |ff| %>
+	      		
+				  <%= render 'budget_item_fields', f: ff %>
+				 
+				<% end %>
+			</tbody>
+				<tr>
+					<%= link_to_add_association 'add item', f, :budget_items , data: {"association-insertion-node" => "#edit_budgets", "association-insertion-method" => "append"}, class: "btn btn-primary exam_button" %>
+					<%= f.submit "Save Changes", class: "btn btn-primary exam_button" %> 
+					<%= button_tag t('buttons.cancel'), type: "submit", name: "cancel", value: true, class: 'btn btn-primary exam_button' %>
+			
+				</tr>
+	    
+	      <tr>
+	      	<td></td>
+	      	<td></td>
+	      	<td class="total">Total</td>
+	      	<td class="total" id="budget_total"><%= number_to_currency(@budget.budget_items.sum(:price)) %></td>
+
+	      </tr>
+	  		
+	    </table>
+	     <div>
+          <%= f.submit "Save Changes", class: 'form-control', id: "submit" %> 
+        </div>
+      <% end %>
+
+</div>
+ 
+
+ <script>
+  $( function() {
+
+    function totalCalc() {
+    	var sum = 0;
+		$("[id*='price']").each(function(){
+			display = $(this).parent().parent().css("display");
+			
+			num = parseFloat($(this).val())
+			// if(typeof num == 'number'){
+				if(isNaN(num)){
+		    		test = $(this).val()
+				console.log("is not number " + test);
+			} else if (display != "none") {
+				
+				sum += num;
+			}
+		});
+		$('#budget_total').text(sum.toFixed(2))
+    };
+
+	$("[id*='price']").keyup(function(){
+		totalCalc()
+	});
+
+	$("a").click(function(){
+		// $("[id*='destroy']").on('click', 'a', function() {
+		totalCalc()
+	});
+  });
+</script>

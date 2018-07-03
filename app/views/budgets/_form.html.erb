@@ -16,13 +16,13 @@
 		      <%= f.collection_select :location_id, Location.all, :id, :name, {}, {:class=>'form-control'}%>
 		    </div>
 
-		    <h2>Items</h2>
+		  <!--   <h2>Items</h2>
 				<%= f.fields_for :budget_items do |ff| %>
 				  <%= render 'budget_item_fields', f: ff %>
-				<% end %>
+				<% end %> -->
 				
         <div>
-        	<%= link_to_add_association 'add item', f, :budget_items%>
+  <!--       	<%= link_to_add_association 'add item', f, :budget_items%> -->
           <%= f.submit "Submit", class: 'form-control exam_forms' %> 
         </div>
       <% end %>
