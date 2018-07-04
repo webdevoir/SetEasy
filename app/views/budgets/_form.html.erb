@@ -13,7 +13,7 @@
       <% end %>
         <div>
 		      <%= f.label :location_id, "Select a Set" %><br>
-		      <%= f.collection_select :location_id, Location.all, :id, :name, {}, {:class=>'form-control'}%>
+		      <%= f.collection_select :location_id, @project.locations, :id, :name, {}, {:class=>'form-control'}%>
 		    </div>
 
 		  <!--   <h2>Items</h2>

@@ -13,6 +13,7 @@ class BudgetsController < ApplicationController
 
   def new
   	@budget = Budget.new
+    @project = current_project
     (1..4).each do |n|
       ans =  @budget.budget_items.build
     end
