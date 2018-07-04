@@ -12,7 +12,7 @@
 
         <div>
         <%= f.label :location_id, "Select Set" %><br>
-        <%= f.collection_select :location_id, Location.all, :id, :name%>
+        <%= f.collection_select :location_id, @project.locations, :id, :name, {}, {:class=>'form-control'}%>
       </div>
       <p>Select Dates/Times</p>
       <div id="TimePlan" style="width: 100%;height: auto" ></div>

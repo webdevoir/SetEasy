@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  include ApplicationHelper
 
   def index
     @events = Event.where(start: params[:start]..params[:end])
@@ -10,6 +11,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @project = current_project
   end
 
   def edit
@@ -18,6 +20,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @project = current_project
+    @event.project_id = @project.id
     case @event.title
       when "Prep"
         @event.color = 'blue'
@@ -29,7 +33,10 @@ class EventsController < ApplicationController
         @event.color = 'red'
     end
           
-    @event.save
+    if @event.save
+    else
+      logger.info "#{@event.errors.full_messages.to_sentence}"
+    end
   end
 
   def update
