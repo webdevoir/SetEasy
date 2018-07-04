@@ -1,0 +1,137 @@
+#top-header { 
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    height: 50px;
+}
+
+#top-header a, #top-header span{
+	color: #000;
+	font-family:"Open Sans", Arial, sans-serifstyle;
+	font-weight: 600;
+	// font-size: 12px !important;
+	padding-left:4px;
+	height: 100%;
+    // display: inline-block;
+	}
+
+#top-header a, #top-header span:before {
+    margin-right: 4px;
+}
+#top-header li{
+    display: inline-block;
+    // margin-left: 12px;
+    color: #000;
+    font-family:"Open Sans", Arial, sans-serifstyle;
+    font-weight: 600;
+    font-size: 12px !important;
+    height: 100%;
+}
+#top-header ul{
+    display: inline-block;
+    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    // width: 60%;
+    height: 31px;
+    padding-left: 0;
+    padding-top:5px;
+    float: right;
+
+}
+.header-container {
+	width: 80%;
+	margin: 0 auto;
+    z-index: 0;
+}
+.header-icons {
+    width: 14px;
+}
+.header-icons:before {
+	font-size: 14px !important;
+    font-weight: 100;
+}
+.top-wrapper {
+    padding-top: 2px;
+}
+.header-login {
+    float: right;
+    padding-top: 3px;
+    margin-left: 12px;
+}
+#navcol-1 {
+    // width: 50%;
+    float: right;
+}
+.prime-view {
+    width: 200px;
+    height: 40px;
+    background-color: #ff6666;
+    float: left;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+.prime-view:hover {
+    color: #70f584;
+    // text-shadow: 0 0 15px #28b62c;
+    transform: scale(1.05); 
+    transition: all 0.5s ease;
+    box-shadow: 0 0 25px  #70f584;
+    // border: 5px solid  #70f584;
+}
+.prime-view span {
+    line-height: 40px;
+    font-family: raleway;
+    font-weight: 600;
+    font-size: 30px;
+    color: #fff;
+}
+#prime-view-emp {
+    width: 250px;
+    background-color: #66a3ff;
+}
+
+ .navbar-header img{
+        float: left;
+    }
+@media screen and (max-width: 992px) {
+     .prime-view {
+        width: 110px;
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .prime-view span {
+        line-height: 30px;
+        font-size: 18px;
+    }
+    #prime-view-emp {
+    width: 160px;
+    background-color: #66a3ff;
+}
+}
+@media screen and (max-width: 700px) {
+    .header-phone{
+        display: none !important;
+    }
+    .header-container {
+    width: 100%;
+    margin: 0;
+    z-index: 0;
+    }
+   
+    #navcol-1 {
+    width: 80%;
+    float: none;
+}
+
+
+}

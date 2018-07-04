@@ -1,6 +1,6 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
+      <div class="container" id="main-header-container">
           <% if current_user
               logo_link = "/"
             else  
@@ -8,7 +8,8 @@
              end %>
 
              
-          <div class="navbar-header"><%= link_to (image_tag "https://mixtapecoverking.com/wp-content/uploads/photo-gallery/s-logo.png" , style: 'height:45px;width:auto;'), logo_link, class: "navbar-left" %>
+          <div class="navbar-header">
+ <!--            <%= link_to (image_tag "https://mixtapecoverking.com/wp-content/uploads/photo-gallery/s-logo.png" , style: 'height:45px;width:auto;'), logo_link, class: "navbar-left" %> -->
     
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navcol-1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,7 +41,7 @@
               
                   <% if user_signed_in? %>
                     
-                    <li role="presentation"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+ 
 
                     <li  style="margin-left: 15px" class="nav_item"><%= link_to raw("<strong>#{current_user.email}</strong>"), edit_user_registration_path, class: "nav-link" %></li>
                      
@@ -54,9 +55,7 @@
                     <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> -->
                   
                   <% end %>
-                  <% unless current_user && current_user.role == "Admin" %>
-                    <li role="presentation" class="nav_item"><%= link_to 'Contact', new_message_path, class: "nav-link" %></li>
-                  <% end %>
+                
                 
               </ul>
           </div>

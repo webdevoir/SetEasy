@@ -1,0 +1,42 @@
+<div id="top-header" class="et-fixed-header"> 
+	<div class="header-container"> 
+		<div class="top-wrapper"> 
+			<%= link_to (image_tag "logo_trans_ol.png" , style: 'height:45px;width:auto;'), root_path, class: "navbar-left" %>
+
+			<ul> 
+	
+					<li>
+						<%= link_to edit_user_registration_path  do %>
+							<span style="font-size: 30px; color: Dodgerblue;"><i class="fas fa-user-circle"></i></span>
+						<% end %>
+					</li> 
+					<li>
+						<%= link_to destroy_user_session_path, method: :delete  do %>
+							<span style="font-size: 30px; color: Dodgerblue;"><i class="fas fa-sign-out-alt"></i></span>
+						<% end %>
+					</li> 
+					<li>
+						<%= link_to new_message_path  do %>
+							<span style="font-size: 30px; color: Dodgerblue;"><i class="fas fa-envelope"></i></span>
+						<% end %>
+					</li> 
+					<li>
+						<%= link_to "pages/forms"  do %>
+							<span style="font-size: 30px; color: Dodgerblue;"><i class="fas fa-download"></i></span>
+						<% end %>
+					</li> 
+
+
+
+					
+	
+		
+				<% if current_user %>
+
+                <% else %>
+                	<li class="header-login"><%= link_to "sign in", new_user_session_path %></li>
+                 <% end %>
+			</ul> 
+		</div>
+	</div> 
+</div>
