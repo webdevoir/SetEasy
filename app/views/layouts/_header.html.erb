@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
+<nav class="navbar navbar-expand-sm navbar-light bg-light" id="main-header">
       <div class="container" id="main-header-container">
           <% if current_user
               logo_link = "/"
@@ -15,7 +15,7 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
           </div>
-          <div class="collapse navbar-collapse" id="navcol-1">
+          <div class="collapse navbar-collapse navbar-toggleable-sm" id="navcol-1">
               <ul class="navbar-nav mr-auto">
 
                   
@@ -39,25 +39,19 @@
                     <li role="presentation" class="nav_item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
                   <% end %>
               
-                  <% if user_signed_in? %>
-                    
- 
-
-                    <li  style="margin-left: 15px" class="nav_item"><%= link_to raw("<strong>#{current_user.email}</strong>"), edit_user_registration_path, class: "nav-link" %></li>
-                     
-                      <% if current_project %>
-                        <li><%= link_to "Project: #{truncate(current_project.name, length: 20)}", root_path, class: "nav-link" %></li>
-                      <% else %>
-                       <li><%= link_to "Project: none", "#", class: "nav-link" %></li>
-                      <% end %>
-                  <% else %>
-            <!--      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-                    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> -->
-                  
-                  <% end %>
+                 
                 
                 
               </ul>
+               <% if user_signed_in? %>
+                  <ul class="navbar-nav mr-auto" style="float: right;">
+                    
+
+                    <li class="nav_item"><%= link_to raw("<strong>#{current_user.email}</strong>"), edit_user_registration_path, class: "nav-link" %></li>
+                     
+                  
+                  <% end %>
+                </ul>
           </div>
       </div>
   </nav>

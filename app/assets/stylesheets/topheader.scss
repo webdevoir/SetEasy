@@ -4,15 +4,17 @@
     width: 100%;
     background-color: #f8f9fa;
     height: 50px;
+
 }
 
 #top-header a, #top-header span{
-	color: #000;
-	font-family:"Open Sans", Arial, sans-serifstyle;
-	font-weight: 600;
-	// font-size: 12px !important;
+	// color: #000;
+    color: rgba(0, 0, 0, 0.7);
+	// font-family: "raleway";
+	font-weight: 300;
+	font-size: 12px;
 	padding-left:4px;
-	height: 100%;
+	// height: 100%;
     // display: inline-block;
 	}
 
@@ -27,7 +29,20 @@
     font-weight: 600;
     font-size: 12px !important;
     height: 100%;
+    padding-left: 15px;
 }
+
+#header-project {
+    padding-top: 10px;
+    margin-left: 30px;
+    float: left;
+    height: 50px;
+}
+
+// #header-project a {
+//     vertical-align: bottom !important;
+// }
+
 #top-header ul{
     display: inline-block;
     margin: 0;
@@ -61,44 +76,25 @@
     padding-top: 3px;
     margin-left: 12px;
 }
-#navcol-1 {
-    // width: 50%;
-    float: right;
-}
-.prime-view {
-    width: 200px;
-    height: 40px;
-    background-color: #ff6666;
-    float: left;
-    margin-left: 20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    text-align: center;
-}
-.prime-view:hover {
-    color: #70f584;
-    // text-shadow: 0 0 15px #28b62c;
-    transform: scale(1.05); 
-    transition: all 0.5s ease;
-    box-shadow: 0 0 25px  #70f584;
-    // border: 5px solid  #70f584;
-}
-.prime-view span {
-    line-height: 40px;
-    font-family: raleway;
-    font-weight: 600;
-    font-size: 30px;
-    color: #fff;
-}
-#prime-view-emp {
-    width: 250px;
-    background-color: #66a3ff;
-}
+// #navcol-1 {
+//     // width: 50%;
+//     float: right;
+// }
+
 
  .navbar-header img{
         float: left;
     }
+
+
+.fas:hover{
+    color: #000;
+    text-shadow: 0 0 30px #ccff00;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 30px  #ccff00;
+    // border: 2px solid  #ccff00;
+    border-radius: 50%;
+}
 @media screen and (max-width: 992px) {
      .prime-view {
         width: 110px;
@@ -128,10 +124,25 @@
     z-index: 0;
     }
    
-    #navcol-1 {
-    width: 80%;
-    float: none;
+    // #navcol-1 {
+    // width: 80%;
+    // float: none;
+    // }
+
+    #top-header li{
+
+        padding-left: 5px;
+    }
+    #header-project {
+        display: none;
+    }
+
+
 }
 
-
+@media screen and (max-width: 400px) {
+    #top-header-logo {
+        // height: 20px;
+        display: none;
+    }
 }

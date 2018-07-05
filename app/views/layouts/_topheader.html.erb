@@ -1,7 +1,15 @@
 <div id="top-header" class="et-fixed-header"> 
 	<div class="header-container"> 
 		<div class="top-wrapper"> 
-			<%= link_to (image_tag "logo_trans_ol.png" , style: 'height:45px;width:auto;'), root_path, class: "navbar-left" %>
+			<%= link_to (image_tag "logo_trans_ol.png", style: 'height:45px;width:auto;float:left;', id: "top-header-logo"), root_path, class: "navbar-left" %>
+
+			<div id="header-project">
+				<% if current_project %>
+                        <%= link_to "Project: #{truncate(current_project.name, length: 20)}", projects_path, class: "nav-link" %>
+                      <% else %>
+                      	<%= link_to "Project: none", "#", class: "nav-link" %>
+                      <% end %>
+            </div>
 
 			<ul> 
 	
