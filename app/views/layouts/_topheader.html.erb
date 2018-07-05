@@ -15,22 +15,22 @@
 	
 					<li>
 						<%= link_to edit_user_registration_path  do %>
-							<span style="font-size: 30px; color: Dodgerblue;"><i class="fas fa-user-circle"></i></span>
+							<span style="font-size: 30px; color: Dodgerblue;" data-toggle="tooltip" data-animation="false" title="Profile Settings"><i class="fas fa-user-circle"></i></span>
 						<% end %>
 					</li> 
 					<li>
 						<%= link_to destroy_user_session_path, method: :delete  do %>
-							<span style="font-size: 30px; color: Dodgerblue;"><i class="fas fa-sign-out-alt"></i></span>
+							<span style="font-size: 30px; color: Dodgerblue;" data-toggle="tooltip" data-animation="false" title="Log Out"><i class="fas fa-sign-out-alt"></i></span>
 						<% end %>
 					</li> 
 					<li>
 						<%= link_to new_message_path  do %>
-							<span style="font-size: 30px; color: Dodgerblue;"><i class="fas fa-envelope"></i></span>
+							<span style="font-size: 30px; color: Dodgerblue;" data-toggle="tooltip" data-animation="false" title="Contact Us"><i class="fas fa-envelope"></i></span>
 						<% end %>
 					</li> 
 					<li>
 						<%= link_to "pages/forms"  do %>
-							<span style="font-size: 30px; color: Dodgerblue;"><i class="fas fa-download"></i></span>
+							<span style="font-size: 30px; color: Dodgerblue;" data-toggle="tooltip" data-animation="false" title="Download Forms"><i class="fas fa-download"></i></span>
 						<% end %>
 					</li> 
 
