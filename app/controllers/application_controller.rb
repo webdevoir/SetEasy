@@ -32,6 +32,8 @@ class ApplicationController < ActionController::Base
   	  # 	redirect_to (new_project_path, notice: "You must select a project first")
 	  if !current_permission.allow?(params[:controller], params[:action], current_resource)
 	  	redirect_back( fallback_location: root_path, notice: "Not authorized.")
+	  	render html: "<script>alert('No users!')</script>".html_safe
+	  	logger.info "#################  ACTION --> #{params[:action]} ##########################"
 	    logger.info "#################  NOT AUTHORIZED ##########################"
 	  end
 	end

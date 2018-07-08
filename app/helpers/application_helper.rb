@@ -11,10 +11,12 @@
 	end
 
 	def current_project
-		if current_user.current_project
+		if current_user && current_user.current_project
 			return Project.find_by(id: current_user.current_project)
-		else 
+		elsif current_user
 			return Project.where(user_id: current_user.id).first
+		else
+			nil
 		end
 	end
 
