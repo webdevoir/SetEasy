@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 		end 
 		################  Admin End #############################
 
+		# get 'application/allow?', as: 'allow?'
+		get '/allow', to: 'application#allow?', as: :allow
+
 		resources :projects do
 		  resources :project_users, path: :users, module: :projects
 		end

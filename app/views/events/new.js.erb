@@ -1,2 +1,18 @@
-$('#remote_container').html('<%= j render "new" %>');
-$('#new_event').modal('show');
+console.log("New Triggered");
+
+ $.ajax({
+        // type: "get",
+        url: '/allow',
+        success: function(data) {
+            console.log("Success");
+            console.log(data);
+   //          $('#remote_container').html('<%= j render "new" %>');
+			// $('#new_event').modal('show');
+        },
+        error: function() {
+            alert('Error occured');
+        }
+    });
+
+
+
