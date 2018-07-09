@@ -60,6 +60,10 @@ class User::RegistrationsController < Devise::RegistrationsController
     # Allows user to update registration information without password.
     resource.update_without_password(params.except("current_password"))
   end
+
+  def after_update_path_for(resource)
+      projects_path
+    end
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
