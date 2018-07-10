@@ -9,10 +9,10 @@
 
 #top-header a, #top-header span{
 	// color: #000;
-    color: rgba(0, 0, 0, 0.7);
+    // color: rgba(0, 0, 0, 0.7);
 	// font-family: "raleway";
 	font-weight: 300;
-	font-size: 12px;
+	// font-size: 12px;
 	padding-left:4px;
 	// height: 100%;
     // display: inline-block;
@@ -38,6 +38,12 @@
     float: left;
     height: 50px;
 }
+#header-project a {
+       font-size: 12px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+
 
 // #header-project a {
 //     vertical-align: bottom !important;
@@ -95,6 +101,17 @@
     // border: 2px solid  #ccff00;
     border-radius: 50%;
 }
+
+.top_icons span {
+    font-size: 30px;
+    color: Dodgerblue;
+}
+
+@media screen and (max-width: 992px) {
+     .top_icons span{
+        font-size: 25px;
+    }
+}
 @media screen and (max-width: 992px) {
      .prime-view {
         width: 110px;
@@ -110,9 +127,9 @@
         font-size: 18px;
     }
     #prime-view-emp {
-    width: 160px;
-    background-color: #66a3ff;
-}
+        width: 160px;
+        background-color: #66a3ff;
+    }
 }
 @media screen and (max-width: 700px) {
     .header-phone{
