@@ -46,12 +46,21 @@
 						      	<a class="dropdown-toggle" href="#" id="dropdownMenuButton"" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						        <span data-toggle="tooltip" data-animation="false" title="Current Project"><i class="fas fa-film"></i></span>
 						      </a>
-						          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								          <% current_user.projects.each do |pro|  %>
-								              <%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put, class: "dropdown-item"  %>
-								            <% end %>
-			
-						        </div>
+						      <% if current_user.role == "Admin" %> 
+						      		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									          <% Project.all.order(:name).each do |pro|  %>
+									              <%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put, class: "dropdown-item"  %>
+									            <% end %>
+				
+							        </div>
+							   <% else %>
+							        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									          <% current_user.projects.each do |pro|  %>
+									              <%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put, class: "dropdown-item"  %>
+									            <% end %>
+				
+							        </div>
+						       <% end %>
 						      </div></li>
 						 <% else %>
 						 	<li><div class="dropdown">
