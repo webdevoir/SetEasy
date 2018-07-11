@@ -12,54 +12,58 @@
             </div>
 
 			<ul class="top_icons"> 
-	
-					<li>
-						<%= link_to edit_user_registration_path  do %>
-							<span data-toggle="tooltip" data-animation="false" title="Profile Settings"><i class="fas fa-user-circle"></i></span>
-						<% end %>
-					</li> 
-					<li>
-						<%= link_to destroy_user_session_path, method: :delete  do %>
-							<span data-toggle="tooltip" data-animation="false" title="Log Out"><i class="fas fa-sign-out-alt"></i></span>
-						<% end %>
-					</li> 
+					<% if current_user %>
+						<li>
+							<%= link_to edit_user_registration_path  do %>
+								<span data-toggle="tooltip" data-animation="false" title="Profile Settings"><i class="fas fa-user-circle"></i></span>
+							<% end %>
+						</li> 
+					<% end %>
+					<% if current_user %>
+						<li>
+							<%= link_to destroy_user_session_path, method: :delete  do %>
+								<span data-toggle="tooltip" data-animation="false" title="Log Out"><i class="fas fa-sign-out-alt"></i></span>
+							<% end %>
+						</li> 
+					<% end %>
 					<li>
 						<%= link_to new_message_path  do %>
 							<span  data-toggle="tooltip" data-animation="false" title="Contact Us"><i class="fas fa-envelope"></i></span>
 						<% end %>
 					</li> 
-					<li>
-						<%= link_to "pages/forms"  do %>
-							<span  data-toggle="tooltip" data-animation="false" title="Download Forms"><i class="fas fa-download"></i></span>
-						<% end %>
-					</li> 
+					<% if current_user %>
+						<li>
+							<%= link_to "pages/forms"  do %>
+								<span  data-toggle="tooltip" data-animation="false" title="Download Forms"><i class="fas fa-download"></i></span>
+							<% end %>
+						</li> 
+					<% end %>
 			
-
-
-                     <li><div class="dropdown">
-			
-				      	<a class="dropdown-toggle" href="#" id="dropdownMenuButton"" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				        <span data-toggle="tooltip" data-animation="false" title="Current Project"><i class="fas fa-film"></i></span>
-				      </a>
-				          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				          <% current_user.projects.each do |pro|  %>
-				              <%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put, class: "dropdown-item"  %>
-				            <% end %>
-				        </div>
-				      </div></li>
-
-
-
-
+					<% if current_user %>
+						<% if current_project %>
+		                     <li><div class="dropdown">
 					
-	
-		
-				<% if current_user %>
-
-                <% else %>
-                	<li class="header-login"><%= link_to "sign in", new_user_session_path %></li>
-                 <% end %>
-			</ul> 
+						      	<a class="dropdown-toggle" href="#" id="dropdownMenuButton"" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						        <span data-toggle="tooltip" data-animation="false" title="Current Project"><i class="fas fa-film"></i></span>
+						      </a>
+						          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								          <% current_user.projects.each do |pro|  %>
+								              <%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put, class: "dropdown-item"  %>
+								            <% end %>
+			
+						        </div>
+						      </div></li>
+						 <% else %>
+						 	<li><div class="dropdown">
+					
+						      	<a class="dropdown-toggle" href="#" id="dropdownMenuButton"" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						        <span data-toggle="tooltip" data-animation="false" title="No projects"><i class="fas fa-film"></i></span>
+						      </a>
+						          
+						      </div></li>
+						<% end %>
+					<% end %>
+			</ul> 	
 		</div>
 	</div> 
 </div>
