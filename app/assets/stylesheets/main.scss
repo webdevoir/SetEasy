@@ -50,8 +50,16 @@
 
 .modal {
     overflow-y:scroll;
+    top: 50px !important;;
+    z-index: 100000 !important;
 }
 
+// .modal-backdrop {
+//         z-index: 0 !important;
+// }
+
+// .modal-backdrop{z-index: 1050 !important;}
+// .modal{z-index: 1060 !important;}
 
 .wrapper {
     position: relative;
