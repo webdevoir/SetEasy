@@ -1,10 +1,21 @@
 class ProjectsController < ApplicationController
+  include ApplicationHelper
+
   def index
     if current_user.role == "Admin"
   	 @projects = Project.all
+     @projects = @projects.order(:name)
     else
       @projects = current_user.projects
       @projects = @projects.order(:updated_at).reverse_order
+    end
+    if current_project
+      proj_ids = []
+      proj_ids.push(current_project.id)
+      @projects.each do |proj|
+        proj_ids << proj.id
+      end
+      @projects = Project.find( proj_ids )
     end
   end
 

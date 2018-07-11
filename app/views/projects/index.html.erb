@@ -5,7 +5,7 @@
 <div class="row no_pdf">
   <%= link_to "Add Project ", new_project_path, data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button", style: "width:auto;"  %>
   
-        <%= link_to "Download PDF", projects_path(format: "pdf"), target: :_blank, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+  <!--       <%= link_to "Download PDF", projects_path(format: "pdf"), target: :_blank, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %> -->
 
 
 
@@ -41,6 +41,15 @@
 
     </table>
   
-         
+    <% if current_project %>
+      <script>
+        $( function() {
+          var row = $('tr').eq(1);
+          row.addClass("project-highlight")
+          console.log("First Row Script");
+          console.log(row);
+        });
+      </script>
+    <% end %>
           
 </div>
