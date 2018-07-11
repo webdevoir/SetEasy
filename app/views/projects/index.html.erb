@@ -22,6 +22,8 @@
         <th>Users</th>
         
         <th>Budget</th>
+        <th>Dates</th>
+        <th>Production Company</th>
 
 
  
@@ -36,6 +38,8 @@
         
         <td><%= link_to "view", project %></td>
         <td><%= number_to_currency(project.budget) %></td>
+        <td>DATES</td>
+        <td>COMPANY</td>
        <td class="no_pdf">(<%= link_to "edit", edit_project_path(project), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, <%= link_to "delete", project_path(project), method: :delete, data: {confirm: "Are you sure you want to delete #{project.id}?"} %>)</td>
       <% end %>
 

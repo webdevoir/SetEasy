@@ -1,13 +1,16 @@
 <div class="container">
-	  <div id='remote_container'></div>
-		<div class="row invite_form_wrapper">
+	  <h2>Project Interface</h2>
+		<div class="invite_form_wrapper">
 		<h4>Invite User</h4>
 		<%= form_for [@project, ProjectUser.new] do |f| %>
-		  <div>
-		    <%= f.text_field :email, required: true, placeholder: "Email address", class: "invite_form form-control" %>
-		    <%= f.select :role, ["Production Designer" , "Decorator", "Assistant Decorator", "Buyer", "Lead Dresser", "Dresser", "Worker"], {}, class: "form-control invite_form" %>
-		    <%= f.submit "Invite", class: "exam_button", id: "invite_button" %>
-		  </div>
+		  	<div class="row">
+			    <%= f.text_field :email, required: true, placeholder: "Email address", class: "invite_form form-control" %>
+			    <%= f.select :role, ["Production Designer" , "Decorator", "Assistant Decorator", "Buyer", "Lead Dresser", "Dresser", "Coordinator"], {}, class: "form-control invite_form" %>
+			</div>
+			<div class="row">
+			    <%= f.submit "Invite", class: "exam_button", id: "invite_button" %>
+			    <%= link_to "Return to Projects ", projects_path , class: "exam_button",id: "invite_button"  %>
+			</div>
 		  
 		<%  end %>
 	</div>
