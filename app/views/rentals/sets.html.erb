@@ -9,11 +9,10 @@
                      <%= link_to location_rentals_path(set) do %>
                         <div class="rental_list_item">
                             <div class="rental_list_image_holder"><%= print_image "lights.jpg" %></div>
-                            <% if set.name.length < 20 %>
-                              <h2 class="rental_list_header"><%= set.name %></h2>
-                            <% else %>
-                              <h2 class="rental_list_header_small"><%= truncate(set.name, length: 50) %></h2>
-                            <% end %>
+                         
+                              <p class="rental_list_header"><%= truncate(set.name, length: 40) %></p>
+                            
+              
                         </div>
                   <% end %>
                   <hr>

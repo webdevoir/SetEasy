@@ -169,6 +169,8 @@
 .rental_list_item {
 	height: 100px;
 	width: 100%;
+	overflow: hidden;
+	overflow-wrap: break-word;
 
 }
 .rental_list_item:hover {
@@ -193,23 +195,12 @@
 	margin-left: 50px;
 	font-family: 'raleway';
 	font-weight: 600;
-  	font-size: 55px;
+  	font-size: 40px;
   	color: #5a6068;
   	text-shadow:  0px 0px 2px #001572;
   	text-decoration: none;
 }
 
-.rental_list_header_small {
-	padding: 20px;
-	float: left;
-	margin-left: 50px;
-	font-family: 'raleway';
-	font-weight: 600;
-  	font-size: 20px;
-  	color: #5a6068;
-  	text-shadow:  0px 0px 2px #001572;
-  	text-decoration: none;
-}
 
 @media screen and (max-width: 1100px) {
 	.rental_list_header {
@@ -222,8 +213,17 @@
 	.rental_list_image_holder {
 		width: 50px;
 	}
-
-
+}
+@media screen and (max-width: 1100px) {
+	.rental_list_header {
+		font-size: 20px;
+	}
+	.rental_list_item {
+		height: 50px;
+	}
+	.rental_list_image_holder {
+		width: 50px;
+	}
 }
 //////////////////  SETS NEW/////////////////
 
