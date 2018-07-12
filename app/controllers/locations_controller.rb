@@ -26,6 +26,7 @@ class LocationsController < ApplicationController
     @location.project_id = @project.id
 
      if @location.save
+        Budget.create(project_id: @project.id, location_id: @location.id)
         redirect_to locations_path, notice: "Locations Submitted successfully!"
       else
         flash[:error] = @location.errors.full_messages.to_sentence
