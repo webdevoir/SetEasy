@@ -13,4 +13,4 @@ class Rental < ApplicationRecord
 #           all
 #         end
 #       end
-# end
+end
