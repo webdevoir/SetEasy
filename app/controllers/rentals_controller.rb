@@ -50,7 +50,7 @@ class RentalsController < ApplicationController
    	@rental = Rental.find(params[:id])
     set = @rental.location_id
     if @rental.update_attributes(rental_params)
-      redirect_to location_rentals_path(set), notice: "rental updated successfully"
+      redirect_to location_rental_path(set, @rental), notice: "rental updated successfully"
     else
       flash[:error] = "#{@rental.errors.count} errors prevented certificate from being updated."
       render :edit
@@ -67,6 +67,6 @@ class RentalsController < ApplicationController
       protected
 
       def rental_params
-        params.require(:rental).permit(:id, :location_id, :image, :desc, :rental, :source, :due_date)
+        params.require(:rental).permit(:id, :location_id, :image, :desc, :rental, :source, :due_date, :pick_date)
       end
 end

@@ -19,7 +19,9 @@
         </div>
         <div>
         <%= f.label :location_id, "Select Set" %><br>
-        <%= f.collection_select :location_id, Location.all, :id, :name%>
+        <% sets = current_project.locations %>
+
+        <%= f.collection_select :location_id, sets, :id, :name%>
       </div>
         <h3>Rental type</h3>
          <div>
@@ -37,6 +39,10 @@
         <div>
           <%= f.label :source, "Item source" %><br>
           <%= f.text_field :source, class: 'form-control' %>
+        </div>
+        <div>
+          <%= f.label :pick_date, "Pick-up Date" %><br>
+          <%= f.date_field :pick_date, class: 'form-control' %>
         </div>
         <div>
           <%= f.label :due_date, "Return Date" %><br>

@@ -56,12 +56,19 @@
 //////////////////////  Rental Screen New ////////////////
 
 .rental_item {
-	height: 350px;
+	// height: 350px;
 	width: 350px;
 	float: left;
 	margin: 15px;
 	padding: 10px;
-	border-radius: 15px
+	border-radius: 15px;
+
+	 h4 {
+			 font-family: 'raleway';
+			  font-weight: 600;
+			  font-size: 30px;
+			  color: #5a6068;
+		}
 }
 .rental_item:hover {
 	opacity: 0.4;
@@ -263,12 +270,18 @@
 	 font-family: 'raleway';
 	  font-weight: 600;
 	  font-size: 30px;
+
+	  h4 {
+			 font-family: 'raleway';
+			  font-weight: 600;
+			  font-size: 30px;
+		}
 }
-.rental_text h4 {
-	 font-family: 'raleway';
-	  font-weight: 600;
-	  font-size: 30px;
-}
+// .rental_text h4 {
+// 	 font-family: 'raleway';
+// 	  font-weight: 600;
+// 	  font-size: 30px;
+// }
 .rental_thin {
 	font-weight: 200;
 }
