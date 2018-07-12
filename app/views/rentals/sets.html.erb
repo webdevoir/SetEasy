@@ -1,30 +1,23 @@
-   <div class="container">
+<div class="container">
     <h1>Sets Pieces</h1>
     <h2>Choose a Set</h2>
      <hr>
-     <div class="col-sm-8 col-xs-12">
-    
-        <% @sets.each do |set| %>
-      <!--   <div >
-            <%= link_to location_rentals_path(set) do %>
-                <div class="set_img">
-                <%= print_image "set.jpg" %>
-                <h2 class="set-header"><%= set.name %></h2>
-                </div>
-          <% end %>
-        	
-
-        </div> -->
-
-        
-             <%= link_to location_rentals_path(set) do %>
-                <div class="rental_list_item">
-                    <div class="rental_list_image_holder"><%= print_image "lights.jpg" %></div>
-                    <h2 class="rental_list_header"><%= set.name %></h2>
-                </div>
-          <% end %>
-          <hr>
- 
-    <% end %>
+     <div >
+            
+                <% @sets.each do |set| %>
+                
+                     <%= link_to location_rentals_path(set) do %>
+                        <div class="rental_list_item">
+                            <div class="rental_list_image_holder"><%= print_image "lights.jpg" %></div>
+                            <% if set.name.length < 20 %>
+                              <h2 class="rental_list_header"><%= set.name %></h2>
+                            <% else %>
+                              <h2 class="rental_list_header_small"><%= truncate(set.name, length: 50) %></h2>
+                            <% end %>
+                        </div>
+                  <% end %>
+                  <hr>
+         
+            <% end %>
      </div>
 </div>
