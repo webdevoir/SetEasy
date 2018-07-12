@@ -170,7 +170,6 @@
 	height: 100px;
 	width: 100%;
 	overflow: hidden;
-	overflow-wrap: break-word;
 
 }
 .rental_list_item:hover {
@@ -191,6 +190,7 @@
 }
 .rental_list_header {
 	padding: 20px;
+	width: calc(100% - 100px);
 	float: left;
 	margin-left: 50px;
 	font-family: 'raleway';
@@ -199,6 +199,22 @@
   	color: #5a6068;
   	text-shadow:  0px 0px 2px #001572;
   	text-decoration: none;
+
+
+  	overflow-wrap: break-word;
+	  word-wrap: break-word;
+
+	  -ms-word-break: break-all;
+	  /* This is the dangerous one in WebKit, as it breaks things wherever */
+	  word-break: break-all;
+	  /* Instead use this non-standard one: */
+	  word-break: break-word;
+
+	  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+	  -ms-hyphens: auto;
+	  -moz-hyphens: auto;
+	  -webkit-hyphens: auto;
+	  hyphens: auto;
 }
 
 
