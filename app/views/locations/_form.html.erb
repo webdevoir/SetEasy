@@ -22,13 +22,8 @@
           <%= f.text_field :province, class: 'form-control exam_forms' %>
         </div>
          <div>
-          <%= f.radio_button :interior, true, :checked => true , :value => true %>
-          <%= label :interior, "Interior" %>
-        </div>
-          <div>
-               <%= f.radio_button :interior, false, :value => false%> 
-               <%= label :interior, "Exterior"%>      
-          </div>
+           <%= f.label :interior, "Interior or Exterior"%> 
+           <%= f.select :interior, ["INT" , "EXT", "INT/EXT"], {}, class: "form-control exam_forms" %>
         <div>
           <%= f.submit "Submit", class: 'form-control exam_forms' %> 
         </div>

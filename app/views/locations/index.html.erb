@@ -25,15 +25,9 @@
 
        <% @locations.each do |location|  %>
       <tr>
-         <% if location.interior == true %>
-          <td>Interior</td>
-        <% elsif location.interior == false %>
-          <td>Exterior</td>
-        <% else %>
-          <td>N/A</td>
-        <% end %>
+        <td><%= location.interior %></td>
 
-        
+
         <td><%= location.name %></td>
 
         <% if location.city && location.city.length > 1 %>
