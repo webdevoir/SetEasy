@@ -28,9 +28,18 @@
   		<td><%= location.id %></td>
         <!-- <td><%= link_to location.name, location_path(location) %></td> -->
         <td><%= location.name %></td>
-        
-        <td><%= location.city %></td>
-        <td><%= location.street %></td>
+
+        <% if location.city && location.city.length > 1 %>
+          <td><%= location.city %></td>
+        <% else %>
+          <td>Not Available</td>
+        <% end %>
+
+        <% if location.street && location.street.length > 1 %>
+          <td><%= location.street %></td>
+        <% else %>
+          <td>Not Available</td>
+        <% end %>
         <% if location.interior == true %>
           <td>Interior</td>
         <% elsif location.interior == false %>

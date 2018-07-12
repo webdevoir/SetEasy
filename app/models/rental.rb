@@ -4,13 +4,13 @@ class Rental < ApplicationRecord
   mount_uploader :image, ImageUploader
 
 
-  def self.filter(query)
-        if query = "rental"
-          where(rental: true)
-        elsif query = "purchased"
-          where(rental: false)
-        else
-          all
-        end
-      end
-end
+#   def self.filter(query)
+#         if query = "rental"
+#           where(rental: true)
+#         elsif query = "purchased"
+#           where(rental: false)
+#         else
+#           all
+#         end
+#       end
+# end
