@@ -1,43 +1,31 @@
    <div class="container">
     <div id='remote_container'></div>
-    <h1>Set Pieces</h1>
-    <h2>for <%= @set.name if @set %></h2>
-    <%= link_to "Add a piece", new_location_rental_path(location_id: @set.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
-    <hr style="clear: both">
-      
+    <%= render 'header' %>
+<div class="row rental-container">
 
     <% @rentals.each do |rental| %>
-   <!--  <div>
-        <%= link_to location_rental_path(@set, rental) do %>
-            <div class="rental_img">
-            <%= print_image rental.image_url.to_s %>
-            <h2 class="rental-header"><%= link_to rental.desc, location_rental_path(@set, rental) %></h2>
-            <h3 class="rental-header-small">Return by: <%= rental.due_date.strftime("%b %d, %Y")  %></h3>
-            </div>
-      <% end %>
-    	
 
-    </div> -->
 
-        <%= link_to location_rental_path(@set, rental) do %>
-            <div class="rental_item">
-                <div class="rental_item_header">
-                    <%= truncate(rental.desc, length: 20) %> 
-                </div>
-                <div class="rental_item_pic">
-                    <%= print_image rental.image_url.to_s %>
-                </div>
-                <h4>Pickup Date: <span class="rental_thin">
-                <% if rental.pick_date %>
-                    <span class="rental_thin"><%= rental.pick_date.strftime("%b %d, %Y")  %></span>
-                <% else %>
-                    <span class="rental_thin">No date</span>
+                    <%= link_to location_rental_path(@set, rental) do %>
+                        <div class="rental_item">
+                            <div class="rental_item_header">
+                                <%= truncate(rental.desc, length: 20) %> 
+                            </div>
+                            <div class="rental_item_pic">
+                                <%= print_image rental.image_url.to_s %>
+                            </div>
+                            <h4>Pickup Date: <span class="rental_thin">
+                            <% if rental.pick_date %>
+                                <span class="rental_thin"><%= rental.pick_date.strftime("%b %d, %Y")  %></span>
+                            <% else %>
+                                <span class="rental_thin">No date</span>
+                            <% end %>
+
+                        </h4>
+                            <h4>Return by: <span class="rental_thin"><span class="rental_thin"><%= rental.due_date.strftime("%b %d, %Y")  %></span></h4>
+
+                        </div>
+                     <% end %>
                 <% end %>
-
-            </h4>
-                <h4>Return by: <span class="rental_thin"><span class="rental_thin"><%= rental.due_date.strftime("%b %d, %Y")  %></span></h4>
-
             </div>
-         <% end %>
-    <% end %>
 </div>

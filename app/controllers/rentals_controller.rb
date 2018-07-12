@@ -5,7 +5,13 @@ class RentalsController < ApplicationController
     @project = current_project
     if params[:location_id]
       @set = Location.find(params[:location_id])
-      @rentals = @set.rentals
+      if params[:filter] == "rental_filter"
+        @rentals = @set.rentals.where(rental: true)
+      elsif params[:filter] == "purchased"
+        @rentals = @set.rentals.where(rental: false)
+      else
+        @rentals = @set.rentals
+      end
     else
       @rentals = @project.rentals
     end

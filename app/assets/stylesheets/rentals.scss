@@ -55,9 +55,15 @@
 //////////////////////  Rental Screen Old ////////////////
 //////////////////////  Rental Screen New ////////////////
 
+.rental-container {
+	padding-left: calc((100vw - 1150px)/2);
+	padding-right: calc((100vw - 1150px)/2);
+}
+
 .rental_item {
 	// height: 350px;
-	width: 350px;
+	// width: 350px;
+	width: auto;
 	float: left;
 	margin: 15px;
 	padding: 10px;
@@ -229,6 +235,57 @@
 
 
 // }
+
+//////////////////  HEADER  /////////////////
+
+
+.rental_breadcrumb_active {
+	color: #000;
+
+	// text-shadow: 0 0 30px #ccff00;
+	// transition: all 0.5s ease;
+	text-shadow: 1px 1px 0 #fff,
+			    -1px 1px 0 #fff,
+			    1px -1px 0 #fff,
+			    -1px -1px 0 #fff,
+			    0px 1px 0 #fff,
+			    0px -1px 0 #fff,
+			    -1px 0px 0 #fff,
+			    1px 0px 0 #fff,
+			    2px 2px 0 #ccff00,
+			    -2px 2px 0 #ccff00,
+			    2px -2px 0 #ccff00,
+			    -2px -2px 0 #ccff00,
+			    0px 2px 0 #ccff00,
+			    0px -2px 0 #ccff00,
+			    -2px 0px 0 #ccff00,
+			    2px 0px 0 #ccff00,
+			    1px 2px 0 #ccff00,
+			    -1px 2px 0 #ccff00,
+			    1px -2px 0 #ccff00,
+			    -1px -2px 0 #ccff00,
+			    2px 1px 0 #ccff00,
+			    -2px 1px 0 #ccff00,
+			    2px -1px 0 #ccff00,
+			    -2px -1px 0 #ccff00,
+			    0 0 30px #ccff00;
+}
+
+.rental_breadcrumb_active::before {
+		 	color: #fff;
+		 	text-shadow: none,
+		 }
+
+.dash_breadcrumb a:link, .dash_breadcrumb a:visited, .dash_breadcrumb  a:hover {
+  text-decoration: none; color: white;
+}
+
+.dash_breadcrumb  a:active, .dash_breadcrumb  a:hover {
+  color: #ccff00;
+}
+
+
+//////////////////  HEADER  /////////////////
 
 //////////////////  SHOW PAGE  /////////////////
 

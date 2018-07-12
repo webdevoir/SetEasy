@@ -60,3 +60,24 @@
 .breadcrumb > li {
     display: inline-block;
 }
+
+@media screen and (max-width: 900px) {
+    .dash_header {
+        margin-left: 0px;
+        margin-top: 25px;
+        margin-bottom: 40px;
+    }
+
+  }
+
+@media screen and (max-width: 600px) {
+  .dash_header {
+      img {display: none;}
+      h1 {font-size: 25px;}
+    }
+    .dash_breadcrumb {
+      li {
+          font-size: 14px;
+      }
+    }
+}
