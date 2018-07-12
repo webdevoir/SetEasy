@@ -4,8 +4,8 @@ class Crew < ApplicationRecord
 
 	serialize :skills
 
-	validates_presence_of :email
+	# validates_presence_of :email
 	validates_presence_of :name
-	validates_presence_of :availability
-	validates_presence_of :role
+	# validates_presence_of :availability
+	# validates_presence_of :role
 end

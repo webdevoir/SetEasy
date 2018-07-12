@@ -31,10 +31,31 @@
   
         <td><%= link_to crew.name, crew_path(crew) %></td>
         
-        <td><%= crew.role %></td>
-        <td><%= crew.phone %></td>
-        <td><%= crew.email %></td>
-        <td><%= crew.availability %></td>
+        <% if crew.role && crew.role.length > 1 %>
+            <td><%= crew.role  %></td>
+          <% else %>
+                <td style="color:red">Incomplete</td>
+              <% end %>
+
+        <% if crew.phone && crew.phone.length > 1  %>
+            <td><%= crew.phone  %></td>
+          <% else %>
+                <td style="color:red">Incomplete</td>
+              <% end %>
+
+        <% if crew.email && crew.email.length > 1  %>
+            <td><%= crew.email  %></td>
+          <% else %>
+                <td style="color:red">Incomplete</td>
+              <% end %>
+
+        <% if crew.availability && crew.availability.length > 1  %>
+            <td><%= crew.availability  %></td>
+          <% else %>
+                <td style="color:red">Incomplete</td>
+              <% end %>
+
+
         <% events_count = crew.events %>
         <% if events_count && events_count.length > 0
           past_count = events_count.where("start <= ?",  Date.today).count
