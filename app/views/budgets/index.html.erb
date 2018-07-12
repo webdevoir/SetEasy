@@ -23,7 +23,7 @@
 <!-- Total spent:  <%= number_to_currency(@budgets.joins(:budget_items).sum(:price)) %> of <%= number_to_currency(@project.budget) %> -->
 <% @certs = @project.budget %>
 <% @count = @budgets.joins(:budget_items).sum(:price) %>
-<% if @certs > 0 %>
+<% if @certs && @certs > 0 %>
   <% @progress = ((@count.to_f / @certs.to_f).round(2) * 100).round(0) %> <!--/-->
 <% else %>
       <% @progress = 0 %>
