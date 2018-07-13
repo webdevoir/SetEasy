@@ -24,8 +24,12 @@
 			</h4>
 			<h4>Return by: <span class="rental_thin"><span class="rental_thin"><%= @rental.due_date.strftime("%b %d, %Y")  %></span></h4>
 			<h4>Rental status: <span class="rental_thin"><%= @rental.rental ? "Rented" : "Purchased"  %></span></h4>
-			<%= link_to "edit ", edit_location_rental_path(@set, @rental), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button"  %>
-		<%= link_to "delete ", location_rental_path(@set, @rental), method: :delete, data: {confirm: "You sure?"}, class: "btn btn-primary exam_button"  %>
+			<%= link_to "edit ", edit_location_rental_path(@set, @rental), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button" , id: "rental-button" %>
+		<%= link_to "delete ", location_rental_path(@set, @rental), method: :delete, data: {confirm: "You sure?"}, class: "btn btn-primary exam_button" , id: "rental-button"  %>
+		<%= link_to "See Budget", budget_path(@rental.budget_item.budget), class: "btn btn-primary exam_button" , id: "rental-button" if @rental.budget_item  %>
+		<%= link_to "Return", location_rentals_path(@set), class: "btn btn-primary exam_button", id: "rental-button"  %>
+
+		
 		</div>
 
 		
