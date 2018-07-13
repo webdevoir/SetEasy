@@ -8,4 +8,9 @@ class Location < ApplicationRecord
 	# validates_presence_of :city
 
 	validates_uniqueness_of :name, scope: :project_id
+
+
+	def int_name 
+    return "(" + self.interior + ")" + " " + self.name
+  end
 end

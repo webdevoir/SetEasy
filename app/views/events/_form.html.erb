@@ -12,7 +12,7 @@
 
         <div id="set-fields">
         <%= f.label :location_id, "Select Set" %><%= link_to "No Set", "#", class: "modal_button exam_button", id: "no-set", style: "width:auto;float: right"  %><br>
-        <%= f.collection_select :location_id, @project.locations, :id, :name, {}, {:class=>'form-control'}%>
+        <%= f.collection_select :location_id, @project.locations, :id, :int_name, {}, {:class=>'form-control'}%>
       </div>
       <p>Select Dates/Times</p>
       <div id="TimePlan" style="width: 100%;height: auto" ></div>
