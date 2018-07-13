@@ -22,7 +22,14 @@
                             <% end %>
 
                         </h4>
-                            <h4>Return by: <span class="rental_thin"><span class="rental_thin"><%= rental.due_date.strftime("%b %d, %Y")  %></span></h4>
+                            <h4>Return by: <span class="rental_thin"><span class="rental_thin">
+                                <% if rental.due_date %>
+                                    <span class="rental_thin"><%= rental.due_date.strftime("%b %d, %Y")  %></span>
+                                <% else %>
+                                    <span class="rental_thin">No date set</span>
+                                <% end %>
+                                    
+                            </span></h4>
 
                         </div>
                      <% end %>

@@ -54,7 +54,8 @@ class RentalsController < ApplicationController
         redirect_to location_rentals_path(set), notice: "rentals Submitted successfully!"
       else
         logger.info @rental.errors.full_messages.to_sentence
-        render :new, notice: "rental could not be created!"
+        redirect_to location_rentals_path(set), alert: "rental could not be created!"
+        # render :new, notice: "rental could not be created!"
       end
   end
 

@@ -6,6 +6,8 @@ class Rental < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   attr_accessor :price
+  validates_presence_of :desc
+  # validates_presence_of :rental
 
 
 #   def self.filter(query)
