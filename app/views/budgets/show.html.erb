@@ -19,7 +19,7 @@
 	      <tr>
 
 	        <th>Item</th>
-	        
+	        <th>Set Piece</th>
 	        <th>Price</th>
 	        <th>Rental/Purchase</th>
 	        <th>ID</th>
@@ -30,7 +30,11 @@
 	      <tr>
 	  
 	        <td><%= budget.item %></td>
-	        
+	        <% if budget.rental %>
+	        	<td><%= link_to "See Piece", location_rental_path(budget.budget.location, budget.rental), class: "exam_button table_button" %></td>
+	        <% else %>
+	        	<td><%= link_to "Add Piece","#", data: {confirm: "Under Construction"}, class: "exam_button table_button", id: "bright-yellow" %></td>
+	        <% end %>
 	        <td><%= number_to_currency(budget.price) %></td>
 
 	        <td><%= budget.rental ? "Rental" : "Purchase" %></td>
