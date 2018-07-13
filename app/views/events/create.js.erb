@@ -2,5 +2,9 @@ $('.calendar').fullCalendar(
   'renderEvent', 
   $.parseJSON("<%=j render(@event, format: :json).html_safe %>"),
   true
+   
 );
+$('.calendar').fullCalendar('removeEvents');
+   $('.calendar').fullCalendar('addEventSource', '/events.json');  
+   $('.calendar').fullCalendar('rerenderEvents');
 $('.modal').modal('hide');

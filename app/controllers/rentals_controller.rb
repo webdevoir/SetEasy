@@ -38,11 +38,22 @@ class RentalsController < ApplicationController
     @project = current_project
     @rental.project_id = @project.id
     set = @rental.location_id
+    budget_price = params[:price] ? params[:price] : 1500
+
 
      if @rental.save
+
+        #########
+          @budget = Budget.find_by(location_id: @rental.location)
+          BudgetItem.create(budget_id: @budget.id, item: @rental.desc, price: budget_price, rental_id: Rental.last.id)
+
+          # @rental.budget_item = @budget_item
+          # @rental.save
+
+        ########
         redirect_to location_rentals_path(set), notice: "rentals Submitted successfully!"
       else
-        flash[:error] = @rental.errors.full_messages.to_sentence
+        logger.info @rental.errors.full_messages.to_sentence
         render :new, notice: "rental could not be created!"
       end
   end
@@ -66,13 +77,14 @@ class RentalsController < ApplicationController
 
   def destroy
   	@rental = Rental.find(params[:id])
+    set = @rental.location_id
   	@rental.destroy
-  	 redirect_to rentals_path, notice: "#{@rental.id} was deleted successfully!"
+  	 redirect_to location_rentals_path(set), notice: "#{@rental.id} was deleted successfully!"
   end
 
       protected
 
       def rental_params
-        params.require(:rental).permit(:id, :location_id, :image, :desc, :rental, :source, :due_date, :pick_date)
+        params.require(:rental).permit(:id, :location_id, :image, :desc, :rental, :source, :due_date, :pick_date, :price)
       end
 end

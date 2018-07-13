@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180713002400) do
+ActiveRecord::Schema.define(version: 20180713040630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 20180713002400) do
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "rental_id"
     t.index ["budget_id"], name: "index_budget_items_on_budget_id"
+    t.index ["rental_id"], name: "index_budget_items_on_rental_id"
   end
 
   create_table "budgets", force: :cascade do |t|
@@ -127,8 +129,6 @@ ActiveRecord::Schema.define(version: 20180713002400) do
     t.datetime "updated_at", null: false
     t.bigint "project_id"
     t.date "pick_date"
-    t.bigint "budget_item_id"
-    t.index ["budget_item_id"], name: "index_rentals_on_budget_item_id"
     t.index ["location_id"], name: "index_rentals_on_location_id"
     t.index ["project_id"], name: "index_rentals_on_project_id"
   end
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 20180713002400) do
   end
 
   add_foreign_key "budget_items", "budgets"
+  add_foreign_key "budget_items", "rentals"
   add_foreign_key "budgets", "locations"
   add_foreign_key "budgets", "projects"
   add_foreign_key "crews", "projects"
@@ -184,7 +185,6 @@ ActiveRecord::Schema.define(version: 20180713002400) do
   add_foreign_key "project_users", "projects"
   add_foreign_key "project_users", "users"
   add_foreign_key "projects", "users"
-  add_foreign_key "rentals", "budget_items"
   add_foreign_key "rentals", "locations"
   add_foreign_key "rentals", "projects"
   add_foreign_key "subscriptions", "plans"
