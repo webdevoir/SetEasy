@@ -1,7 +1,14 @@
  <div class="container">
  	<div id='remote_container'></div>
 
+ 		 		<% if @budget.location %>
  		<h2>Budget for <%= @budget.location.name %></h2>
+ 		<% elsif @budget.name  %>
+ 			<h2>Budget:  <%= @budget.name.titleize %></h2>
+ 		<% else %>
+ 			<h2>No Name (error)</h2>
+ 		<% end %>
+
 
 
       <%= form_for @budget  do |f| %>

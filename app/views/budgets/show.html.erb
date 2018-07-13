@@ -1,7 +1,19 @@
  <div class="container">
  	<div id='remote_container'></div>
  		<%= link_to "Return to Budget Page", budgets_path, class: "btn btn-primary exam_button" %><br /><br />
- 		<h2>Budget for <%= @budget.location.name %> <%= link_to "Edit Mode", edit_budget_path(@budget), class: "btn btn-primary exam_button" %>
+ 		<h2>Budget for 
+ 			 		<% if @budget.location %>
+ 		<h2>Budget for <%= @budget.location.name %></h2>
+ 		<% elsif @budget.name  %>
+ 			<h2>Budget:  <%= @budget.name.titleize %></h2>
+ 		<% else %>
+ 			<h2>No Name (error)</h2>
+ 		<% end %>
+
+
+
+
+ 			<%= link_to "Edit Mode", edit_budget_path(@budget), class: "btn btn-primary exam_button" %>
 </h2> 
 	 <table class="table">
 	      <tr>

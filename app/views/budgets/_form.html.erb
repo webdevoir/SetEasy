@@ -11,18 +11,39 @@
           </ul>
         </div>
       <% end %>
-        <div>
-		      <%= f.label :location_id, "Select a Set" %><br>
+
+      
+        <div id="set-fields">
+		      <%= f.label :location_id, "Select a Set" %><%= link_to "No Set", "#", class: "btn btn-primary exam_button", id: "no-set", style: "width:auto;float: right"  %><br>
 		      <%= f.collection_select :location_id, @project.locations, :id, :name, {}, {:class=>'form-control'}%>
 		    </div>
+         <div id="name-fields" style="display: none">
+          <%= f.label :name %><br>
+          <%= f.text_field :name, class: 'form-control exam_forms'%>
+        </div>
 
-		  <!--   <h2>Items</h2>
-				<%= f.fields_for :budget_items do |ff| %>
-				  <%= render 'budget_item_fields', f: ff %>
-				<% end %> -->
-				
-        <div>
-  <!--       	<%= link_to_add_association 'add item', f, :budget_items%> -->
+        <%= f.hidden_field :location_id %>
           <%= f.submit "Submit", class: 'form-control exam_forms' %> 
         </div>
       <% end %>
+
+
+
+      <script>
+  $( function() {
+      $("#no-set").click(function() {
+        console.log("clicked");
+        primeCheck()
+      });
+
+
+      function primeCheck() {
+              $('#set-fields').fadeToggle( "slow", "linear" );
+              $('#name-fields').fadeToggle( "slow", "linear" );
+              $('#budget_location_id').val(false);
+              
+    
+      };
+
+  });
+</script>

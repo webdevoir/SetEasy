@@ -3,17 +3,10 @@
 
 <div class="no_pdf">
   <%= link_to "Add a Budget", new_budget_path, data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button" %>
-  <button class="btn btn-primary exam_button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Set Details
-  </button>
+
   <%= link_to "Download PDF", budgets_path(format: "pdf"), target: :_blank, class: "btn btn-primary exam_button"  %>
 </div>
-    <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Sets</a></li>
-      <% @budgets.each do |budget|  %>
-      <li><%= link_to budget.location.name, budget_path(budget), class: "dropdown-item" %></li>
-      <% end %>
-    </ul>
+
  
 
   <br />
@@ -54,7 +47,14 @@
        <% @budgets.each do |budget|  %>
       <tr>
   
-        <td><%= link_to budget.location.name, budget_path(budget) %></td>
+        
+        <% if budget.location %>
+            <td><%= link_to budget.location.name, budget_path(budget) %></td>
+          <% elsif budget.name  %>
+            <td><%= link_to budget.name.titleize, budget_path(budget) %></td>
+          <% else %>
+            <td style="color:red;">No Name (error)</td>
+          <% end %>
         
         <td><%= budget.budget_items.count %></td>
         <td><%= number_to_currency(budget.budget_items.sum(:price)) %></td>
