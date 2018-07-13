@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-
+    @project = @event.project
   end
 
   def create
