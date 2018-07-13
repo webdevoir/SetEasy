@@ -35,9 +35,8 @@
 
     <table class="table">
       <tr>
-
+        <th>INT/EXT</th>
         <th>Set</th>
-        
         <th>No. Items</th>
         <th>Total Cost</th>
         <th class="no_pdf">Manage</th>
@@ -46,7 +45,11 @@
 
        <% @budgets.each do |budget|  %>
       <tr>
-  
+        <% if budget.location %>
+          <td><%= budget.location.interior %></td>
+        <% else %>
+          <td>N/A</td>
+        <% end %>
         
         <% if budget.location %>
             <td><%= link_to budget.location.name, budget_path(budget) %></td>
