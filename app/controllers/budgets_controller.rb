@@ -22,7 +22,7 @@ class BudgetsController < ApplicationController
       format.js
     end
   end
-
+  
   def create
     @budget = Budget.new(budget_params)
      @project = Project.find_by(id: current_user.current_project)

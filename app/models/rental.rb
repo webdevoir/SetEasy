@@ -8,9 +8,15 @@ class Rental < ApplicationRecord
   attr_accessor :price
   attr_accessor :desc
   attr_accessor :rental
-  validates_presence_of :desc
-  validates_presence_of :rental
+  attr_accessor :item
 
+  validates_presence_of :desc, unless: :item_test
+  validates_presence_of :rental, unless: :item_test
+
+
+  def item_test
+  	item 
+  end
 
 #   def self.filter(query)
 #         if query = "rental"
