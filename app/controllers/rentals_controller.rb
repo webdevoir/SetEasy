@@ -38,16 +38,20 @@ class RentalsController < ApplicationController
     @project = current_project
     @rental.project_id = @project.id
     set = @rental.location_id
-    budget_price = params[:price] ? params[:price] : 1500
-    rental_status = params[:rental]
-    desc = params[:desc]
+    budget_price = params[:price] ? params[:price] : @rental.price
+    rental_status = params[:rental]  ? params[:price] : @rental.rental_status
+    desc = params[:desc]  ? params[:price] : @rental.desc
+    logger.info "XXXXXXXXXXXXXXXXXXX  RENTAL PARAMS XXXXXXXXXXXXXXXXXXXXx"
+    logger.info desc
+    logger.info rental_status
+    logger.info budget_price
 
 
      if @rental.save
 
         #########
           @budget = Budget.find_by(location_id: @rental.location)
-          BudgetItem.create(budget_id: @budget.id, item: desc, price: budget_price, rent_status: rental_status, rental_id: Rental.last.id)
+          BudgetItem.create!(budget_id: @budget.id, item: desc, price: budget_price, rent_status: rental_status, rental_id: Rental.last.id)
 
           # @rental.budget_item = @budget_item
           # @rental.save
