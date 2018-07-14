@@ -8,8 +8,8 @@ class Rental < ApplicationRecord
   attr_accessor :price
   attr_accessor :desc
   attr_accessor :rental
-  # validates_presence_of :desc
-  # validates_presence_of :rental
+  validates_presence_of :desc
+  validates_presence_of :rental
 
 
 #   def self.filter(query)

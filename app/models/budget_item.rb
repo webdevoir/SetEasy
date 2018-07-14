@@ -4,5 +4,5 @@ class BudgetItem < ApplicationRecord
 
   validates_presence_of :item
   # validates_presence_of :rental
-  validates_presence_of :price
+  # validates_presence_of :price
 end

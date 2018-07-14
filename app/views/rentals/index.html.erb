@@ -9,7 +9,11 @@
                     <%= link_to location_rental_path(@set, rental) do %>
                         <div class="rental_item">
                             <div class="rental_item_header">
-                                <%= truncate(rental.budget_item.item, length: 20) %> 
+                                <% if rental.budget_item && rental.budget_item.item.length > 0 %>
+                                    <%= truncate(rental.budget_item.item, length: 20) %>
+                                <% else %>
+                                    <span style="color:red">Error</span>
+                                <% end %> 
                             </div>
                             <div class="rental_item_pic">
                                 <%= print_image rental.image_url.to_s %>
