@@ -41,10 +41,10 @@ class RentalsController < ApplicationController
     budget_price = params[:price] ? params[:price] : @rental.price
     rental_status = params[:rental]  ? params[:price] : @rental.rental_status
     desc = params[:desc]  ? params[:price] : @rental.desc
-    logger.info "XXXXXXXXXXXXXXXXXXX  RENTAL PARAMS XXXXXXXXXXXXXXXXXXXXx"
-    logger.info desc
-    logger.info rental_status
-    logger.info budget_price
+    # logger.info "XXXXXXXXXXXXXXXXXXX  RENTAL PARAMS XXXXXXXXXXXXXXXXXXXXx"
+    # logger.info desc
+    # logger.info rental_status
+    # logger.info budget_price
 
 
      if @rental.save
