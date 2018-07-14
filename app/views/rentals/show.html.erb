@@ -3,14 +3,14 @@
 
 
 	<div class="rental_show_header">
-		<%= truncate(@rental.desc, length: 25, omission: "") %>
+		<%= truncate(@rental.budget_item.item, length: 25, omission: "") %>
 	</div>
 	<div class="row rental_show_under_header">
 		<div class="rental_img">
 		    	<%= print_image @rental.image_url.to_s %>
 			</div>
 		<div class="rental_text">
-			<h4>Description: <span class="rental_thin"><%= @rental.desc %></span></h4>
+			<h4>Description: <span class="rental_thin"><%= @rental.budget_item.item %></span></h4>
 			<h4>Set: <span class="rental_thin"><%= @rental.location.name %></span></h4>
 			<h4>Source: <span class="rental_thin"><%= @rental.source && @rental.source.length < 0 ? @rental.source : "None" %></span></h4>
 
@@ -30,7 +30,7 @@
 				<% end %>
 					
 				</span></h4>
-			<h4>Rental status: <span class="rental_thin"><%= @rental.rental ? "Rented" : "Purchased"  %></span></h4>
+			<h4>Rental status: <span class="rental_thin"><%= @rental.budget_item.rental ? "Rented" : "Purchased"  %></span></h4>
 			<%= link_to "edit ", edit_location_rental_path(@set, @rental), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button" , id: "rental-button" %>
 		<%= link_to "delete ", location_rental_path(@set, @rental), method: :delete, data: {confirm: "You sure?"}, class: "btn btn-primary exam_button" , id: "rental-button"  %>
 		<%= link_to "See Budget", budget_path(@rental.budget_item.budget), class: "btn btn-primary exam_button" , id: "rental-button" if @rental.budget_item  %>

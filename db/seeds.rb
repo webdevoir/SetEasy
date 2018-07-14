@@ -45,7 +45,7 @@ p "Created #{Project.count} projects"
 Location.destroy_all
 20.times do
 	Location.create! [
-		name: Faker::Hobbit.location,
+		name: Faker::Hobbit.unique.location,
 		street: Faker::Address.street_address,
 		city: Faker::Address.city,
 		postal: "X1X 1X1",
@@ -57,45 +57,55 @@ Location.destroy_all
 end
 p "Created #{Location.count} sets"
 
-Rental.destroy_all
 
-150.times do
-	Rental.create! [
-		image: File.open(Dir['public/uploads/1.jpeg', 'public/uploads/2.jpeg', 'public/uploads/3.png', 'public/uploads/4.jpg', 'public/uploads/5.jpg'].sample),
-
-		desc: Faker::Commerce.product_name,
-		rental: Faker::Boolean.boolean,
-		source: Faker::Friends.location,
-		due_date: Faker::Date.between(50.days.ago, Date.today),
-		location_id: Location.all.sample.id,
-		project_id: Project.all.sample.id
-
-	]
-end
-p "Created #{Rental.count} rentals"
 
 Budget.destroy_all
-20.times do
+# 20.times do
+Location.all.each do |loc|
 	Budget.create! [
-		location_id: Location.all.sample.id,
-		project_id: Project.all.sample.id
+		location_id: loc.id,
+		project_id: loc.project_id
 	]
 end
 p "Created #{Budget.count} budgets"
-budgets = Budget.all
-budgets.each do |bud|
-	quest_count = 1
-	10.times do
-		BudgetItem.new(
-		budget_id: bud.id,
-		item: Faker::Zelda.item,
-		rental: Faker::Boolean.boolean,
-		price: Faker::Commerce.price,
-	).save(validate: false)
-	quest_count +=1
-	end
+# budgets = Budget.all
+# budgets.each do |bud|
+# 	quest_count = 1
+# 	10.times do
+# 		BudgetItem.new(
+# 		budget_id: bud.id,
+# 		item: Faker::Zelda.item,
+# 		rental: Faker::Boolean.boolean,
+# 		price: Faker::Commerce.price,
+# 	).save(validate: false)
+# 	quest_count +=1
+# 	end
 
+# end
+
+Rental.destroy_all
+
+rentid = 1
+150.times do
+	Rental.create! [
+		image: File.open(Dir['public/uploads/1.jpeg', 'public/uploads/2.jpeg', 'public/uploads/3.png', 'public/uploads/4.jpg', 'public/uploads/5.jpg'].sample),
+		# desc: Faker::Commerce.product_name,
+		# rental: Faker::Boolean.boolean,
+		source: Faker::Friends.location,
+		due_date: Faker::Date.between(50.days.ago, Date.today),
+		pick_date:  Faker::Date.between(50.days.ago, Date.today),
+		location_id: Location.all.sample.id,
+		project_id: Project.all.sample.id
+	]
+	@rental = Rental.last
+	set = @rental.location_id
+	@budget = Budget.find_by(location_id: @rental.location)
+	# budget_price = Faker::Commerce.price,
+	p @rental.desc
+	BudgetItem.create!(budget_id: @budget.id, item: Faker::Commerce.product_name, price: Faker::Commerce.price, rent_status: Faker::Boolean.boolean, rental_id: rentid)
+	rentid += 1
 end
+p "Created #{Rental.count} rentals"
 p "Created #{BudgetItem.count} budget items"
 
 Crew.destroy_all

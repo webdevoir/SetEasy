@@ -6,9 +6,9 @@ class RentalsController < ApplicationController
     if params[:location_id]
       @set = Location.find(params[:location_id])
       if params[:filter] == "rental_filter"
-        @rentals = @set.rentals.where(rental: true)
+        @rentals = @set.rentals.joins(:budget_item).merge(BudgetItem.where(:rent_status => true))
       elsif params[:filter] == "purchased"
-        @rentals = @set.rentals.where(rental: false)
+        @rentals = @set.rentals.joins(:budget_item).merge(BudgetItem.where(:rent_status => false))
       else
         @rentals = @set.rentals
       end
@@ -45,7 +45,7 @@ class RentalsController < ApplicationController
 
         #########
           @budget = Budget.find_by(location_id: @rental.location)
-          BudgetItem.create(budget_id: @budget.id, item: @rental.desc, price: budget_price, rental_id: Rental.last.id)
+          BudgetItem.create(budget_id: @budget.id, item: @rental.desc, price: budget_price, rental: @rental.rental, rental_id: Rental.last.id)
 
           # @rental.budget_item = @budget_item
           # @rental.save

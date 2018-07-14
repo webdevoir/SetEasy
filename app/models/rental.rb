@@ -6,7 +6,9 @@ class Rental < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   attr_accessor :price
-  validates_presence_of :desc
+  attr_accessor :desc
+  attr_accessor :rental
+  # validates_presence_of :desc
   # validates_presence_of :rental
 
 

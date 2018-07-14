@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180713040630) do
+ActiveRecord::Schema.define(version: 20180714013815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180713040630) do
   create_table "budget_items", force: :cascade do |t|
     t.bigint "budget_id"
     t.string "item"
-    t.boolean "rental"
+    t.boolean "rent_status"
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,8 +120,6 @@ ActiveRecord::Schema.define(version: 20180713040630) do
 
   create_table "rentals", force: :cascade do |t|
     t.text "image"
-    t.string "desc"
-    t.boolean "rental"
     t.string "source"
     t.date "due_date"
     t.bigint "location_id"
