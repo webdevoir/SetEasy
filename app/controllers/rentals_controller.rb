@@ -41,13 +41,13 @@ class RentalsController < ApplicationController
     
     budget_price = params[:price] ? params[:price] : @rental.price
     rental_status = params[:rental]  ? params[:price] : @rental.rental_status
-    desc = params[:desc]  ? params[:price] : @rental.desc
+    desc = params[:desc]  ? params[:desc] : @rental.desc
     item = params[:item] ? params[:item] : @rental.item
     @item = BudgetItem.find(item)
     set = @rental.location_id ? @rental.location_id : @item.budget.location.id
     @rental.location_id = set
 
-        logger.info "XXXXXXXXXXXXXXXXXXX  RENTAL PARAMS XXXXXXXXXXXXXXXXXXXXx"
+    logger.info "XXXXXXXXXXXXXXXXXXX  RENTAL PARAMS XXXXXXXXXXXXXXXXXXXXx"
     # logger.info desc
     # logger.info rental_status
     # logger.info budget_price
@@ -81,16 +81,26 @@ class RentalsController < ApplicationController
   def edit
   	@rental = Rental.find(params[:id])
     @set = Location.find(params[:location_id])
+    @rental.desc = @rental.budget_item.item
   end
 
    def update
    	@rental = Rental.find(params[:id])
     set = @rental.location_id
+    desc = params[:rental][:desc] && params[:rental][:desc].length > 0  ? params[:rental][:desc] : @rental.budget_item.item
+    @rental.desc = desc
+
     if @rental.update_attributes(rental_params)
+          @budgetitem = BudgetItem.find_by(rental_id: @rental.id)
+          if params[:rental][:desc] && params[:rental][:desc].length > 0  || params[:rental][:price] 
+            budget_price = params[:rental][:price] ? params[:rental][:price] : @budgetitem.price
+            @budgetitem.update!(item: desc, price: budget_price)
+          end
       redirect_to location_rental_path(set, @rental), notice: "rental updated successfully"
     else
-      flash[:error] = "#{@rental.errors.count} errors prevented certificate from being updated."
-      render :edit
+      logger.info @rental.errors.full_messages.to_sentence
+      redirect_to location_rentals_path(set), alert: "rental could not be updated!"
+
     end
 
   end
