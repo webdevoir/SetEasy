@@ -4,4 +4,11 @@
   .no_pdf {
     display: none;
   }
+  .pdf_only {
+  	display: block;
+  }
+  .rental_item {
+	width: 320px !important;
+	height: 700px !important;
+  }
 }

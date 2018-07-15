@@ -10,7 +10,7 @@ class RentalsController < ApplicationController
       elsif params[:filter] == "purchased"
         @rentals = @set.rentals.joins(:budget_item).merge(BudgetItem.where(:rent_status => false))
       else
-        @rentals = @set.rentals
+        @rentals = @set.rentals.joins(:budget_item).order('budget_items.rent_status')
       end
     else
       @rentals = @project.rentals
