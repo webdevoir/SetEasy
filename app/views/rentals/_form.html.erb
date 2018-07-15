@@ -39,12 +39,12 @@
       <% else %>
         <h3>Rental type</h3>
          <div>
-          <%= f.radio_button :rental, false , :checked => true , :value => false %>
-          <%= label :rental, "Purchased" %>
+          <%= f.radio_button :status, false , :checked => true , :value => false %>
+          <%= label :status, "Purchased" %>
         </div>
           <div>
-               <%= f.radio_button :rental, true, :value => true%> 
-               <%= label :rental, "Rental"%>      
+               <%= f.radio_button :status, true, :value => true%> 
+               <%= label :status, "Rental"%>      
           </div>
         <% end %>
 

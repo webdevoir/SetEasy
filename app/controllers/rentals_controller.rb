@@ -82,6 +82,8 @@ class RentalsController < ApplicationController
   	@rental = Rental.find(params[:id])
     @set = Location.find(params[:location_id])
     @rental.desc = @rental.budget_item.item
+    @rental.price = @rental.budget_item.price
+    @rental.status = @rental.budget_item.rent_status
   end
 
    def update
@@ -92,9 +94,10 @@ class RentalsController < ApplicationController
 
     if @rental.update_attributes(rental_params)
           @budgetitem = BudgetItem.find_by(rental_id: @rental.id)
-          if params[:rental][:desc] && params[:rental][:desc].length > 0  || params[:rental][:price] 
+          if params[:rental][:desc] && params[:rental][:desc].length > 0  || params[:rental][:price] || params[:rental][:status]
             budget_price = params[:rental][:price] ? params[:rental][:price] : @budgetitem.price
-            @budgetitem.update!(item: desc, price: budget_price)
+            status = params[:rental][:status] ? params[:rental][:status] : @budgetitem.rent_status
+            @budgetitem.update!(item: desc, price: budget_price, rent_status: status)
           end
       redirect_to location_rental_path(set, @rental), notice: "rental updated successfully"
     else
@@ -115,6 +118,6 @@ class RentalsController < ApplicationController
       protected
 
       def rental_params
-        params.require(:rental).permit(:id, :location_id, :image, :desc, :rental, :source, :due_date, :pick_date, :price, :item)
+        params.require(:rental).permit(:id, :location_id, :image, :desc, :status, :source, :due_date, :pick_date, :price, :item)
       end
 end

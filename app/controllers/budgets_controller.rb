@@ -22,7 +22,7 @@ class BudgetsController < ApplicationController
       format.js
     end
   end
-  
+
   def create
     @budget = Budget.new(budget_params)
      @project = Project.find_by(id: current_user.current_project)
@@ -70,6 +70,6 @@ class BudgetsController < ApplicationController
     end
 
   def budget_params
-      params.require(:budget).permit(:location_id, :name, budget_items_attributes: [:id, :_destroy, :item, :price, :rental])
+      params.require(:budget).permit(:location_id, :name, budget_items_attributes: [:id, :_destroy, :item, :price, :rent_status])
     end
 end
