@@ -7,8 +7,11 @@
     // overflow-y:scroll;
     // overflow-x:hidden;
     z-index: -100;
-
 }
+// #remote_container {
+//     position: fixed;
+//     z-index: 0;
+// }
 
 .exam_button {
     color: #fff;
@@ -55,7 +58,9 @@
 .modal_button {
     padding: 4px 8px !important;
 }
-
+.modal-backdrop {
+    z-index: 0 !important;
+}
 // .modal {
 //     // background: blue !important;
 //     cursor: pointer;
@@ -69,8 +74,8 @@
 
 .modal {
     overflow-y:scroll;
-    top: 50px !important;;
-    z-index: 100000 !important;
+    top: 100px !important;;
+    z-index: 1000000 !important;
 }
 
 

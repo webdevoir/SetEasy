@@ -22,7 +22,7 @@
    
 
   <body>
-
+      <div id='remote_container'></div>
   <% unless request.path == "/" %>
     <%= render 'layouts/topheader' %>
     <%= render 'layouts/header' %>
@@ -30,7 +30,7 @@
   <% end %>
 
 
-      <div id='remote_container'></div>
+
     
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
