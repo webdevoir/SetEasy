@@ -19,7 +19,9 @@
 
 	        <th>Item</th>
 	        <th>Set Piece</th>
-	        <th>Price</th>
+	        <th>Budgeted</th>
+	        <th>Actual</th>
+	        <th>Difference</th>
 	        <th>Rental/Purchase</th>
 	        <th>ID</th>
 
@@ -35,7 +37,21 @@
 	  
 	        	 <td><%= link_to "Add a piece", new_location_rental_path(budget.budget.location, item: budget.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "exam_button table_button", id: "bright-yellow"  %></td>
 	        <% end %>
+	        <td><%= number_to_currency(budget.budgeted) %></td>
 	        <td><%= number_to_currency(budget.price) %></td>
+	        <% if budget.budgeted && budget.price %>
+		        <% difference = budget.budgeted - budget.price %>
+		        <% if difference < 0 %>
+		        	<td style="color: red">
+		        <% elsif difference > 0 %>
+		        	<td style="color: green">
+		        <% else %>
+		        	<td>
+		        <% end %>
+		        		<%= number_to_currency(difference) %></td>
+		    <% else %>
+		    	<td>Not Set</td>
+		    <% end %>
 
 	        <td><%= budget.rent_status ? "Rental" : "Purchase" %></td>
 
