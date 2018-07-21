@@ -40,6 +40,8 @@ class ProjectsController < ApplicationController
      if @project.save
         # current_user.current_project = @project.id
         User.find(current_user.id).update(current_project: @project.id)
+        Budget.create(project_id: @project.id, location_id: nil, name: "Expendables")
+        Budget.create(project_id: @project.id, location_id: nil, name: "Others")
         redirect_to projects_path, notice: "Projects Submitted successfully!"
       else
         flash[:error] = @project.errors.full_messages.to_sentence
