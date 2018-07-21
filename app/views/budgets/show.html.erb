@@ -1,6 +1,11 @@
+ <style> <%= Rails.application.assets['application.css'].to_s %> </style>
+
  <div class="container">
  	<div id='remote_container'></div>
- 		<%= link_to "Return to Budget Page", budgets_path, class: "btn btn-primary exam_button" %><br /><br />
+ 		<div class="no_pdf">
+ 			<%= link_to "Return to Budget Page", budgets_path, class: "btn btn-primary exam_button" %>
+ 		</div>
+ 			<br /><br />
  			 		<% if @budget.location %>
  		<h2>Budget for <%= @budget.location.name %></h2>
  		<% elsif @budget.name  %>
@@ -11,14 +16,15 @@
 
 
 
-
- 			<%= link_to "Edit Mode", edit_budget_path(@budget), class: "btn btn-primary exam_button" %>
+ 		<div class="no_pdf">
+ 			<%= link_to "Edit Mode", edit_budget_path(@budget), class: "btn btn-primary exam_button " %>
+ 		</div>
 </h2> 
 	 <table class="table">
 	      <tr>
 
 	        <th>Item</th>
-	        <th>Set Piece</th>
+	        <th class="no_pdf">Set Piece</th>
 	        <th>Budgeted</th>
 	        <th>Actual</th>
 	        <th>Difference</th>
@@ -32,10 +38,10 @@
 	  
 	        <td><%= budget.item %></td>
 	        <% if budget.rental %>
-	        	<td><%= link_to "See Piece", location_rental_path(budget.budget.location, budget.rental), class: "exam_button table_button" %></td>
+	        	<td class="no_pdf"><%= link_to "See Piece", location_rental_path(budget.budget.location, budget.rental), class: "exam_button table_button" %></td>
 	        <% else %>
 	  
-	        	 <td><%= link_to "Add a piece", new_location_rental_path(budget.budget.location, item: budget.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "exam_button table_button", id: "bright-yellow"  %></td>
+	        	 <td class="no_pdf"><%= link_to "Add a piece", new_location_rental_path(budget.budget.location, item: budget.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "exam_button table_button", id: "bright-yellow"  %></td>
 	        <% end %>
 	        <td><%= number_to_currency(budget.budgeted) %></td>
 	        <td><%= number_to_currency(budget.price) %></td>
@@ -69,4 +75,5 @@
 
 	    </table>
 </div>
+<div style='page-break-before:always'></div>
   
