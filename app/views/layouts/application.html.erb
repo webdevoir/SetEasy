@@ -22,18 +22,22 @@
    
 
   <body>
-<!--    <%= request.path  + " " + params[:controller]%> -->
+
+  <% unless request.path == "/" %>
     <%= render 'layouts/topheader' %>
     <%= render 'layouts/header' %>
-      <div id='remote_container'></div>
     <div id="main_div">
+  <% end %>
+
+
+      <div id='remote_container'></div>
+    
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
       <% end %>
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-
       <%= yield %>
     </div>
 
