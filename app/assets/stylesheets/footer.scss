@@ -1,0 +1,132 @@
+
+.footer_bar {
+	    background-color: #f8f9fa;
+	height: 30px;
+	// vertical-align: middle;
+	color: #6b7a8f;
+	padding: 5px 25px;
+	width: 100%;
+    position: fixed;
+    bottom:0;
+
+    a {
+        color: #6b7a8f;
+    }
+}
+
+// .footer_bar h5 {
+// 	margin-top: 25px;
+// }
+
+.social_glow {
+
+ 	border: 5px solid  #fff;
+    box-shadow: 0 0 15px  #fff;
+    transition: all 0.5s ease;
+    color: #fff;
+    text-shadow: 0 0 15px #fff;
+    transition: all 0.5s ease;
+}
+
+.fa2{
+    // color: #444c47;
+    margin-top: 20px;
+    transition: all 0.5s ease;
+    display: inline-block;
+    font: normal normal normal 24px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+// .social_glow:hover.facebook{
+//     border: 5px solid  #3b5998;
+//     box-shadow: 0 0 15px  #3b5998;
+//     transition: all 0.5s ease;
+// }
+
+.social_glow:hover{
+    color: #28b62c;
+    text-shadow: 0 0 15px #28b62c;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 15px  #28b62c;
+    border: 5px solid  #28b62c;
+}
+
+.footer_icons {
+	float: right;
+    // width: 50%;
+    min-width: 200px;
+}
+
+// .footer_icons i{
+//     width: 55px;
+//     height: 55px;
+//     line-height: 46px;
+//     margin: 0 5px;
+//     // text-align: center;
+//     cursor: pointer;
+//     border-radius: 50%;
+//     // border: 5px solid #444c47;
+//     // float: left;
+//     transition: all 0.5s ease;
+//     font-size: 28px;
+//     display: inline-block;
+// }
+
+.cp_bottom {
+    // width: 45%;
+    float: left;
+}
+
+.footer_links {
+    float: left;
+    margin-left: 15px;
+}
+.footer_links a {
+    color: #6b7a8f;
+    text-decoration: none;
+}
+.footer_links a:hover {
+    color: #f7882f;
+    transition: all 0.5s ease;
+
+}
+
+@media screen and (max-width: 700px) {
+    .footer_bar {
+        padding: 10px 0;
+        // height: auto;
+    }
+    .footer_bar h5 {
+        font-size: 3vw;
+    }
+
+    .cp_bottom {
+    // width: 30%;
+    // float: left;
+    }
+
+}
+@media screen and (max-width: 500px) {
+    .footer_bar {
+    //     padding-bottom: 6vw;
+    //     padding-top: 6vw;
+     }
+    .footer_icons {
+        min-width: 100px;
+        margin: 4vw 0;
+    }
+    .footer_icons i{
+        width: 9vw;
+        height: 9vw;
+        line-height: 7.5vw;
+        font-size: 5vw;
+    }
+    .social_glow {
+        border: 3px solid  #fff;
+    }
+    .social_glow:hover{
+         border: 3px solid  #28b62c;
+    }
+}
