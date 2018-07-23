@@ -40,8 +40,11 @@
 	        <% if budget.rental %>
 	        	<td class="no_pdf"><%= link_to "See Piece", location_rental_path(budget.budget.location, budget.rental), class: "exam_button table_button" %></td>
 	        <% else %>
-	  
-	        	 <td class="no_pdf"><%= link_to "Add a piece", new_location_rental_path(budget.budget.location, item: budget.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "exam_button table_button", id: "bright-yellow"  %></td>
+	  			<% if budget.budget.location %>
+	        	 	<td class="no_pdf"><%= link_to "Add a piece", new_location_rental_path(budget.budget.location, item: budget.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "exam_button table_button", id: "bright-yellow"  %></td>
+	        	<% else %>
+	        		<td>N/A</td>
+	        	<% end %>	
 	        <% end %>
 	        <td><%= number_to_currency(budget.budgeted) %></td>
 	        <td><%= number_to_currency(budget.price) %></td>
