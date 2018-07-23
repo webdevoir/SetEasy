@@ -40,7 +40,7 @@
         </div>
         <div>
           <%= f.label :availability %><br>
-          <%= f.text_field :availability, class: 'form-control exam_forms' %>
+          <%= f.text_field :availability, class: "gui-input", placeholder: "Select date" %>
         </div>
         <div>
             <%= f.label :skills %><br>
@@ -63,6 +63,14 @@
         $('#skills-select').multipleSelect({
               placeholder: "Select Skills"
             });
+
+
+        date = new Date()
+        $('#crew_availability').multiDatesPicker({
+          dateFormat: "dd-M-yy",
+          addDates: [date, date]
+          
+        })
 
       });
     </script>
