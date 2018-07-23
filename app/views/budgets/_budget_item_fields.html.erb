@@ -2,11 +2,12 @@
 				<tr class="nested-fields">
 					
 				   <td> <%= f.text_field :item, class: 'exam_forms' %></br></td>
+				   <td><%= f.number_field :budgeted, step: :any, class: 'exam_forms' %></br></td>
 				    <td><%= f.number_field :price, step: :any, class: 'exam_forms' %></br></td>
 
-					<% purchase = true if f.object.rental == false %>
-				    <td><%= f.radio_button :rental, "0", { checked: purchase } %>
-					<%= f.radio_button :rental, "1", { checked: f.object.rental } %></td>
+					<% purchase = true if f.object.rent_status == false %>
+				    <td><%= f.radio_button :rent_status, "true", { checked: !purchase }  %></td>
+					<td><%= f.radio_button :rent_status, "false", { checked: purchase }%></td>
 					<td><%= link_to_remove_association "remove item", f, class: "btn btn-primary exam_button remove_button" %></td>
 				
 				   

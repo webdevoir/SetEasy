@@ -28,7 +28,9 @@ Rails.application.routes.draw do
 		resources :crews, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
 			get :crew_events
 		end
-		resources :budgets, only: [:show, :new, :create, :edit, :update, :index, :destroy]
+		resources :budgets, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
+			get :pdfs, :on => :collection
+		end
 		resources :events
 
 		root to: 'pages#landing'

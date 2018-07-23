@@ -45,6 +45,25 @@ class BudgetsController < ApplicationController
     end
   end
 
+  def pdfs
+    @project = current_project
+    @budgets = @project.budgets
+    html = render_to_string(:action => "index", :layout => false)
+
+    @budgets.each do |n|
+      # path = Rails.root.join("budgets/", "#{n.id}")
+      # path = "#{budget_url(n)}"
+      path = budget_path(n)
+
+      html << render_to_string(:action => "show", :layout => false, :locals => {:@budget => n})
+    end  
+
+
+    pdf = PDFKit.new(html, :page_size => 'Letter')
+
+    send_data pdf.to_pdf, filename: "#{Date.today}-#{@project.name}-budget.pdf"
+  end
+
    def update
    	@budget = Budget.find(params[:id])
     if @budget.update_attributes(budget_params)
@@ -70,6 +89,6 @@ class BudgetsController < ApplicationController
     end
 
   def budget_params
-      params.require(:budget).permit(:location_id, :name, budget_items_attributes: [:id, :_destroy, :item, :price, :rental])
+      params.require(:budget).permit(:location_id, :name, budget_items_attributes: [:id, :_destroy, :item, :price, :rent_status, :budgeted])
     end
 end

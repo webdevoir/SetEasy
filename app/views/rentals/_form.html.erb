@@ -12,26 +12,43 @@
           </ul>
         </div>
       <% end %>
- 
+
+
+      <% if @item %>
+        <p>Description: <%= @item.item %></p>
+      <% else %>
         <div>
           <%= f.label :desc, "Description" %><br>
           <%= f.text_field :desc, class: 'form-control' %>
         </div>
-        <div>
-        <%= f.label :location_id, "Select Set" %><br>
-        <% sets = current_project.locations %>
+      <% end %>
 
-        <%= f.collection_select :location_id, sets, :id, :name%>
-      </div>
+      <% if @item %>
+        <p>Set: <%= @item.budget.location.name %></p>
+      <% else %>
+        <div>
+          <%= f.label :location_id, "Select Set" %><br>
+          <% sets = current_project.locations %>
+
+          <%= f.collection_select :location_id, sets, :id, :name%>
+        </div>
+      <% end %>
+
+      <% if @item %>
+        <p>Rental: <%= @item.rent_status ? "Rental" : "Purchase" %></p>
+      <% else %>
         <h3>Rental type</h3>
          <div>
-          <%= f.radio_button :rental, false , :checked => true , :value => false %>
-          <%= label :rental, "Purchased" %>
+          <%= f.radio_button :status, false , :checked => true , :value => false %>
+          <%= label :status, "Purchased" %>
         </div>
           <div>
-               <%= f.radio_button :rental, true, :value => true%> 
-               <%= label :rental, "Rental"%>      
+               <%= f.radio_button :status, true, :value => true%> 
+               <%= label :status, "Rental"%>      
           </div>
+        <% end %>
+
+
           <div>
             <%= f.label :image, "Add an image" %><br>
             <%= f.file_field :image , class: 'form-control' %>
@@ -48,6 +65,16 @@
           <%= f.label :due_date, "Return Date" %><br>
           <%= f.date_field :due_date, class: 'form-control' %>
         </div>
+
+        <% if @item %>
+          <p>Rental: <%= number_to_currency(@item.price) %></p>
+        <% else %>
+          <div>
+            <%= f.label :price, "Item Price" %><br>
+            <%= f.number_field :price, step: :any, class: 'form-control' %><br><br>
+          </div>
+         <% end %>
+        <%= f.hidden_field :item, value: @item.id if @item %>
         <div>
           <%= f.submit "Submit", class: 'form-control exam_forms' %> 
         </div>

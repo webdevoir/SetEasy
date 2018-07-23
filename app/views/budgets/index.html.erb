@@ -1,10 +1,12 @@
+
+
 <div class="container-fluid content_dashboard">
-  <div id='remote_container'></div>
+
 
 <div class="no_pdf">
-  <%= link_to "Add a Budget", new_budget_path, data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button" %>
+   <%= link_to "Add a Budget", new_budget_path, data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button" %> 
 
-  <%= link_to "Download PDF", budgets_path(format: "pdf"), target: :_blank, class: "btn btn-primary exam_button"  %>
+  <%= link_to "Download PDF", pdfs_budgets_path, class: "btn btn-primary exam_button"  %>
 </div>
 
  
@@ -23,10 +25,10 @@
        <% end %>
 <div class="progress-wrapper">
    <div class="progress">
-                  <div class="progress-bar progress-bar-striped bg-success " role="progressbar" style="width: <%= @progress %>%" aria-valuenow="" aria-valuemin="0" aria-valuemax= <%= @certs %>>
-                     <% span_width = "no_data" if @count == 0 %>
-                    <span class="<%=span_width%>"><%= number_to_currency(@budgets.joins(:budget_items).sum(:price)) %></span>
-                  </div>
+        <div class="progress-bar progress-bar-striped bg-success " role="progressbar" style="width: <%= @progress %>%" aria-valuenow="" aria-valuemin="0" aria-valuemax=  <%= @certs %>>
+          <% span_width = "no_data" if @count == 0 %>
+          <span class="<%=span_width%>"><%= number_to_currency(@budgets.joins(:budget_items).sum(:price)) %></span>
+        </div>
    </div>
    <div class="start">$0</div>
    <div class="end"><%= number_to_currency(@project.budget)%></div>
@@ -38,7 +40,11 @@
         <th>INT/EXT</th>
         <th>Set</th>
         <th>No. Items</th>
-        <th>Total Cost</th>
+        <th>Budgeted</th>
+        <th>Actual</th>
+        <th>Difference</th>
+
+
         <th class="no_pdf">Manage</th>
 
       </tr>
@@ -60,7 +66,23 @@
           <% end %>
         
         <td><%= budget.budget_items.count %></td>
+        <td><%= number_to_currency(budget.budget_items.sum(:budgeted)) %></td>
         <td><%= number_to_currency(budget.budget_items.sum(:price)) %></td>
+
+         <% if budget.budget_items.sum(:budgeted) > 0 && budget.budget_items.sum(:price) > 0 %>
+            <% difference = budget.budget_items.sum(:budgeted) - budget.budget_items.sum(:price) %>
+            <% if difference < 0 %>
+              <td style="color: red">
+            <% elsif difference > 0 %>
+              <td style="color: green">
+            <% else %>
+              <td>
+            <% end %>
+                <%= number_to_currency(difference) %></td>
+        <% else %>
+          <td>Not Set</td>
+        <% end %>
+
         <td class="no_pdf">(<%= link_to "edit", edit_budget_path(budget)%>, <%= link_to "delete", budget_path(budget), method: :delete, data: {confirm: "Are you sure you want to delete #{budget.id}?"} %>)</td>
        
       </tr>

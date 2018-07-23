@@ -29,7 +29,7 @@
        <% @crews.each do |crew|  %>
       <tr>
   
-        <td><%= link_to crew.name, crew_path(crew) %></td>
+        <td><%= crew.name.titleize %></td>
         
         <% if crew.role && crew.role.length > 1 %>
             <td><%= crew.role  %></td>
@@ -64,8 +64,8 @@
           past_count = 0
           future_count = 0
          end %>
-        <td><%= past_count %> (<%= link_to "view", crew_crew_events_path(crew) %>)</td>
-        <td><%= future_count %> (<%= link_to "view", crew_crew_events_path(crew) %>)</td>
+        <td><%= past_count %> <span class="no_pdf">(<%= link_to "view", crew_crew_events_path(crew) %>)</span></td>
+        <td><%= future_count %> <span class="no_pdf">(<%= link_to "view", crew_crew_events_path(crew) %>)</span></td>
   
            <td>
               <% if crew.skills && crew.skills.length > 0 && crew.skills.kind_of?(Array) %>

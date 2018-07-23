@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712225120) do
+ActiveRecord::Schema.define(version: 20180721005240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,14 @@ ActiveRecord::Schema.define(version: 20180712225120) do
   create_table "budget_items", force: :cascade do |t|
     t.bigint "budget_id"
     t.string "item"
-    t.boolean "rental"
+    t.boolean "rent_status"
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "rental_id"
+    t.float "budgeted"
     t.index ["budget_id"], name: "index_budget_items_on_budget_id"
+    t.index ["rental_id"], name: "index_budget_items_on_rental_id"
   end
 
   create_table "budgets", force: :cascade do |t|
@@ -118,8 +121,6 @@ ActiveRecord::Schema.define(version: 20180712225120) do
 
   create_table "rentals", force: :cascade do |t|
     t.text "image"
-    t.string "desc"
-    t.boolean "rental"
     t.string "source"
     t.date "due_date"
     t.bigint "location_id"
@@ -173,6 +174,7 @@ ActiveRecord::Schema.define(version: 20180712225120) do
   end
 
   add_foreign_key "budget_items", "budgets"
+  add_foreign_key "budget_items", "rentals"
   add_foreign_key "budgets", "locations"
   add_foreign_key "budgets", "projects"
   add_foreign_key "crews", "projects"

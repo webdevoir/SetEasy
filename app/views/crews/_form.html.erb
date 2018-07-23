@@ -28,7 +28,7 @@
               "Driver",
               "Swamper",
               "Dresser"
-            ], {}%>
+            ], {}, class: 'form-control exam_forms'%>
         </div>
             <div>
           <%= f.label :phone %><br>
@@ -40,11 +40,11 @@
         </div>
         <div>
           <%= f.label :availability %><br>
-          <%= f.text_field :availability, class: 'form-control exam_forms' %>
+          <%= f.text_field :availability, class: "gui-input", placeholder: "Select date" %>
         </div>
         <div>
             <%= f.label :skills %><br>
-            <%= f.select :skills, ['Painting', 'Construction', 'Sewing', 'Fine dressing', 'Buying', 'Driving' ],{prompt: "Select Country"},{:multiple => true, class: "form-control exam_forms multi-select"}%>
+            <%= f.select :skills, ['Painting', 'Construction', 'Sewing', 'Fine dressing', 'Buying', 'Driving' ],{prompt: "Select Country"},{:multiple => true, class: "dl-select", id: "skills-select"}%>
           </div>
 
         <div>
@@ -56,3 +56,21 @@
         </div>
       <% end %>
     </div>
+
+
+    <script>
+      $( function() {
+        $('#skills-select').multipleSelect({
+              placeholder: "Select Skills"
+            });
+
+
+        date = new Date()
+        $('#crew_availability').multiDatesPicker({
+          dateFormat: "dd-M-yy",
+          addDates: [date, date]
+          
+        })
+
+      });
+    </script>

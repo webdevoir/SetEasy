@@ -106,9 +106,12 @@ initialize_calendar = function() {
             url: event.update_url,
             data: event_data,
             type: 'PATCH',
-            // success: function (data) {// success callback function
-            //      calendar.fullCalendar('eventRender');
-            // }
+            success: function (data) {// success callback function
+                 // calendar.fullCalendar('eventRender');
+                 calendar.fullCalendar('removeEvents');
+                 calendar.fullCalendar('addEventSource', '/events.json');  
+                 calendar.fullCalendar('rerenderEvents');
+            }
         });
         
       },

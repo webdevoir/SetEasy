@@ -5,8 +5,8 @@
 				    <td><%= f.number_field :price, step: :any, class: 'form-control exam_forms' %></br></td>
 
 					<% purchase = true if f.object.rental == false %>
-				    <td><%= f.radio_button :rental, "0", { checked: purchase } %>
-					<%= f.radio_button :rental, "1", { checked: f.object.rental } %></td>
+				    <td><%= f.radio_button :rent_status, "0", { checked: purchase } %></td>
+					<td><%= f.radio_button :rent_status, "1", { checked: f.object.rental } %></td>
 					<td><%= link_to_remove_association "remove item", f %></td>
 				
 				   

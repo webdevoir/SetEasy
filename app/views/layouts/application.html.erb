@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Audrey</title>
+    <title>Seteasy: The management tool for Film & TV Set Decorators</title>
     <%= csrf_meta_tags %>
+    <meta name="description" content="Finally! An online tool specifically created for Set Decorators in Film & TV. Prep, Shoot, Wrap efficiently and get more time for creativity!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -22,20 +23,25 @@
    
 
   <body>
-<!--    <%= request.path  + " " + params[:controller]%> -->
+      <div id='remote_container'></div>
+  <% unless request.path == "/" %>
     <%= render 'layouts/topheader' %>
     <%= render 'layouts/header' %>
-      <div id='remote_container'></div>
     <div id="main_div">
+  <% end %>
+
+
+
+    
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
       <% end %>
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-
       <%= yield %>
     </div>
+     <%= render 'layouts/footer' %>
 
 
   </body>

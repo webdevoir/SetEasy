@@ -9,20 +9,40 @@
                     <%= link_to location_rental_path(@set, rental) do %>
                         <div class="rental_item">
                             <div class="rental_item_header">
-                                <%= truncate(rental.desc, length: 20) %> 
+                                <% if rental.budget_item && rental.budget_item.item.length > 0 %>
+                                    <%= truncate(rental.budget_item.item, length: 20) %>
+                                <% else %>
+                                    <span style="color:red">Error</span>
+                                <% end %> 
                             </div>
                             <div class="rental_item_pic">
                                 <%= print_image rental.image_url.to_s %>
                             </div>
                             <h4>Pickup Date: <span class="rental_thin">
-                            <% if rental.pick_date %>
-                                <span class="rental_thin"><%= rental.pick_date.strftime("%b %d, %Y")  %></span>
-                            <% else %>
-                                <span class="rental_thin">No date</span>
-                            <% end %>
-
-                        </h4>
-                            <h4>Return by: <span class="rental_thin"><span class="rental_thin"><%= rental.due_date.strftime("%b %d, %Y")  %></span></h4>
+                                <% if rental.pick_date %>
+                                    <span class="rental_thin"><%= rental.pick_date.strftime("%b %d, %Y")  %></span>
+                                <% else %>
+                                    <span class="rental_thin">No date</span>
+                                <% end %>
+                            </h4>
+                            <h4>Return by: <span class="rental_thin"><span class="rental_thin">
+                                <% if rental.due_date %>
+                                    <span class="rental_thin"><%= rental.due_date.strftime("%b %d, %Y")  %></span>
+                                <% else %>
+                                    <span class="rental_thin">No date set</span>
+                                <% end %>
+                                    
+                            </span></h4>
+                            <h4 class="pdf_only">Rental status: 
+                                <span class="rental_thin">
+                                <% if rental.budget_item %>
+                                    <%= rental.budget_item.rent_status ? "Rented" : "Purchased"  %>
+                                <% else %>
+                                    <span class="rental_thin">No date set</span>
+                                <% end %>
+                                </span></h4>
+                            <h4 class="pdf_only">Set: <span class="rental_thin"><%= rental.location.name %></span></h4>
+                            <h4 class="pdf_only">Source: <span class="rental_thin"><%= rental.source && rental.source.length < 0 ? rental.source : "None" %></span></h4>
 
                         </div>
                      <% end %>

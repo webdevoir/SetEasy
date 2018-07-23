@@ -10,9 +10,9 @@
           <% end %>
         </div>
 
-        <div>
-        <%= f.label :location_id, "Select Set" %><br>
-        <%= f.collection_select :location_id, @project.locations, :id, :name, {}, {:class=>'form-control'}%>
+        <div id="set-fields">
+        <%= f.label :location_id, "Select Set" %><%= link_to "No Set", "#", class: "modal_button exam_button", id: "no-set", style: "width:auto;float: right"  %><br>
+        <%= f.collection_select :location_id, @project.locations, :id, :int_name, {}, {:class=>'form-control'}%>
       </div>
       <p>Select Dates/Times</p>
       <div id="TimePlan" style="width: 100%;height: auto" ></div>
@@ -20,7 +20,7 @@
     <%= f.hidden_field :start, value: Date.today, class: 'form-control input-sm start_hidden' %>
     <%= f.hidden_field :end, value: Date.today, class: 'form-control input-sm end_hidden' %>
 
-   
+     <%= f.hidden_field :location_id %>
   </div>
 
   <div class="form-actions">
@@ -38,5 +38,19 @@
 
       date_range_picker();
     console.log("date picker initialized from form");
-});
+
+      $("#no-set").click(function() {
+        console.log("clicked");
+        primeCheck()
+      });
+
+
+      function primeCheck() {
+              $('#set-fields').fadeToggle( "slow", "linear" );
+              $('#budget_location_id').val(false);
+              
+    
+      };
+
+  });
 </script>

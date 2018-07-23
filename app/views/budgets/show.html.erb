@@ -1,7 +1,11 @@
+
+
  <div class="container">
- 	<div id='remote_container'></div>
- 		<%= link_to "Return to Budget Page", budgets_path, class: "btn btn-primary exam_button" %><br /><br />
- 		<h2>Budget for 
+
+ 		<div class="no_pdf">
+ 			<%= link_to "Return to Budget Page", budgets_path, class: "btn btn-primary exam_button" %>
+ 		</div>
+ 			<br /><br />
  			 		<% if @budget.location %>
  		<h2>Budget for <%= @budget.location.name %></h2>
  		<% elsif @budget.name  %>
@@ -12,15 +16,18 @@
 
 
 
-
- 			<%= link_to "Edit Mode", edit_budget_path(@budget), class: "btn btn-primary exam_button" %>
+ 		<div class="no_pdf">
+ 			<%= link_to "Edit Mode", edit_budget_path(@budget), class: "btn btn-primary exam_button " %>
+ 		</div>
 </h2> 
 	 <table class="table">
 	      <tr>
 
 	        <th>Item</th>
-	        
-	        <th>Price</th>
+	        <th class="no_pdf">Set Piece</th>
+	        <th>Budgeted</th>
+	        <th>Actual</th>
+	        <th>Difference</th>
 	        <th>Rental/Purchase</th>
 	        <th>ID</th>
 
@@ -30,10 +37,29 @@
 	      <tr>
 	  
 	        <td><%= budget.item %></td>
-	        
+	        <% if budget.rental %>
+	        	<td class="no_pdf"><%= link_to "See Piece", location_rental_path(budget.budget.location, budget.rental), class: "exam_button table_button" %></td>
+	        <% else %>
+	  
+	        	 <td class="no_pdf"><%= link_to "Add a piece", new_location_rental_path(budget.budget.location, item: budget.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "exam_button table_button", id: "bright-yellow"  %></td>
+	        <% end %>
+	        <td><%= number_to_currency(budget.budgeted) %></td>
 	        <td><%= number_to_currency(budget.price) %></td>
+	        <% if budget.budgeted && budget.price %>
+		        <% difference = budget.budgeted - budget.price %>
+		        <% if difference < 0 %>
+		        	<td style="color: red">
+		        <% elsif difference > 0 %>
+		        	<td style="color: green">
+		        <% else %>
+		        	<td>
+		        <% end %>
+		        		<%= number_to_currency(difference) %></td>
+		    <% else %>
+		    	<td>Not Set</td>
+		    <% end %>
 
-	        <td><%= budget.rental ? "Rental" : "Purchase" %></td>
+	        <td><%= budget.rent_status ? "Rental" : "Purchase" %></td>
 
 	        <td><%= budget.id %></td>
 	       
@@ -49,4 +75,5 @@
 
 	    </table>
 </div>
+<div style='page-break-before:always'></div>
   
