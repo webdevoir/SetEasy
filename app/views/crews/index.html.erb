@@ -29,7 +29,7 @@
        <% @crews.each do |crew|  %>
       <tr>
   
-        <td><%= link_to crew.name, crew_path(crew) %></td>
+        <td><%= crew.name.titleize %></td>
         
         <% if crew.role && crew.role.length > 1 %>
             <td><%= crew.role  %></td>
