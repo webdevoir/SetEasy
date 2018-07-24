@@ -1,10 +1,11 @@
 #main_div{
-    margin-top: calc(50px + 84px);
+    margin-top: calc(50px + 56px);
+    margin-bottom: 30px;
     top: 0;
     bottom: 0;
     position: absolute;
     width: 100%;
-    // overflow-y:scroll;
+    overflow-y:scroll;
     // overflow-x:hidden;
     z-index: -100;
 }

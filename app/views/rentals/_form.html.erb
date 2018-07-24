@@ -25,6 +25,9 @@
 
       <% if @item %>
         <p>Set: <%= @item.budget.location.name %></p>
+      <% elsif @set %>
+        <p>Set: <%= @set.name %></p>
+        <%= f.hidden_field :location_id, value: @set.id %>
       <% else %>
         <div>
           <%= f.label :location_id, "Select Set" %><br>

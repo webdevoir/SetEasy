@@ -30,7 +30,7 @@ class RentalsController < ApplicationController
   def new
   	@rental = Rental.new
     @set = Location.find(params[:location_id])
-    @item = BudgetItem.find(params[:item])
+    @item = BudgetItem.find(params[:item]) if params[:item]
     
   end
 
@@ -43,7 +43,7 @@ class RentalsController < ApplicationController
     rental_status = params[:rental]  ? params[:price] : @rental.rental_status
     desc = params[:desc]  ? params[:desc] : @rental.desc
     item = params[:item] ? params[:item] : @rental.item
-    @item = BudgetItem.find(item)
+    @item = BudgetItem.find(item) if item
     set = @rental.location_id ? @rental.location_id : @item.budget.location.id
     @rental.location_id = set
 
