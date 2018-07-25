@@ -1,0 +1,39 @@
+// Place all the styles related to the email_lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#email-collect-container {
+	width: 800px;
+	margin-left: calc((100vw - 800px)/2);
+	margin-right: calc((100vw - 800px)/2);
+}
+
+#email-collect-form {
+	width: 600px;
+}
+
+@media screen and (max-width: 500px) {
+	#email-collect-container {
+		width: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
+		// background-color: #fff;
+		padding: 0px;
+		    margin-top: 15px;
+	}
+	#email-collect-form {
+		// position: relative;
+		z-index: 1;
+		background: #FFFFFF;
+		width: 100%;
+		margin: 0 auto 100px;
+		padding: 35px;
+		text-align: center;
+		box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	}
+	#email-collect-button {
+	    padding: 10px 15px;
+	}
+
+}

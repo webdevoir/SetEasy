@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 		end
 		resources :events
 
+		resources :email_lists
+
 		root to: 'pages#landing'
 
 		# get 'rentals' => 'rentals#index', as: :rentals

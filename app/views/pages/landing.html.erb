@@ -3,5 +3,26 @@
 	<div class="landing-text">
 		<%= link_to (image_tag "SetLogo_white.jpg", id: "landing-logo"), new_user_session_path %></br>
 		<span>Coming Soon!</span>
+
+	<div class="login_container" id="email-collect-container">
+  
+
+     <%= form_for :email_list, :url=>{ :controller => :email_lists, :action => :create}, :html => {:id => "email-collect-form"} do |f| %>
+                <h3 class="text-center"><strong>Follow us for updates!</strong></h2>
+                <h4 class="text-center">Fill out your name and email and we'll keep you in the loop.</h3>
+                <div class="form-group">
+                  <%= f.text_field :name, placeholder: "Name", class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
+                </div>
+             
+                <div >
+                <%= f.submit 'Send', class: 'btn btn-primary btn-block', style: "font-size: 20px; font-weight: bolder;", id: "email-collect-button" %>
+                </div>  
+            <% end %>       
+
+    </div>
 	</div>
+
 </div>
