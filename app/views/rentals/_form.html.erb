@@ -32,6 +32,7 @@
 
               </div>
                <img id="img_prev"src="#" alt="your image" class="img-thumbnail hidden" style="max-width: 50%"/>
+               <p id="img_prev_text"><%= "Current Image: " + @rental.image.file.path.split('/')[-1] if @rental.image %></p>
 
       </div">
 
@@ -115,6 +116,7 @@
 
         $("#rental_image").change(function(){
           $('#img_prev').removeClass('hidden');
+          $('#img_prev_text').addClass('hidden');
           readURL(this);
         });
   });
