@@ -78,9 +78,9 @@
 }
 .rental_item:hover {
 	opacity: 0.4;
-  text-shadow: 0 0 15px #0e83cd;
+  text-shadow: 0 0 15px #f7882f;
     transition: all 0.5s ease;
-    box-shadow: 0 0 20px  #0e83cd;
+    box-shadow: 0 0 20px  #f7882f;
     // border: 2px solid  #0e83cd;
   }
 .rental_item_header a:link, .rental_item_header a:visited, .rental_item_header  a:hover {
@@ -88,7 +88,8 @@
 }
 
 .rental_item_header  a:active, .rental_item_header  a:hover {
-  color: #565656;
+  color: #f7882f;
+
 }
 .rental_item_header {
  padding-left: 15px;
@@ -313,7 +314,7 @@
 }
 
 .dash_breadcrumb  a:active, .dash_breadcrumb  a:hover {
-  color: #ccff00;
+  color: #f7882f;
 }
 
 

@@ -107,3 +107,64 @@
   .dl-select {
     width: 100%;
 }
+
+.onsite-forms input[type=file] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    display: none;
+}
+
+
+// .onsite-forms label{
+//     font-family: raleway;
+//     font-size: 25px;
+// }
+
+.onsite-forms {
+    // height: 54px !important;
+    // font-size: 25px !important;
+    // margin-top: 20px;
+    // margin-bottom: 20px;
+    // text-align: center;
+    //     font-family: raleway;
+    // font-size: 25px;
+}
+
+.onsite-forms input[type=file] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.file-upload {
+    max-width: 80%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    color: #f1e5e6;
+    // background-color: #337ab7;
+    background-color: #f7882f;
+    cursor: pointer;
+}
+.onsite-label-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+

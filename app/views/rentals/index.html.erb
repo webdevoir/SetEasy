@@ -33,6 +33,7 @@
                                 <% end %>
                                     
                             </span></h4>
+                            <h4>Vendor: <span class="rental_thin"><%= rental.source && rental.source.length < 0 ? rental.source : "None" %></span></h4>
                             <h4 class="pdf_only">Rental status: 
                                 <span class="rental_thin">
                                 <% if rental.budget_item %>
