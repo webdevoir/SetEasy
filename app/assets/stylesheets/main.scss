@@ -8,6 +8,18 @@
     overflow-y:scroll;
     // overflow-x:hidden;
     z-index: -100;
+
+    a {
+      color: #6b7a8f;
+      text-decoration: none;
+      background-color: transparent;
+      -webkit-text-decoration-skip: objects;
+    }
+    /* line 13, /home/ng/.rbenv/versions/2.4.2/lib/ruby/gems/2.4.0/gems/bootstrap-4.1.1/assets/stylesheets/bootstrap/mixins/_hover.scss */
+    a:hover {
+      color: #f7c331;
+      text-decoration: underline;
+    }
 }
 // #remote_container {
 //     position: fixed;
@@ -15,14 +27,13 @@
 // }
 
 .exam_button {
-    color: #fff;
     // background:  #0e83cd;
     background: #f7882f;
     border: 3px solid #fff;
     // border: none;
     font-family: inherit;
     font-size: inherit;
-    color: inherit;
+    color: #6b7a8f !important;
     cursor: pointer;
     padding: 15px 80px;
     display: inline-block;
@@ -35,13 +46,15 @@
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
+
   }
 .exam_button:hover {
     // color: #0e83cd;
-    color: #6b7a8f;
-    background: #fff;
+    color: #f7882f !important;
+    background: #fff !important;
     // border: 3px solid #0e83cd;
     border: 3px solid #6b7a8f;
+    text-decoration: none !important;
 }
 
 .btn-primary {
@@ -166,5 +179,9 @@
     fill: currentColor;
     margin-top: -0.25em;
     margin-right: 0.25em;
+}
+
+.hidden {
+    display: none;
 }
 

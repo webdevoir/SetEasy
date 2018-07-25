@@ -175,10 +175,10 @@
 }
 .rental_list_item:hover {
 	    // color: #28b62c;
-    text-shadow: 0 0 15px #0e83cd;;
+    text-shadow: 0 0 15px #f7882f;
     transition: all 0.5s ease;
-    box-shadow: 0 0 15px  #0e83cd;;
-    border: 2px solid  #0e83cd;;
+    box-shadow: 0 0 15px  #f7882f;
+    border: 2px solid  #f7882f;
 
 }
 .rental_list_image_holder {
@@ -197,8 +197,8 @@
 	font-family: 'raleway';
 	font-weight: 600;
   	font-size: 40px;
-  	color: #5a6068;
-  	text-shadow:  0px 0px 2px #001572;
+  	color: #6b7a8f;
+  	text-shadow:  0px 0px 2px #f7c331;
   	text-decoration: none;
 
 
@@ -275,7 +275,7 @@
 .rental_breadcrumb_active {
 	color: #000;
 
-	// text-shadow: 0 0 30px #ccff00;
+	// text-shadow: 0 0 30px #f7882f;
 	// transition: all 0.5s ease;
 	text-shadow: 1px 1px 0 #fff,
 			    -1px 1px 0 #fff,
@@ -285,23 +285,23 @@
 			    0px -1px 0 #fff,
 			    -1px 0px 0 #fff,
 			    1px 0px 0 #fff,
-			    2px 2px 0 #ccff00,
-			    -2px 2px 0 #ccff00,
-			    2px -2px 0 #ccff00,
-			    -2px -2px 0 #ccff00,
-			    0px 2px 0 #ccff00,
-			    0px -2px 0 #ccff00,
-			    -2px 0px 0 #ccff00,
-			    2px 0px 0 #ccff00,
-			    1px 2px 0 #ccff00,
-			    -1px 2px 0 #ccff00,
-			    1px -2px 0 #ccff00,
-			    -1px -2px 0 #ccff00,
-			    2px 1px 0 #ccff00,
-			    -2px 1px 0 #ccff00,
-			    2px -1px 0 #ccff00,
-			    -2px -1px 0 #ccff00,
-			    0 0 30px #ccff00;
+			    2px 2px 0 #f7882f,
+			    -2px 2px 0 #f7882f,
+			    2px -2px 0 #f7882f,
+			    -2px -2px 0 #f7882f,
+			    0px 2px 0 #f7882f,
+			    0px -2px 0 #f7882f,
+			    -2px 0px 0 #f7882f,
+			    2px 0px 0 #f7882f,
+			    1px 2px 0 #f7882f,
+			    -1px 2px 0 #f7882f,
+			    1px -2px 0 #f7882f,
+			    -1px -2px 0 #f7882f,
+			    2px 1px 0 #f7882f,
+			    -2px 1px 0 #f7882f,
+			    2px -1px 0 #f7882f,
+			    -2px -1px 0 #f7882f,
+			    0 0 30px #f7882f;
 }
 
 .rental_breadcrumb_active::before {
@@ -310,11 +310,12 @@
 		 }
 
 .dash_breadcrumb a:link, .dash_breadcrumb a:visited, .dash_breadcrumb  a:hover {
-  text-decoration: none; color: white;
+  text-decoration: none; color: white !important;
 }
 
 .dash_breadcrumb  a:active, .dash_breadcrumb  a:hover {
-  color: #f7882f;
+  color: #f7882f !important;
+  text-decoration: none !important;
 }
 
 
