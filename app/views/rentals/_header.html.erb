@@ -6,7 +6,7 @@
 		<li><%= link_to "Rentals", location_rentals_path(location_id: @set, :filter => "rental_filter") %></li>
     <li><%= link_to "Purchases", location_rentals_path(location_id: @set, :filter => "purchased") %></li>
     <li><%= link_to "Add a piece", new_location_rental_path(location_id: @set.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %></li>
-    <li><%= link_to "Print Wrap Pack", location_rentals_path(location_id: @set, format: "pdf"), target: :_blank  %></li>
+    <li><%= link_to "Print Wrap Pack", pdfs_rentals_path(location_id: @set, format: "pdf"), target: :_blank  %></li>
 
 	</ol>
 </div>

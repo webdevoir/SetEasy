@@ -42,6 +42,7 @@ Rails.application.routes.draw do
 
 		resources :rentals, only: [:index] do
 			get :sets, :on => :collection
+			get :pdfs, :on => :collection
 		end
 		get "/pages/:page" => "pages#show"
 
