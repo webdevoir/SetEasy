@@ -125,9 +125,10 @@ class RentalsController < ApplicationController
 
     #   html << render_to_string(:action => "show", :layout => false, :locals => {:@budget => n})
     # end  
-
+    css =  "#{Rails.public_path}/assets/application.css"
 
     pdf = PDFKit.new(html, :page_size => 'Letter')
+    pdf.stylesheets << css
     # pdf.stylesheets << view_context.asset_path 'application.css'
 
     send_data pdf.to_pdf, filename: "#{Date.today}-#{@project.name}-rentals.pdf"
