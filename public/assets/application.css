@@ -883,7 +883,7 @@ table.ui-datepicker-calendar {border-collapse: separate;}
 .ms-drop .ms-no-results {
     display: none;
 }
-@media print {
+
   /* line 4, /home/ng/ContractCode/AudreyFilm/audrey/app/assets/stylesheets/pdfs.scss */
   .no_pdf {
     display: none !important;
@@ -891,7 +891,7 @@ table.ui-datepicker-calendar {border-collapse: separate;}
 
   /* line 7, /home/ng/ContractCode/AudreyFilm/audrey/app/assets/stylesheets/pdfs.scss */
   .pdf_only {
-    display: block !important;
+    display: block 
   }
 
   /* line 10, /home/ng/ContractCode/AudreyFilm/audrey/app/assets/stylesheets/pdfs.scss */
@@ -899,7 +899,7 @@ table.ui-datepicker-calendar {border-collapse: separate;}
     width: 320px !important;
     height: 700px !important;
   }
-}
+
 /* line 1, /home/ng/ContractCode/AudreyFilm/audrey/app/assets/stylesheets/plans.scss */
 #plans {
   background-image: url(/images/llama.jpg);
