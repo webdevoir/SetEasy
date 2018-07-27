@@ -86,7 +86,7 @@ class ProjectsController < ApplicationController
       protected
 
       def project_params
-        params.require(:project).permit(:id, :name, :budget, :user_id, :company)
+        params.require(:project).permit(:id, :name, :budget, :user_id, :company, :dresser_days)
       end
 
       def current_resource
