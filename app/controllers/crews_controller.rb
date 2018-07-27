@@ -85,9 +85,8 @@ class CrewsController < ApplicationController
     html = render_to_string(:action => "index", :layout => false, :locals => {:@crews => @crews, :@project => @project, :@dresser_days => @dresser_days})
     
     css =  "#{Rails.public_path}/assets/application.css"
-    header = "#{Rails.public_path}/pdf_header.html"
 
-    pdf = PDFKit.new(html, :page_size => 'Letter', :header_html => header)
+    pdf = PDFKit.new(html, :page_size => 'Letter')
     pdf.stylesheets << css
     # pdf.stylesheets << view_context.asset_path 'application.css'
 
