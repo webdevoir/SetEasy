@@ -1,4 +1,4 @@
-<meta name="pdfkit-orientation" content="Landscape"/>
+
 <div id='remote_container'></div>
 <div class="container-fluid content_dashboard">
   <div class="no_pdf">
@@ -25,7 +25,7 @@
         </div>
    </div>
    <div class="start">0</div>
-   <div class="end"><%= @project.dresser_days.to_i %></div>
+   <div class="end"><%= @project.dresser_days ? @project.dresser_days.to_i : "Not Set" %></div>
 </div>
 
 
