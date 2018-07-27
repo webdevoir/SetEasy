@@ -7,6 +7,28 @@
     </div>
   <br />
   <br />
+
+
+<% @certs = @project.dresser_days.to_i %>
+<% @count = @dresser_days %>
+<% if @certs && @certs > 0 %>
+  <% @progress = ((@count.to_f / @certs.to_f).round(2) * 100).round(0) %> <!--/-->
+<% else %>
+      <% @progress = 0 %>
+       <% end %>
+<div class="progress-wrapper" style="clear:both;">
+  <h3>Dresser Days</h3>
+   <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-success " role="progressbar" style="width: <%= @progress %>%" aria-valuenow="" aria-valuemin="0" aria-valuemax=  <%= @certs %>>
+          <% span_width = "no_data" if @count == 0 %>
+          <span class="<%=span_width%>"><%= @dresser_days %></span>
+        </div>
+   </div>
+   <div class="start">0</div>
+   <div class="end"><%= @project.dresser_days.to_i %></div>
+</div>
+
+
   <div class="table-responsive">
     <table class="table">
       <tr>

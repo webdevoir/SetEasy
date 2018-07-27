@@ -6,6 +6,12 @@ class CrewsController < ApplicationController
     @project = current_project
     @crews = @project.crews
     @crews = @crews.order(:updated_at).reverse_order
+
+     @ddays = @crews.where("role LIKE ?", "%Dresser%")
+     @dresser_days = 0
+     @ddays.each do |crew|
+      @dresser_days = @dresser_days + crew.events.where("start <= ?",  Date.today).count
+    end
   end
 
   def show
