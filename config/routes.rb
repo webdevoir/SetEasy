@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 		end
 		resources :crews, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
 			get :crew_events
+			get :pdfs, :on => :collection
 		end
 		resources :budgets, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
 			get :pdfs, :on => :collection

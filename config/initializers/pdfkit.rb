@@ -11,6 +11,8 @@ if Rails.env.production?
     # margin_left: '0cm',
     # margin_bottom: '0cm',
 
+    footer_right: 'Page [page] of [toPage]'
+
   
   }
   end

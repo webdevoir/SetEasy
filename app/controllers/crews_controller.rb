@@ -72,6 +72,27 @@ class CrewsController < ApplicationController
     # end
   end
 
+  def pdfs
+
+    @project = current_project
+    @crews = @project.crews
+    @ddays = @crews.where("role LIKE ?", "%Dresser%")
+     @dresser_days = 0
+     @ddays.each do |crew|
+      @dresser_days = @dresser_days + crew.events.where("start <= ?",  Date.today).count
+    end
+
+    html = render_to_string(:action => "index", :layout => false, :locals => {:@crews => @crews, :@project => @project, :@dresser_days => @dresser_days})
+    
+    css =  "#{Rails.public_path}/assets/application.css"
+
+    pdf = PDFKit.new(html, :page_size => 'Letter')
+    pdf.stylesheets << css
+    # pdf.stylesheets << view_context.asset_path 'application.css'
+
+    send_data pdf.to_pdf, filename: "#{Date.today}-#{@project.name}-crews.pdf"
+  end
+
       protected
 
       def crew_params
