@@ -86,7 +86,7 @@ class CrewsController < ApplicationController
     
     css =  "#{Rails.public_path}/assets/application.css"
 
-    pdf = PDFKit.new(html, :page_size => 'Letter')
+    pdf = PDFKit.new(html, :page_size => 'Letter', :header_html => "/pdf_header.html")
     pdf.stylesheets << css
     # pdf.stylesheets << view_context.asset_path 'application.css'
 

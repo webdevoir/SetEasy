@@ -886,12 +886,12 @@ table.ui-datepicker-calendar {border-collapse: separate;}
 @media print {
   /* line 4, /home/ng/ContractCode/AudreyFilm/audrey/app/assets/stylesheets/pdfs.scss */
   .no_pdf {
-    display: none;
+    display: none !important;
   }
 
   /* line 7, /home/ng/ContractCode/AudreyFilm/audrey/app/assets/stylesheets/pdfs.scss */
   .pdf_only {
-    display: block;
+    display: block !important;
   }
 
   /* line 10, /home/ng/ContractCode/AudreyFilm/audrey/app/assets/stylesheets/pdfs.scss */

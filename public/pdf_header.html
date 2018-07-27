@@ -1,0 +1,78 @@
+<div id="top-header" class="et-fixed-header"> 
+  <div class="header-container"> 
+    <div class="top-wrapper"> 
+      <%= link_to (image_tag "SetLogo_trans.png", style: 'height:45px;width:auto;float:left;', id: "top-header-logo"), root_path, class: "navbar-left" %>
+
+      <div id="header-project">
+        <% if current_project %>
+                        <%= link_to "Project: #{truncate(current_project.name, length: 20)}", projects_path, class: "nav-link" %>
+                      <% else %>
+                        <%= link_to "Project: none", "#", class: "nav-link" %>
+                      <% end %>
+            </div>
+
+      <ul class="top_icons"> 
+          <% if current_user %>
+            <li>
+              <%= link_to edit_user_registration_path  do %>
+                <span data-toggle="tooltip" data-animation="false" title="Profile Settings"><i class="fas fa-user-circle"></i></span>
+              <% end %>
+            </li> 
+          <% end %>
+          <% if current_user %>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete  do %>
+                <span data-toggle="tooltip" data-animation="false" title="Log Out"><i class="fas fa-sign-out-alt"></i></span>
+              <% end %>
+            </li> 
+          <% end %>
+          <li>
+            <%= link_to new_message_path  do %>
+              <span  data-toggle="tooltip" data-animation="false" title="Contact Us"><i class="fas fa-envelope"></i></span>
+            <% end %>
+          </li> 
+          <% if current_user %>
+            <li>
+              <%= link_to "/pages/forms"  do %>
+                <span  data-toggle="tooltip" data-animation="false" title="Download Forms"><i class="fas fa-download"></i></span>
+              <% end %>
+            </li> 
+          <% end %>
+      
+          <% if current_user %>
+            <% if current_project %>
+                         <li><div class="dropdown">
+          
+                    <a class="dropdown-toggle" href="#" id="dropdownMenuButton"" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span data-toggle="tooltip" data-animation="false" title="Current Project"><i class="fas fa-film"></i></span>
+                  </a>
+                  <% if current_user.role == "Admin" %> 
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <% Project.all.order(:name).each do |pro|  %>
+                                <%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put, class: "dropdown-item"  %>
+                              <% end %>
+        
+                      </div>
+                 <% else %>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <% current_user.projects.each do |pro|  %>
+                                <%= link_to pro.name, user_registration_path(:user => { :current_project => pro.id}), :method => :put, class: "dropdown-item"  %>
+                              <% end %>
+        
+                      </div>
+                   <% end %>
+                  </div></li>
+             <% else %>
+              <li><div class="dropdown">
+          
+                    <a class="dropdown-toggle" href="#" id="dropdownMenuButton"" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span data-toggle="tooltip" data-animation="false" title="No projects"><i class="fas fa-film"></i></span>
+                  </a>
+                      
+                  </div></li>
+            <% end %>
+          <% end %>
+      </ul>   
+    </div>
+  </div> 
+</div>
