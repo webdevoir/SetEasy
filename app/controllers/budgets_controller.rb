@@ -60,7 +60,11 @@ class BudgetsController < ApplicationController
     end  
 
 
+  
+     css =  "#{Rails.public_path}/assets/application.css"
+
     pdf = PDFKit.new(html, :page_size => 'Letter')
+    pdf.stylesheets << css
 
     send_data pdf.to_pdf, filename: "#{Date.today}-#{@project.name}-budget.pdf"
   end

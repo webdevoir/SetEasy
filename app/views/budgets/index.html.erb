@@ -1,6 +1,8 @@
 
 
 <div class="container-fluid content_dashboard">
+  <%= render 'layouts/pdf_header' %>
+<h1 class="pdf_only">Budget for <%= @project.name if @project %></h1>
 
 
 <div class="no_pdf">
@@ -66,7 +68,7 @@
           <% end %>
         
         <td><%= budget.budget_items.count %></td>
-        <td><%= number_to_currency(budget.budgeted) %> (<%= link_to "edit", edit_budget_path(budget), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>)</td>
+        <td><%= number_to_currency(budget.budgeted) %> (<%= link_to "edit", edit_budget_path(budget), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "no_pdf" %>)</td>
         <td><%= number_to_currency(budget.budget_items.sum(:price)) %></td>
 
          <% if budget.budgeted && budget.budgeted > 0 && budget.budget_items.sum(:price) > 0 %>
@@ -92,3 +94,4 @@
   
             <hr>
 </div>
+<div style='page-break-before:always'></div>
