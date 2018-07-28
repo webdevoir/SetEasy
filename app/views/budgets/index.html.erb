@@ -66,11 +66,11 @@
           <% end %>
         
         <td><%= budget.budget_items.count %></td>
-        <td><%= number_to_currency(budget.budget_items.sum(:budgeted)) %></td>
+        <td><%= number_to_currency(budget.budgeted) %> (<%= link_to "edit", edit_budget_path(budget), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>)</td>
         <td><%= number_to_currency(budget.budget_items.sum(:price)) %></td>
 
-         <% if budget.budget_items.sum(:budgeted) > 0 && budget.budget_items.sum(:price) > 0 %>
-            <% difference = budget.budget_items.sum(:budgeted) - budget.budget_items.sum(:price) %>
+         <% if budget.budgeted && budget.budgeted > 0 && budget.budget_items.sum(:price) > 0 %>
+            <% difference = budget.budgeted - budget.budget_items.sum(:price) %>
             <% if difference < 0 %>
               <td style="color: red">
             <% elsif difference > 0 %>

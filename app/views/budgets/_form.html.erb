@@ -21,6 +21,12 @@
           <%= f.label :name %><br>
           <%= f.text_field :name, class: 'form-control exam_forms'%>
         </div>
+        <br>
+        <div id="set-fields">
+          <%= f.label :budgeted, "Budgeted Amount" %><br>
+          <%= f.number_field :budgeted, step: :any, class: 'form-control exam_forms' %>
+        </div>
+        <br><br>
 
         <%= f.hidden_field :location_id %>
           <%= f.submit "Submit", class: 'form-control exam_forms' %> 

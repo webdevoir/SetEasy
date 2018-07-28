@@ -2,7 +2,7 @@
 				<tr class="nested-fields">
 					
 				   <td> <%= f.text_field :item, class: 'exam_forms' %></br></td>
-				   <td><%= f.number_field :budgeted, step: :any, class: 'exam_forms' %></br></td>
+	
 				    <td><%= f.number_field :price, step: :any, class: 'exam_forms' %></br></td>
 
 					<% purchase = true if f.object.rent_status == false %>
