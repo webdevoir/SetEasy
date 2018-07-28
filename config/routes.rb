@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
 		resources :locations, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
 			resources :rentals, only: [ :new, :create, :edit, :update, :destroy, :show, :index]
+			get :pdfs, :on => :collection
 		end
 		resources :crews, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
 			get :crew_events

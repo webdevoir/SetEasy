@@ -53,6 +53,22 @@ class LocationsController < ApplicationController
 
   end
 
+  def pdfs
+
+   @project = current_project
+   @locations = @project.locations
+
+    html = render_to_string(:action => "index", :layout => false, :locals => {:@locations => @locations, :@project => @project})
+    
+    css =  "#{Rails.public_path}/assets/application.css"
+
+    pdf = PDFKit.new(html, :page_size => 'Letter')
+    pdf.stylesheets << css
+    # pdf.stylesheets << view_context.asset_path 'application.css'
+
+    send_data pdf.to_pdf, filename: "#{Date.today}-#{@project.name}-locations.pdf"
+  end
+
   def destroy
   	@location = Location.find(params[:id])
   	@location.destroy

@@ -1,14 +1,25 @@
 <meta name="pdfkit-orientation" content="Landscape"/>
 <div class="container-fluid content_dashboard">
-  <div id='remote_container'></div>
+    <div id="top-header" class="et-fixed-header pdf_only"> 
+
+    <div class="top-wrapper"> 
+
+      <img src="https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-804672335471/uploads/SetLogo_trans.png", style="height:45px;float:left;" >
+   <h3 style="float:right;padding-right: 100px;"><%= Date.today.strftime("%b %d, %Y")  %></h3>
+  
+    </div>
+
+</div>
+<div class="pdf_only" style="margin-bottom: 25px;"></div>
 
 <div class="no_pdf">
     <%= link_to "Add a Set", new_location_path, data: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
-    <%= link_to "Download PDF", locations_path(format: "pdf"), target: :_blank, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
+    <%= link_to "Download PDF", pdfs_locations_path(format: "pdf"), target: :_blank, class: "btn btn-primary exam_button", style: "width:auto;float: left"  %>
     </div>
   <br />
   <br />
    <div class="table-responsive">
+     
     <table class="table">
       <tr>
 
@@ -54,3 +65,7 @@
   
             <hr>
 </div>
+
+
+      <img src="https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-804672335471/uploads/SetLogo_trans.png", style="height:45px;float:left;" class="pdf_only" >
+  
