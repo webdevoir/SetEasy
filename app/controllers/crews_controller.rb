@@ -76,13 +76,14 @@ class CrewsController < ApplicationController
 
     @project = current_project
     @crews = @project.crews
+    @path = "#{Rails.public_path}/assets/SetLogo_trans.png"
     @ddays = @crews.where("role LIKE ?", "%Dresser%")
      @dresser_days = 0
      @ddays.each do |crew|
       @dresser_days = @dresser_days + crew.events.where("start <= ?",  Date.today).count
     end
 
-    html = render_to_string(:action => "index", :layout => false, :locals => {:@crews => @crews, :@project => @project, :@dresser_days => @dresser_days})
+    html = render_to_string(:action => "index", :layout => false, :locals => {:@path => @path, :@crews => @crews, :@project => @project, :@dresser_days => @dresser_days})
     
     css =  "#{Rails.public_path}/assets/application.css"
 
