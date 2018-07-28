@@ -4,9 +4,9 @@
   <div id="top-header" class="et-fixed-header pdf_only"> 
 
     <div class="top-wrapper"> 
-      <% path =  "file://#{Rails.root}/public/assets/SetLogo_trans.png" %>
-      <img src="<%= path %>", style="height:45px;width:auto;float:left;", id="top-header-logo" >
-      <% path2 =  "file://#{Rails.root}/assets/SetLogo_trans.png" %>
+
+      <img src="https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-804672335471/uploads/SetLogo_trans.png", style="height:45px;width:auto;float:left;", id="top-header-logo" >
+      <% path2 =  "https://s3-us-west-2.amazonaws.com/elasticbeanstalk-us-west-2-804672335471/uploads/SetLogo_trans.png" %>
       <img src="<%= path2 %>", style="height:45px;width:auto;float:left;", id="top-header-logo" >
 
    <h3 style="float:right;padding-right: 100px;"><%= Date.today.strftime("%b %d, %Y")  %></h3>
