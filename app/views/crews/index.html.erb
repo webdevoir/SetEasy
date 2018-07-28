@@ -4,10 +4,10 @@
   <div id="top-header" class="et-fixed-header pdf_only"> 
 
     <div class="top-wrapper"> 
-
-
-      <img src="http://seteasy.ca/assets/SetLogo_trans.png", style="height:45px;width:auto;float:left;", id="top-header-logo" >
-  
+      <% path =  "file://#{Rails.root}/public/assets/SetLogo_trans.png" %>
+      <img src="<%= path %>", style="height:45px;width:auto;float:left;", id="top-header-logo" >
+      <% path2 =  "file://#{Rails.root}/assets/SetLogo_trans.png" %>
+      <img src="<%= path2 %>", style="height:45px;width:auto;float:left;", id="top-header-logo" >
 
    <h3 style="float:right;padding-right: 100px;"><%= Date.today.strftime("%b %d, %Y")  %></h3>
   
