@@ -22,17 +22,8 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @project = current_project
     @event.project_id = @project.id
-    case @event.title
-      when "Prep"
-        @event.color = 'blue'
-      when "Dress"
-        @event.color = '#cec400'
-      when "Wrap"
-        @event.color = 'orange'
-      else
-        @event.color = 'red'
-    end
-          
+   
+    colors
     if @event.save
     else
       logger.info "#{@event.errors.full_messages.to_sentence}"
@@ -40,17 +31,9 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event.title = params[:event][:title]
+   colors
     @event.update(event_params)
-    case @event.title
-      when "Prep"
-        @event.color = 'blue'
-      when "Dress"
-        @event.color = '#cec400'
-      when "Wrap"
-        @event.color = 'orange'
-      else
-        @event.color = 'red'
-    end
   end
 
   def destroy
@@ -60,6 +43,21 @@ class EventsController < ApplicationController
   private
     def set_event
       @event = Event.find(params[:id])
+    end
+
+    def colors
+       case @event.title
+      when "Prep"
+        @event.color = 'blue'
+      when "Dress"
+        @event.color = '#cec400'
+      when "Wrap"
+        @event.color = 'orange'
+      when "Pick up"
+        @event.color = 'magenta'
+      else
+        @event.color = 'red'
+    end
     end
 
     def event_params

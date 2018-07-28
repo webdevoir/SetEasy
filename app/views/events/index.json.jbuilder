@@ -12,6 +12,7 @@ json.array! @events do |event|
     crews.push(crew.name)
   end
   json.crews crews
+  json.location event.location
   json.update_url event_path(event, method: :patch)
   json.edit_url edit_event_path(event)
 end

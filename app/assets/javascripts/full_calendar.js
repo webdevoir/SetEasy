@@ -2,26 +2,38 @@ var initialize_calendar;
 function view_check(event, element, view) {
             title = element.find('.fc-title')
             // console.log(element);
-            if(view.name == "agendaWeek"){
-              if (event.crews && event.crews.length > 0){
-                // title.html("");
-                 $.each(event.crews, function(index, value) {
-                  title.append('</br>' + value );
-                });
-               }
-               // title.css('font-size', '20px')
-               console.log("week");
-    
-              } else if(view.name == "agendaDay"){
+            if (event.title != "Pick up") {
+              console.log("XXXX  NON Prep Event data ----> ");
+                console.log(event)
+              if(view.name == "agendaWeek"){
                 if (event.crews && event.crews.length > 0){
-                // title.html("");
-                 $.each(event.crews, function(index, value) {
-                  title.append('</br>' + value );
-                });
-               }
-               // title.css('font-size', '40px')
-               console.log("day");
-        
+                  // title.html("");
+                   $.each(event.crews, function(index, value) {
+                    title.append('</br>' + value );
+                  });
+                 }
+                 // title.css('font-size', '20px')
+                 // console.log("week");
+      
+                } else if(view.name == "agendaDay"){
+                  if (event.crews && event.crews.length > 0){
+                  // title.html("");
+                   $.each(event.crews, function(index, value) {
+                    title.append('</br>' + value );
+                  });
+                 }
+                 // title.css('font-size', '40px')
+                 // console.log("day");
+          
+                }
+              } else {  
+                console.log("XXXX  Prep Event data ----> ");
+                console.log(event)
+                if (event.location) {
+                  title.append('</br>' + event.location.name);
+                } else {
+                  title.append('</br>' + "no set");
+                }
               }
      
 
