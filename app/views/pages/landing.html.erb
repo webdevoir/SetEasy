@@ -4,7 +4,7 @@
 		<%= link_to (image_tag "SetLogo_white.jpg", id: "landing-logo"), new_user_session_path %></br>
 		<span>Coming Soon!</span>
 
-	<div class="login_container" id="email-collect-container" style="padding-top: 20px;">
+	<div class="login_container" id="email-collect-container">
   
 
      <%= form_for :email_list, :url=>{ :controller => :email_lists, :action => :create}, :html => {:id => "email-collect-form"} do |f| %>
