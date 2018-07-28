@@ -1,0 +1,36 @@
+
+<div class="landing-image-login">
+
+
+
+  <div class="login_container">
+    <% @project = Project.new %>
+   
+
+     <%= form_for @project  do |f| %>
+           <h4 class="modal-title">Welcome to Seteasy! Add your show now.</h4>
+        <div>
+          <%= f.label :name, "Name" %><br>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+       
+        
+        <div style="margin-top: 25px">
+          <%= f.label :budget %>
+          <%= f.number_field :budget, class: 'form-control exam_forms' %>
+        </div>
+        <div style="margin-top: 25px">
+          <%= f.label :company, "Production Company" %>
+          <%= f.text_field :company, class: 'form-control exam_forms' %>
+        </div>
+        <div style="margin-top: 25px">
+          <%= f.label :dresser_days  %>
+          <%= f.number_field :dresser_days, class: 'form-control exam_forms' %>
+        </div>
+        <div style="margin-top: 25px">
+          <%= f.submit "Invite People", class: 'form-control exam_forms' %>
+        </div>
+      <% end %>
+
+  </div>
+</div>

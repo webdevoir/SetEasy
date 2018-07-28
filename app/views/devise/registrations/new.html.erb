@@ -24,10 +24,11 @@
 
       <div class="field">
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Email", class: 'form-control' %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password", class: 'form-control' %>
       </div>
-
+      By clicking sign up, you agree to our <a href="/pages/privacy">Privacy Policy</a>
       <div class="actions">
+        <br />
         <%= f.submit "Sign up", id: "message_button"  %>
       </div>
     <% end %>
