@@ -73,7 +73,7 @@ private
     end
 
     def source_params
-       params.require(:source).permit(:name, :image, :desc)
+       params.require(:source).permit(:name, :image, :desc, :vendor, :price)
     end                                                                                                                                                                                     
 
 end

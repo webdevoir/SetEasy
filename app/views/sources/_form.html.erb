@@ -36,6 +36,16 @@
         </div>
 
         <div>
+          <%= f.label :vendor, "Vendor (optional)" %><br>
+          <%= f.text_field :vendor, class: 'form-control' %>
+        </div>
+
+        <div>
+          <%= f.label :price, "Price (optional)" %><br>
+          <%= f.number_field :price, class: 'form-control' %>
+        </div>
+
+        <div>
           <%= f.label :desc, "Description (optional)" %><br>
           <%= f.text_field :desc, class: 'form-control' %>
         </div>

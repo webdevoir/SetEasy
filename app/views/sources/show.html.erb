@@ -10,10 +10,14 @@
 		    	<%= print_image @source.image_url.to_s %>
 			</div>
 		<div class="rental_text">
-			<h4>Description: <span class="rental_thin">
-			<%= @source.name %>
-	        </span></h4>
+			
 			<h4>Set: <span class="rental_thin"><%= @source.location.name %></span></h4>
+			<h4>Vendor: <span class="rental_thin"><%= @source.vendor && @source.vendor.length < 0 ? @source.vendor : "None" %></span></h4>
+			<h4>Price: <span class="rental_thin"><%= @source.price ? number_to_currency(@source.price) : "None" %></span></h4>
+			<h4>Description: <span class="rental_thin">
+			<%= @source.desc %>
+	        </span></h4>
+	 
 
 			<%= link_to "edit ", edit_location_source_path(@set, @source), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button" , id: "rental-button" %>
 		<%= link_to "delete ", location_source_path(@set, @source), method: :delete, data: {confirm: "You sure?"}, class: "btn btn-primary exam_button" , id: "rental-button"  %>
