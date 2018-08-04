@@ -1,0 +1,31 @@
+<% @user = current_user.id %>
+<div class="dash_header">
+  <h1>Sourcing for <%= @set.name if @set %></h1>
+	<%= image_tag "items.png", class: "dash_header_logo no_pdf" %>
+	<ol class="breadcrumb dash_breadcrumb no_pdf" id="dash_breadcrumb">
+    <li><%= link_to "Add a piece", new_location_source_path(location_id: @set.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %></li>
+    <li><%= link_to "Print Wrap Pack", pdfs_rentals_path(location_id: @set, format: "pdf"), target: :_blank  %></li>
+
+	</ol>
+</div>
+
+<script>
+  $( function() {
+   
+    // var url = location.pathname.substring(location.pathname.lastIndexOf("?") + 1);
+    if (window.location.href.indexOf("rental_filter") > -1) {
+       activate("Rentals");
+     } else if (window.location.href.indexOf("purchased") > -1) {
+      activate("Purchases");
+     }
+   
+   
+
+    	function activate(link) {
+    	$('#dash_breadcrumb li:contains('+link+')').addClass("rental_breadcrumb_active");
+        $('#dash_breadcrumb a:contains('+link+')').contents().unwrap();
+        console.log(link);
+    	}
+
+  });
+</script>

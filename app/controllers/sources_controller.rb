@@ -60,6 +60,12 @@ class SourcesController < ApplicationController
   def show
     @set = Location.find(params[:location_id])
   end
+
+    def destroy
+    set = @source.location_id
+    @source.destroy
+     redirect_to location_sources_path(set), notice: "#{@source.id} was deleted successfully!"
+  end
 private
 
     def set_source
@@ -67,7 +73,7 @@ private
     end
 
     def source_params
-       params.require(:source).permit(:name, :image)
+       params.require(:source).permit(:name, :image, :desc)
     end                                                                                                                                                                                     
 
 end

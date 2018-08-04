@@ -31,10 +31,15 @@
       </div">
 
         <div>
-          <%= f.label :name, "Description" %><br>
+          <%= f.label :name, "Title" %><br>
           <%= f.text_field :name, class: 'form-control' %>
         </div>
 
+        <div>
+          <%= f.label :desc, "Description (optional)" %><br>
+          <%= f.text_field :desc, class: 'form-control' %>
+        </div>
+<br><br>
 
      
           <%= f.submit "Submit", class: 'form-control exam_forms' %> 
