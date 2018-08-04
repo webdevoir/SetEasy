@@ -1,0 +1,25 @@
+
+   <div class="container">
+   	    <%= link_to "Submit a source", new_location_source_path %>
+    <hr>
+
+<div class="row rental-container">
+
+    <% @sources.each do |source| %>
+
+
+                    <%= link_to location_source_path(@set, source) do %>
+                        <div class="rental_item">
+                            <div class="rental_item_header">
+                            <%= source.name %>
+                            </div>
+                            <div class="rental_item_pic">
+                                <%= print_image source.image_url.to_s %>
+                            </div>
+                           
+
+                        </div>
+                     <% end %>
+                <% end %>
+            </div>
+</div>

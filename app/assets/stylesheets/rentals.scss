@@ -58,16 +58,19 @@
 .rental-container {
 	margin-left: calc((100vw - 700px)/2);
 	margin-right: calc((100vw - 700px)/2);
+	overflow-x: hidden;
 }
 
 .rental_item {
 	// height: 350px;
 	// width: 350px;
 	width: auto;
+	max-width: 700px;
 	float: left;
 	// margin: 15px;
 	padding: 10px;
 	border-radius: 15px;
+	overflow: hidden;
 
 	 h4 {
 			 font-family: 'raleway';
@@ -107,9 +110,11 @@
 .rental_item_pic {
 	margin-top: 15px;
 	height: 300px;
+	width: 90%;
 	// padding-left: 65px;
 	// padding-right: 65px;
 	vertical-align:middle; text-align:center;
+	
 }
 .rental_item_pic img{
 	height: 90%;

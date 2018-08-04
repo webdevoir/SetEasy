@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
 		resources :locations, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
 			resources :rentals, only: [ :new, :create, :edit, :update, :destroy, :show, :index]
+			resources :sources, only: [ :new, :create, :edit, :update, :destroy, :show, :index]
 			get :pdfs, :on => :collection
 		end
 		resources :crews, only: [:show, :new, :create, :edit, :update, :index, :destroy] do
@@ -45,6 +46,10 @@ Rails.application.routes.draw do
 		resources :rentals, only: [:index] do
 			get :sets, :on => :collection
 			get :pdfs, :on => :collection
+		end
+
+		resources :sources, only: [:index] do
+			get :sets, :on => :collection
 		end
 		get "/pages/:page" => "pages#show"
 
