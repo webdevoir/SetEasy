@@ -39,6 +39,7 @@
 
     <table class="table">
       <tr>
+        <th>Set #</th>
         <th>INT/EXT</th>
         <th>Set</th>
         <th>No. Items</th>
@@ -53,9 +54,12 @@
 
        <% @budgets.each do |budget|  %>
       <tr>
+
         <% if budget.location %>
+          <td><%= budget.location.id %></td>
           <td><%= budget.location.interior %></td>
         <% else %>
+          <td>N/A</td>
           <td>N/A</td>
         <% end %>
         
