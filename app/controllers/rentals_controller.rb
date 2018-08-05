@@ -29,6 +29,13 @@ class RentalsController < ApplicationController
 
   def new
   	@rental = Rental.new
+    if params[:source_id]
+      source = Source.find(params[:source_id])
+      @rental.desc = source.name
+      @rental.source = source.vendor
+      @rental.price = source.price
+      @rental.remote_image_url = source.image_url
+    end
     @set = Location.find(params[:location_id])
     @item = BudgetItem.find(params[:item]) if params[:item]
     
@@ -136,6 +143,6 @@ class RentalsController < ApplicationController
       protected
 
       def rental_params
-        params.require(:rental).permit(:id, :location_id, :image, :desc, :status, :source, :due_date, :pick_date, :price, :item)
+        params.require(:rental).permit(:remote_image_url, :id, :location_id, :image, :desc, :status, :source, :due_date, :pick_date, :price, :item)
       end
 end

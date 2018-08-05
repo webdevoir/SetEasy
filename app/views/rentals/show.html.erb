@@ -22,7 +22,7 @@
 		        <% end %>
 	        </span></h4>
 			<h4>Set: <span class="rental_thin"><%= @rental.location.name %></span></h4>
-			<h4>Vendor: <span class="rental_thin"><%= @rental.source && @rental.source.length < 0 ? @rental.source : "None" %></span></h4>
+			<h4>Vendor: <span class="rental_thin"><%= @rental.source ? @rental.source : "None" %></span></h4>
 
 			<h4>Pickup Date: <span class="rental_thin">
 				<% if @rental.pick_date %>
