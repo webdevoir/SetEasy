@@ -9,7 +9,8 @@ class Rental < ApplicationRecord
   attr_accessor :desc
   attr_accessor :status
   attr_accessor :item
-  # attr_accessor :remote_image_url
+  attr_accessor :source_id
+
 
   validates_presence_of :desc, unless: :item_test
   validates_presence_of :status, unless: :item_test

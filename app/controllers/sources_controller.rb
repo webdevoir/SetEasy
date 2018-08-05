@@ -5,9 +5,9 @@ class SourcesController < ApplicationController
   	@project = current_project
   	if params[:location_id]
       @set = Location.find(params[:location_id])
-      @sources = @set.sources
+      @sources = @set.sources.where(rental_id: nil)
     else
-      @sources = @project.sources
+      @sources = @project.sources.where(rental_id: nil)
     end
   end
 
@@ -73,7 +73,7 @@ private
     end
 
     def source_params
-       params.require(:source).permit(:name, :image, :desc, :vendor, :price)
+       params.require(:source).permit(:name, :image, :desc, :vendor, :price, :rental_id)
     end                                                                                                                                                                                     
 
 end
