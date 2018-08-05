@@ -95,7 +95,7 @@
          <% end %>
         <%= f.hidden_field :item, value: @item.id if @item %>
         <%= f.hidden_field :source_id, value: @source if @source %>
-        <%= f.text_field :remote_image_url %>
+        <%= f.hidden_field :remote_image_url %>
         <div>
           <%= f.submit "Submit", class: 'form-control exam_forms' %> 
         </div>

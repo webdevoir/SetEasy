@@ -4,7 +4,7 @@
 	<%= image_tag "items.png", class: "dash_header_logo no_pdf" %>
 	<ol class="breadcrumb dash_breadcrumb no_pdf" id="dash_breadcrumb">
     <li><%= link_to "Add a piece", new_location_source_path(location_id: @set.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %></li>
-    <li><%= link_to "Lookbook", location_loobooks_path(location_id: @set)  %></li>
+    <li><%= link_to "Lookbook", location_lookbooks_path(location_id: @set)  %></li>
     <li><%= link_to "Favorites", "#", data: {confirm: "Under construction"}  %></li>
 
 	</ol>
