@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180805024244) do
+ActiveRecord::Schema.define(version: 20180805031629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,18 @@ ActiveRecord::Schema.define(version: 20180805024244) do
     t.string "interior"
     t.bigint "project_id"
     t.index ["project_id"], name: "index_locations_on_project_id"
+  end
+
+  create_table "lookbooks", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "location_id"
+    t.string "name"
+    t.string "image"
+    t.string "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_lookbooks_on_location_id"
+    t.index ["project_id"], name: "index_lookbooks_on_project_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -205,6 +217,8 @@ ActiveRecord::Schema.define(version: 20180805024244) do
   add_foreign_key "events", "locations"
   add_foreign_key "events", "projects"
   add_foreign_key "locations", "projects"
+  add_foreign_key "lookbooks", "locations"
+  add_foreign_key "lookbooks", "projects"
   add_foreign_key "project_users", "projects"
   add_foreign_key "project_users", "users"
   add_foreign_key "rentals", "locations"

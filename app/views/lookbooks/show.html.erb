@@ -1,0 +1,34 @@
+<div class="container">
+	<div id='remote_container'></div>
+
+
+	<div class="rental_show_header">
+		<%= @lookbook.name %>
+	</div>
+	<div class="row rental_show_under_header">
+		<div class="rental_img">
+		    	<%= print_image @lookbook.image_url.to_s %>
+			</div>
+		<div class="rental_text">
+			
+			<h4>Set: <span class="rental_thin"><%= @lookbook.location.name %></span></h4>
+
+			<h4>Description: <span class="rental_thin">
+			<%= @lookbook.desc %>
+	        </span></h4>
+	 
+
+		<%= link_to "edit ", edit_location_lookbook_path(@set, @lookbook), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "btn btn-primary exam_button" , id: "rental-button" %>
+		<%= link_to "delete ", location_lookbook_path(@set, @lookbook), method: :delete, data: {confirm: "You sure?"}, class: "btn btn-primary exam_button" , id: "rental-button"  %>
+
+		
+		<%= link_to "Return", location_lookbooks_path(@set), class: "btn btn-primary exam_button", id: "rental-button"  %>
+
+		
+		</div>
+
+		
+	</div>
+
+
+</div>

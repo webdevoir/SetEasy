@@ -1,11 +1,10 @@
 <% @user = current_user.id %>
 <div class="dash_header">
-  <h1>Sourcing for <%= @set.name if @set %></h1>
+  <h1>Lookbook for <%= @set.name if @set %></h1>
 	<%= image_tag "items.png", class: "dash_header_logo no_pdf" %>
 	<ol class="breadcrumb dash_breadcrumb no_pdf" id="dash_breadcrumb">
-    <li><%= link_to "Add a piece", new_location_source_path(location_id: @set.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %></li>
-    <li><%= link_to "Lookbook", location_sources_path(location_id: @set)  %></li>
-    <li><%= link_to "Favorites", "#", data: {confirm: "Under construction"}  %></li>
+    <li><%= link_to "Add a piece", new_location_lookbook_path(location_id: @set.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %></li>
+    <li><%= link_to "Sourcing", location_sources_path(location_id: @set)  %></li>
 
 	</ol>
 </div>
