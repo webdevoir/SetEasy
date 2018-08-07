@@ -29,6 +29,7 @@
 
 	        <th>Price</th>
 	        <th>Payment</th>
+	        <th>Reference</th>
 	        <th>Rental</th>
 	        <th>Purchase</th>
 	        <th>Remove</th>
@@ -96,5 +97,36 @@
 		// $("[id*='destroy']").on('click', 'a', function() {
 		totalCalc()
 	});
+
+////////////////////  Budget Reference ////////////////
+    $("[id$='payment']").each(function (i, el) {
+    	console.log("dropdown --> " + i)
+    	console.log("dropdown --> " + el)
+    	var thing = $(this)
+
+         primeCheck(thing)
+     });
+
+      $("[id$='payment']").change(function(el) {
+      	// test = $(this).parent().parent().find("[id$='reference']")
+    	var thing = $(this)
+
+         primeCheck(thing)
+      });
+
+      function primeCheck(thing) {
+        var val1 = thing.val();
+             console.log(val1);
+             if (val1 == "Cash") {
+              thing.parent().parent().find('#reference_text').hide()
+              thing.parent().parent().find('#reference_drop').show()
+              console.log("Thing ==> Cash")
+            } else if (val1 == "Cash") {
+              console.log("Thing ==> not Cash")
+              thing.parent().parent().find('#reference_text').show()
+              thing.parent().parent().find('#reference_drop').hide()
+            } 
+      };
+////////////////////  Budget Reference ////////////////
   });
 </script>

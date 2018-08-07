@@ -72,7 +72,7 @@ class BudgetsController < ApplicationController
    def update
    	@budget = Budget.find(params[:id])
     if @budget.update_attributes(budget_params)
-      redirect_to budgets_path, notice: "Budget updated successfully"
+      redirect_to budget_path(@budget), notice: "Budget updated successfully"
     else
       flash[:error] = "#{@budget.errors.count} errors prevented certificate from being updated."
       render :edit
@@ -94,6 +94,6 @@ class BudgetsController < ApplicationController
     end
 
   def budget_params
-      params.require(:budget).permit(:location_id, :name, :budgeted, budget_items_attributes: [:id, :_destroy, :item, :price, :rent_status, :budgeted, :payment, :reference])
+      params.require(:budget).permit(:location_id, :name, :budgeted, budget_items_attributes: [:id, :_destroy, :item, :price, :rent_status, :budgeted, :payment, :reference, :crew_id])
     end
 end

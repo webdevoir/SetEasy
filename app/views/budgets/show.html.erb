@@ -28,6 +28,7 @@
 
 	        <th>Price</th>
 	        <th>Payment</th>
+	        <th>Reference</th>
 	        <th>Rental/Purchase</th>
 	        <th>ID</th>
 
@@ -50,6 +51,11 @@
 	        <td><%= number_to_currency(budget.price) %></td>
 
 	        <td><%= budget.payment && budget.payment.length > 0  ? budget.payment : "N/A" %></td>
+	        <% if budget.payment == "Cash" %>
+	        	<td><%= budget.crew_id   ? Crew.find(budget.crew_id).name : "Error" %></td>
+	        <% else %>
+	        	<td><%= budget.reference && budget.reference.length > 0  ? budget.reference : "N/A" %></td>
+	        <% end %>
 	        <td><%= budget.rent_status ? "Rental" : "Purchase" %></td>
 
 	        <td><%= budget.id %></td>
