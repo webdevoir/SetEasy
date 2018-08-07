@@ -8,7 +8,7 @@
 				    <td>  <%= f.select :payment, [["PO (Purchase Order)", "PO"], ["Cheque Req", "Cheque"], ["Petty Cash", "Cash"]],{prompt: "Select Payment"}, {class: "form-control"}%></td>
 
 				    <td id="reference_text"> <%= f.text_field :reference, class: 'exam_forms' %></td>
-				    <td id="reference_drop"> <%= f.collection_select :crew_id, Crew.all, :id, :name, {}, {class: 'form-control exam_forms'}  %></td>
+				    <td id="reference_drop"> <%= f.collection_select :crew_id, current_project.crews, :id, :name, {}, {class: 'form-control exam_forms'}  %></td>
 
 					<% purchase = true if f.object.rent_status == false %>
 				    <td><%= f.radio_button :rent_status, "true", { checked: !purchase }  %></td>
