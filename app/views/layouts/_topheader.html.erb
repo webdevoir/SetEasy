@@ -5,9 +5,9 @@
 
 			<div id="header-project">
 				<% if current_project %>
-                        <%= link_to "Project: #{truncate(current_project.name, length: 20)}", projects_path, class: "nav-link" %>
+                        <%= link_to "Production: #{truncate(current_project.name, length: 20)}", projects_path, class: "nav-link" %>
                       <% else %>
-                      	<%= link_to "Project: none", "#", class: "nav-link" %>
+                      	<%= link_to "Production: none", "#", class: "nav-link" %>
                       <% end %>
             </div>
 
@@ -44,7 +44,7 @@
 		                     <li><div class="dropdown">
 					
 						      	<a class="dropdown-toggle" href="#" id="dropdownMenuButton"" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						        <span data-toggle="tooltip" data-animation="false" title="Current Project"><i class="fas fa-film"></i></span>
+						        <span data-toggle="tooltip" data-animation="false" title="Production"><i class="fas fa-film"></i></span>
 						      </a>
 						      <% if current_user.role == "Admin" %> 
 						      		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
