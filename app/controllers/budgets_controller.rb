@@ -94,6 +94,6 @@ class BudgetsController < ApplicationController
     end
 
   def budget_params
-      params.require(:budget).permit(:location_id, :name, :budgeted, budget_items_attributes: [:id, :_destroy, :item, :price, :rent_status, :budgeted])
+      params.require(:budget).permit(:location_id, :name, :budgeted, budget_items_attributes: [:id, :_destroy, :item, :price, :rent_status, :budgeted, :payment, :reference])
     end
 end

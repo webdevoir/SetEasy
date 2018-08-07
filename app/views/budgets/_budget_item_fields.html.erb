@@ -5,6 +5,8 @@
 	
 				    <td><%= f.number_field :price, step: :any, class: 'exam_forms' %></br></td>
 
+				    <td>  <%= f.select :payment, [["PO (Purchase Order)", "PO"], ["Cheque Req", "Cheque"], ["Petty Cash", "Cash"]],{prompt: "Select Payment"}, {class: "form-control"}%></td>
+
 					<% purchase = true if f.object.rent_status == false %>
 				    <td><%= f.radio_button :rent_status, "true", { checked: !purchase }  %></td>
 					<td><%= f.radio_button :rent_status, "false", { checked: purchase }%></td>

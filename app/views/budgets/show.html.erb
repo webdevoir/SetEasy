@@ -27,7 +27,7 @@
 	        <th class="no_pdf">Set Piece</th>
 
 	        <th>Price</th>
-
+	        <th>Payment</th>
 	        <th>Rental/Purchase</th>
 	        <th>ID</th>
 
@@ -49,7 +49,7 @@
 
 	        <td><%= number_to_currency(budget.price) %></td>
 
-
+	        <td><%= budget.payment && budget.payment.length > 0  ? budget.payment : "N/A" %></td>
 	        <td><%= budget.rent_status ? "Rental" : "Purchase" %></td>
 
 	        <td><%= budget.id %></td>

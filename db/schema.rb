@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180805031629) do
+ActiveRecord::Schema.define(version: 20180807062822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20180805031629) do
     t.datetime "updated_at", null: false
     t.bigint "rental_id"
     t.float "budgeted"
+    t.string "payment"
+    t.string "reference"
     t.index ["budget_id"], name: "index_budget_items_on_budget_id"
     t.index ["rental_id"], name: "index_budget_items_on_rental_id"
   end
