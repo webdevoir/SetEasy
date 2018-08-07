@@ -44,7 +44,8 @@
         <th>Availability</th>
         <th>Days Worked</th>
         <th>Planned Work</th>
-        <th>skills</th>
+        <th>Spending</th>
+        <th>Skills</th>
         <th>Notes</th>
         <th>Updated</th>
  
@@ -91,6 +92,7 @@
          end %>
         <td><%= past_count %> <span class="no_pdf">(<%= link_to "view", crew_crew_events_path(crew) %>)</span></td>
         <td><%= future_count %> <span class="no_pdf">(<%= link_to "view", crew_crew_events_path(crew) %>)</span></td>
+          <td><%= number_to_currency(BudgetItem.where(crew_id: crew.id).sum(:price)) %> (<%= link_to "view", crew_payments_path(crew) %>)</td>
   
            <td>
               <% if crew.skills && crew.skills.length > 0 && crew.skills.kind_of?(Array) %>
@@ -107,7 +109,7 @@
                 None
               <% end %>
             </td>
-        
+      
         <td><%= truncate(crew.notes, length: 10) %></td>
         <td><%= crew.updated_at.strftime("%b %d, %Y")  %></td>
   

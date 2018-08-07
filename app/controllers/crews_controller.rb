@@ -64,6 +64,11 @@ class CrewsController < ApplicationController
   	 redirect_to crews_path, notice: "#{@crew.id} was deleted successfully!"
   end
 
+  def payments
+    @crew = Crew.find(params[:crew_id])
+    @items = BudgetItem.where(crew_id: @crew.id)
+  end
+  
   def crew_events
     @crew = Crew.find(params[:crew_id])
     @events = @crew.events

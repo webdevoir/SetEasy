@@ -1,0 +1,72 @@
+
+
+ <div class="container">
+
+ 		<div class="no_pdf">
+ 			<%= link_to "Return to Crews Page", crews_path, class: "btn btn-primary exam_button" %>
+ 		</div>
+ 			<br /><br />
+
+<h2>Cash spending for <%=@crew.name%></h2>
+
+
+
+	 <table class="table">
+	 	<tr>
+	      	<td></td>
+	      	<td></td>
+	      	<td></td>
+	      	<td></td>
+	      	<td></td>
+	      	<td class="total">Total</td>
+	      	<td class="total"><%= number_to_currency(BudgetItem.where(crew_id: @crew.id).sum(:price)) %></td>
+
+	      </tr>
+	      <tr>
+
+	        <th>Item</th>
+	        <th class="no_pdf">Set Piece</th>
+
+	        <th>Price</th>
+	        <th>Payment</th>
+	        <th>Reference</th>
+	        <th>Rental/Purchase</th>
+	        <th>Date</th>
+
+	      </tr>
+
+
+	       <% @items.each do |budget|  %>
+	      <tr>
+	  
+	        <td><%= budget.item %></td>
+	        <% if budget.rental %>
+	        	<td class="no_pdf"><%= link_to "See Piece", location_rental_path(budget.budget.location, budget.rental), class: "exam_button table_button" %></td>
+	        <% else %>
+	  			<% if budget.budget.location %>
+	        	 	<td class="no_pdf"><%= link_to "Add a piece", new_location_rental_path(budget.budget.location, item: budget.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'}, class: "exam_button table_button", id: "bright-yellow"  %></td>
+	        	<% else %>
+	        		<td>N/A</td>
+	        	<% end %>	
+	        <% end %>
+
+	        <td><%= number_to_currency(budget.price) %></td>
+
+	        <td><%= budget.payment && budget.payment.length > 0  ? budget.payment : "N/A" %></td>
+	        <% if budget.payment == "Cash" %>
+	        	<td><%= budget.crew_id   ? Crew.find(budget.crew_id).name : "Error" %></td>
+	        <% else %>
+	        	<td><%= budget.reference && budget.reference.length > 0  ? budget.reference : "N/A" %></td>
+	        <% end %>
+	        <td><%= budget.rent_status ? "Rental" : "Purchase" %></td>
+
+	        <td><%= budget.updated_at.strftime("%b %d, %Y")  %></td>
+	       
+	      </tr>
+	      <% end %>
+	      
+
+	    </table>
+</div>
+<div style='page-break-before:always'></div>
+  
