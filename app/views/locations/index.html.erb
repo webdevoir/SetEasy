@@ -30,7 +30,7 @@
 
        <% @locations.each do |location|  %>
       <tr>
-        <td><%= location.id %></td>
+        <td><%= location.number ? location.number : "Not Set" %></td>
         <td><%= location.interior %></td>
 
 

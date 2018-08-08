@@ -39,6 +39,10 @@
            <%= f.label :interior, "Interior or Exterior"%> 
            <%= f.select :interior, ["INT" , "EXT", "INT/EXT"], {}, class: "form-control exam_forms" %>
         <div>
+        <div>
+          <%= f.label :number, "Set Number" %><br>
+          <%= f.number_field :number, class: 'form-control', class: 'form-control exam_forms' %>
+        </div><br /><br />
           <%= f.submit "Submit", class: 'form-control exam_forms' %> 
         </div>
       <% end %>
