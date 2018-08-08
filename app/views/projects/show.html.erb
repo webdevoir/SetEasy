@@ -28,39 +28,39 @@
 	        <td><%= user.email %></td>
 	        <td><%= pu.role%></td>
 
-	        <% if Permission.new(user).allow?("crews", "edit") %>
+	        <% if Permission.new(user).allow?("crews", "edit", nil, @project) %>
 	        	<td>Full Access</td>
-	        <% elsif Permission.new(user).allow?("crews", "index") %>
+	        <% elsif Permission.new(user).allow?("crews", "index", nil, @project) %>
 	        	<td>View Only</td>
 	        <% end %>
 
-	        <% if Permission.new(user).allow?("events", "edit") %>
+	        <% if Permission.new(user).allow?("events", "edit", nil, @project) %>
 	        	<td>Full Access</td>
-	        <% elsif Permission.new(user).allow?("events", "index") %>
+	        <% elsif Permission.new(user).allow?("events", "index", nil, @project) %>
 	        	<td>View Only</td>
 	        <% end %>
 
-	        <% if Permission.new(user).allow?("locations", "edit") %>
+	        <% if Permission.new(user).allow?("locations", "edit", nil, @project) %>
 	        	<td>Full Access</td>
-	        <% elsif Permission.new(user).allow?("locations", "index") %>
+	        <% elsif Permission.new(user).allow?("locations", "index", nil, @project) %>
 	        	<td>View Only</td>
 	        <% end %>
 
-	        <% if Permission.new(user).allow?("rentals", "edit") %>
+	        <% if Permission.new(user).allow?("rentals", "edit", nil, @project) %>
 	        	<td>Full Access</td>
-	        <% elsif Permission.new(user).allow?("rentals", "index") %>
+	        <% elsif Permission.new(user).allow?("rentals", "index", nil, @project) %>
 	        	<td>View Only</td>
 	        <% end %>
 
-	        <% if Permission.new(user).allow?("budgets", "edit") %>
+	        <% if Permission.new(user).allow?("budgets", "edit", nil, @project) %>
 	        	<td>Full Access</td>
-	        <% elsif Permission.new(user).allow?("budgets", "index") %>
+	        <% elsif Permission.new(user).allow?("budgets", "index", nil, @project) %>
 	        	<td>View Only</td>
 	        <% end %>
 
-	        <% if Permission.new(user).allow?("productions", "edit") %>
+	        <% if Permission.new(user).allow?("productions", "edit", nil, @project) %>
 	        	<td>Full Access</td>
-	        <% elsif Permission.new(user).allow?("productions", "index") %>
+	        <% elsif Permission.new(user).allow?("productions", "index", nil, @project) %>
 	        	<td>View Only</td>
 	        <% end %>
 

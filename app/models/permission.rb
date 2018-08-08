@@ -1,6 +1,6 @@
 class Permission < Struct.new(:user)
 
-  def allow?(controller, action, resource = nil)
+  def allow?(controller, action, resource = nil, project = nil)
 
     
     return true if user && user.role == "Admin"
@@ -21,11 +21,17 @@ class Permission < Struct.new(:user)
     return true if controller == "projects/project_users" && resource && resource.user_id == user.id
     # return true if controller == "projects" && action.in?(%w[index show new])
     
-    if user && user.current_project
-      pro_user = ProjectUser.where(project_id: user.current_project, user_id: user.id).first
+    if project && user 
+      pro_user = ProjectUser.where(project_id: project.id, user_id: user.id).first
       role = pro_user.role
     else
-      role = nil
+
+      if user && user.current_project
+        pro_user = ProjectUser.where(project_id: user.current_project, user_id: user.id).first
+        role = pro_user.role
+      else
+        role = nil
+      end
     end
 
     main_ctrls = %w[crews events locations pdfs rentals ]
