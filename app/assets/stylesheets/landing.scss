@@ -2,7 +2,7 @@
   // height: 500px;
   height:  calc(100vh - (50px));
   width: 100%;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),image-url("title.jpg") no-repeat center center;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),image-url("title_new.jpg") no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   margin-top: -20px;
@@ -12,7 +12,7 @@
   height: 100vh;
   // height:  calc(100vh - (50px));
   width: 100%;
-  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),image-url("title.jpg") no-repeat center center;
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),image-url("title_new.jpg") no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   margin-top: -20px;
@@ -22,7 +22,7 @@
   // height: 500px;
   // height:  100vh
   // width: 100%;
-  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),image-url("title.jpg") no-repeat center center;
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),image-url("title_new.jpg") no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   margin-top: -20px;
@@ -32,11 +32,11 @@
   height: 100vh;
   // height:  calc(100vh - (50px));
   width: 100%;
-  // background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),image-url("title.jpg") no-repeat center center;
-  background-color: #fff
-  // background-size: cover;
-  // background-attachment: fixed;
-  // margin-top: -20px;
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),image-url("title_new.jpg") no-repeat center center;
+  // background-color: #fff
+  background-size: cover;
+  background-attachment: fixed;
+  margin-top: -20px;
 }
 
 
@@ -68,7 +68,7 @@
 }
 
 #landing-logo {
-  width: 600px;
+  // width: 600px;
 }
 
 #landing_button {

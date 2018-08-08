@@ -1,13 +1,14 @@
 <div class="landing-bg">
 
 	<div class="landing-text">
-		<%= link_to (image_tag "SetLogo_white.jpg", id: "landing-logo"), new_user_session_path %></br>
-		<span>Coming Soon!</span>
+		
 
 	<div class="login_container" id="email-collect-container">
   
 
      <%= form_for :email_list, :url=>{ :controller => :email_lists, :action => :create}, :html => {:id => "email-collect-form"} do |f| %>
+     <%= link_to (image_tag "SetLogo_trans.png", id: "landing-logo"), new_user_session_path %></br>
+    <span>Coming Soon!</span>
                 <h3 class="text-center"><strong>Follow us for updates!</strong></h2>
                 <h6 class="text-center">Fill out your name and email and we'll keep you in the loop.</h6>
                 <div class="form-group">
