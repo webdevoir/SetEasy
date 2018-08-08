@@ -65,8 +65,10 @@ class RentalsController < ApplicationController
 
 
      if @rental.save
-        source = Source.find(@rental.source_id)
-        source.update!(rental_id: @rental.id)
+        if @rental.source_id
+          source = Source.find(@rental.source_id)
+          source.update!(rental_id: @rental.id)
+        end
         #########
         unless item
           @budget = Budget.find_by(location_id: @rental.location)
