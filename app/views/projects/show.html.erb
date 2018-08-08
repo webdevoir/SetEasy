@@ -32,36 +32,48 @@
 	        	<td>Full Access</td>
 	        <% elsif Permission.new(user).allow?("crews", "index", nil, @project) %>
 	        	<td>View Only</td>
+	        <% else %>
+	        	<td>None</td>
 	        <% end %>
 
 	        <% if Permission.new(user).allow?("events", "edit", nil, @project) %>
 	        	<td>Full Access</td>
 	        <% elsif Permission.new(user).allow?("events", "index", nil, @project) %>
 	        	<td>View Only</td>
+	        <% else %>
+	        	<td>None</td>
 	        <% end %>
 
 	        <% if Permission.new(user).allow?("locations", "edit", nil, @project) %>
 	        	<td>Full Access</td>
 	        <% elsif Permission.new(user).allow?("locations", "index", nil, @project) %>
 	        	<td>View Only</td>
+	        <% else %>
+	        	<td>None</td>
 	        <% end %>
 
 	        <% if Permission.new(user).allow?("rentals", "edit", nil, @project) %>
 	        	<td>Full Access</td>
 	        <% elsif Permission.new(user).allow?("rentals", "index", nil, @project) %>
 	        	<td>View Only</td>
+	        <% else %>
+	        	<td>None</td>
 	        <% end %>
 
 	        <% if Permission.new(user).allow?("budgets", "edit", nil, @project) %>
 	        	<td>Full Access</td>
 	        <% elsif Permission.new(user).allow?("budgets", "index", nil, @project) %>
 	        	<td>View Only</td>
+	        <% else %>
+	        	<td>None</td>
 	        <% end %>
 
 	        <% if Permission.new(user).allow?("productions", "edit", nil, @project) %>
 	        	<td>Full Access</td>
 	        <% elsif Permission.new(user).allow?("productions", "index", nil, @project) %>
 	        	<td>View Only</td>
+	        <% else %>
+	        	<td>None</td>
 	        <% end %>
 
 	        <td class="no_pdf">(<%= link_to "edit", edit_project_project_user_path(@project, pu.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, <%= link_to "delete", project_project_user_path(@project, pu.id), method: :delete, data: {confirm: "Are you sure you want to delete #{pu.id}?"} %>)</td>
