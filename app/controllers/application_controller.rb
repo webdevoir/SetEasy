@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
 	  nil
 	end
 
+	def allow_test(user, controller, action)
+		Permission.new(user).allow?(controller, action)
+	end
+
 
   def authorize
   	  # if current_user && current_user.current_project == nil

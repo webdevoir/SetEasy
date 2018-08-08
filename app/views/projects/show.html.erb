@@ -1,19 +1,6 @@
 <div class="container">
-	  <h2>Production Interface</h2>
-		<div class="invite_form_wrapper">
-		<h4>Invite User</h4>
-		<%= form_for [@project, ProjectUser.new] do |f| %>
-		  	<div class="row">
-			    <%= f.text_field :email, required: true, placeholder: "Email address", class: "invite_form form-control" %>
-			    <%= f.select :role, ["Production Designer" , "Decorator", "Assistant Decorator", "Buyer", "Lead Dresser", "Dresser", "Coordinator"], {}, class: "form-control invite_form" %>
-			</div>
-			<div class="row">
-			    <%= f.submit "Invite", class: "exam_button", id: "invite_button" %>
-			    <%= link_to "Return to Productions ", projects_path , class: "exam_button",id: "invite_button"  %>
-			</div>
-		  
-		<%  end %>
-	</div>
+	  <h2>Production name: <%= @project.name %></h2>
+		
 	<div class="row projects_users_table">
 		<h4>User Management</h4>
 		     <table class="table">
@@ -23,7 +10,12 @@
 	        
 	        <th>Role</th>
 
-
+			<th>Crew Access</th>
+			<th>Schedule Access</th>
+			<th>Sets Access</th>
+			<th>Set Pieces Access</th>
+			<th>Budget Access</th>
+			<th>Production Access</th>
 	 
 	        <th class="no_pdf">Manage</th>
 	      </tr>
@@ -35,9 +27,62 @@
 	  
 	        <td><%= user.email %></td>
 	        <td><%= pu.role%></td>
+
+	        <% if Permission.new(user).allow?("crews", "edit") %>
+	        	<td>Full Access</td>
+	        <% elsif Permission.new(user).allow?("crews", "index") %>
+	        	<td>View Only</td>
+	        <% end %>
+
+	        <% if Permission.new(user).allow?("events", "edit") %>
+	        	<td>Full Access</td>
+	        <% elsif Permission.new(user).allow?("events", "index") %>
+	        	<td>View Only</td>
+	        <% end %>
+
+	        <% if Permission.new(user).allow?("locations", "edit") %>
+	        	<td>Full Access</td>
+	        <% elsif Permission.new(user).allow?("locations", "index") %>
+	        	<td>View Only</td>
+	        <% end %>
+
+	        <% if Permission.new(user).allow?("rentals", "edit") %>
+	        	<td>Full Access</td>
+	        <% elsif Permission.new(user).allow?("rentals", "index") %>
+	        	<td>View Only</td>
+	        <% end %>
+
+	        <% if Permission.new(user).allow?("budgets", "edit") %>
+	        	<td>Full Access</td>
+	        <% elsif Permission.new(user).allow?("budgets", "index") %>
+	        	<td>View Only</td>
+	        <% end %>
+
+	        <% if Permission.new(user).allow?("productions", "edit") %>
+	        	<td>Full Access</td>
+	        <% elsif Permission.new(user).allow?("productions", "index") %>
+	        	<td>View Only</td>
+	        <% end %>
+
 	        <td class="no_pdf">(<%= link_to "edit", edit_project_project_user_path(@project, pu.id), data:  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#remote_container'} %>, <%= link_to "delete", project_project_user_path(@project, pu.id), method: :delete, data: {confirm: "Are you sure you want to delete #{pu.id}?"} %>)</td>
 	      <% end %>
 
 	    </table>
+	</div>
+	<div class="invite_form_wrapper">
+		<h4>Invite User</h4>
+		<%= form_for [@project, ProjectUser.new] do |f| %>
+		  	<div class="row">
+			    <%= f.text_field :email, required: true, placeholder: "Email address", class: "invite_form form-control" %>
+			    <%= f.select :role, ["Production Designer" , "Decorator", "Assistant Decorator", "Buyer", "Lead Dresser", "Dresser", "Coordinator"], {}, class: "form-control invite_form" %>
+			</div>
+			<div class="row">
+			    <%= f.submit "Invite", class: "exam_button", id: "invite_button" %>
+			</div>
+			<div class="row">
+			    <%= link_to "Manage your Productions ", projects_path , class: "exam_button",id: "invite_button"  %>
+			</div>
+		  
+		<%  end %>
 	</div>
 </div>
